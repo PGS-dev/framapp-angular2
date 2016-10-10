@@ -2,12 +2,14 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 describe('App: FramappAngular2', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        ProductsListComponent
       ],
     });
   });
