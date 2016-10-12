@@ -14,7 +14,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
-const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin'); 
+const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
 /*
  * Webpack Constants
@@ -31,7 +31,7 @@ const METADATA = {
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
-module.exports = function(options) {
+module.exports = function (options) {
   isProd = options.env === 'production';
   return {
 
@@ -49,7 +49,7 @@ module.exports = function(options) {
      *
      * See: http://webpack.github.io/docs/configuration.html#cache
      */
-     //cache: false,
+    //cache: false,
 
     /*
      * The entry point for the bundle
@@ -60,8 +60,8 @@ module.exports = function(options) {
     entry: {
 
       'polyfills': './src/polyfills.browser.ts',
-      'vendor':    './src/vendor.browser.ts',
-      'main':      './src/main.browser.ts'
+      'vendor': './src/vendor.browser.ts',
+      'main': './src/main.browser.ts'
 
     },
 
@@ -157,6 +157,14 @@ module.exports = function(options) {
           loaders: ['to-string-loader', 'css-loader']
         },
 
+        /* Scss/sass loader
+         * Returns css styles inlined in <style> tags
+         */
+        {
+          test: /\.scss$/,
+          loaders: ['to-string', 'css-loader', 'postcss-loader', 'sass-loader'] // sass-loader not scss-loader
+        },
+
         /* Raw loader support for *.html
          * Returns file content as string
          *
@@ -169,7 +177,7 @@ module.exports = function(options) {
         },
 
         /* File loader for supporting images, for example, in CSS files.
-        */
+         */
         {
           test: /\.(jpg|png|gif)$/,
           loader: 'file'
@@ -223,7 +231,7 @@ module.exports = function(options) {
       /**
        * Plugin: ContextReplacementPlugin
        * Description: Provides context to Angular's use of System.import
-       * 
+       *
        * See: https://webpack.github.io/docs/list-of-plugins.html#contextreplacementplugin
        * See: https://github.com/angular/angular/issues/11580
        */
@@ -250,10 +258,10 @@ module.exports = function(options) {
           'robots.txt'
         ]
       }),
-      new CopyWebpackPlugin([{ 
+      new CopyWebpackPlugin([{
         from: 'src/assets/robots.txt'
-      }, { 
-        from: 'src/assets/humans.txt' 
+      }, {
+        from: 'src/assets/humans.txt'
       }]),
 
       /*
