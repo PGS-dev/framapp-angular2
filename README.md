@@ -6,6 +6,8 @@ Install - npm install (shorthand npm i)
 
 Start dev server: ``npm start``
 
+Dev server in browser: http://localhost:3000
+
 Start in HMR (Hot module replacement) mode: ``npm run start:hmr``
 
 
