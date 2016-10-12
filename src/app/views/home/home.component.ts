@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { AppState } from '../app.service';
-import { Title } from './title';
-import { XLarge } from './x-large';
+import {AppState} from '../../app.service';
+import {Title} from './title';
+import {XLarge} from './x-large';
 
 @Component({
   // The selector is what angular internally uses
@@ -13,14 +13,15 @@ import { XLarge } from './x-large';
   providers: [
     Title
   ],
+
   // Our list of styles in our component. We may add more to compose many styles together
-  styleUrls: [ './home.component.scss' ],
+  styleUrls: ['home.component.scss'],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './home.component.html'
+  templateUrl: 'home.component.html'
 })
 export class Home {
   // Set our default values
-  localState = { value: '' };
+  localState = {value: ''};
   // TypeScript public modifiers
   constructor(public appState: AppState, public title: Title) {
 

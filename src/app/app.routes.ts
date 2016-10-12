@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
-import { Home } from './home';
-import { About } from './about';
-import { NoContent } from './no-content';
+import { Home } from './views/home';
+import { About } from './views/about';
+import { NoContent } from './views/no-content';
 
 import { DataResolver } from './app.resolver';
 

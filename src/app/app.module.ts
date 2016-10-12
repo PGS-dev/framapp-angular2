@@ -14,10 +14,11 @@ import { ROUTES } from './app.routes';
 import { App } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { Home } from './home';
-import { About } from './about';
-import { NoContent } from './no-content';
-import { XLarge } from './home/x-large';
+import { Home } from './views/home';
+import { About } from './views/about';
+import { NoContent } from './views/no-content';
+import { XLarge } from './views/home/x-large';
+import {Navigation} from "./components/navigation/navigation.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -41,7 +42,8 @@ type StoreType = {
     About,
     Home,
     NoContent,
-    XLarge
+    XLarge,
+    Navigation
   ],
   imports: [ // import Angular's modules
     BrowserModule,
