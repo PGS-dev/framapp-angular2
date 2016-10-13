@@ -9,40 +9,39 @@ Colors:
 #EDEDED
 #FEFEFE
 */
-html, body {
+html, body{
   margin: 0;
   padding: 0;
-  height: 100%; }
-
-.Container {
+  height: 100%;
+}
+.Container{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   background: #EDEDED;
-  height: 100%; }
-
-.Header {
+  height: 100%;
+}
+.Header{
   width: 100%;
   height: 80px;
-  background: #E8E3CC; }
-
-.Main {
-  height: 100%; }
-
-.btn {
+  background: #E8E3CC;
+}
+.Main{
+  height: 100%;
+}
+.btn{
   background: #717A7A;
   padding: 10px 30px;
   box-shadow: inset 0 0 15px #E8E3CC;
   border: 0;
   border-radius: 3px;
-  color: #FEFEFE; }
-
-.btn:hover, .btn:active, .btn:focus {
+  color: #FEFEFE;
+}
+.btn:hover, .btn:active, .btn:focus{
   outline: none;
-  cursor: pointer; }
-
-.btn:hover {
+  cursor: pointer;
+}
+.btn:hover{
   box-shadow: inset 0 0 5px #E8E3CC;
-  text-shadow: 0 1px black; }
-
-/*# sourceMappingURL=styles.css.map */
+  text-shadow: 0 1px black;
+}

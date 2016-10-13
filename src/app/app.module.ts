@@ -4,10 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarListComponent } from './sidebar-list/sidebar-list.component';
+import { TestowyComponent } from './testowy/testowy.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent,
+    SidebarListComponent,
+    TestowyComponent,
   ],
   imports: [
     BrowserModule,
