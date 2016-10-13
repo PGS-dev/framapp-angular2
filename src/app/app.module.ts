@@ -8,13 +8,15 @@ import {AppComponent} from './app.component';
 import {Categories, Home, NoContent} from './shared/';
 
 import {AppRoutes} from './app.routes';
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     Categories,
     Home,
-    NoContent
+    NoContent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
