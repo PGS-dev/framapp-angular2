@@ -2,23 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { SidebarListComponent } from './sidebar-list/sidebar-list.component';
-import { TestdyrDirective } from './testdyr.directive';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     SidebarListComponent,
-    TestdyrDirective
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
