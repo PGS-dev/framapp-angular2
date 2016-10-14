@@ -16,5 +16,4 @@ export class KeysPipe implements PipeTransform {
     }
     return keys;
   }
-
 }

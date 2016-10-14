@@ -1,0 +1,13 @@
+$color-orange: rgb(255,199,38);
+
+.list-group{
+  &-categories{
+
+    &-item{
+      &:hover{
+        cursor: pointer;
+        color: $color-orange;
+      }
+    }
+  }
+}

@@ -17,6 +17,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
+import { ListComponent } from './components/list/list.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import 'rxjs/add/operator/toPromise';
     Categories,
     Home,
     NoContent,
-    KeysPipe
+    KeysPipe,
+    ListComponent
   ],
   imports: [
     BrowserModule,
