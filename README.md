@@ -9,7 +9,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+Run `ng generate component components/component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+You can use shortcut `ng g c components/component-name`
+You can use shortcut `ng g d directives/directives-folder-name/directives-name`  WARNING! (you have to create folder for each directive before generate)
+You can use shortcut `ng g s services/service-folder-name/service-name`  WARNING! (you have to create folder for each service before generate)
 
 ## Build
 
@@ -31,3 +34,8 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Bootstrap components
+
+You can use bootstrap components for angular 2
+https://ng-bootstrap.github.io/#/components/accordion
