@@ -9,6 +9,8 @@ import {Categories, Home, NoContent} from './shared/';
 
 import {AppRoutes} from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
+import {HttpService} from "./services/http.service";
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { KeysPipe } from './pipes/keys.pipe';
     HttpModule,
     RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

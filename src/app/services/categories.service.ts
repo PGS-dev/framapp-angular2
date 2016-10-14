@@ -2,6 +2,7 @@
  * Created by rkubisiak on 10/13/2016.
  */
 import { Injectable } from '@angular/core';
+import {HttpService} from "./http.service";
 
 export interface Category {
   [key: string] : {
@@ -13,32 +14,9 @@ export interface Category {
 
 @Injectable()
 export class CategoriesService {
-  private categoryList : Category = {};
-  constructor(){}
+  constructor(private HttpService: HttpService){}
 
   getCategories(){
-    this.categoryList = {
-      "-KToHgy4L-m2j8F_4gOH": {
-        "description": "MH",
-        "id": "",
-        "title": "mh"
-      },
-      "notebooks": {
-        "description": "Notebooks and ultrabooks and such",
-        "id": "notebooks",
-        "title": "Notebooks"
-      },
-      "phones": {
-          "description": "Simple Phones description",
-          "id": "phones",
-          "title": "Phones"
-      },
-      "televisions": {
-        "description": "Televisions description",
-        "id": "televisions",
-        "title": "Television"
-      }
-    };
-    return this.categoryList;
+    return this.HttpService.getResources('categories.json');
   }
 }
