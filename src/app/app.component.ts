@@ -27,7 +27,7 @@ import {AppState} from './app.service';
     <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
     <footer>
-      <span>FramApp powered by Angular2, built with webpack</span>
+      <span>FramApp powered by Angular2, built with webpack2</span>
     </footer>
   `
 })
