@@ -1,0 +1,16 @@
+@import '../../shared/variables';
+
+.sidebar-list-header{
+  color: $color-orange-dark;
+  font-size : $font-size-header;
+}
+.list-group{
+  &-categories{
+    &-item{
+      &:hover{
+        cursor: pointer;
+        color: $color-orange;
+      }
+    }
+  }
+}
