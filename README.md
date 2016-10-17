@@ -9,9 +9,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component components/component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.__
-You can use shortcut `ng g c components/component-name`__
-You can use shortcut `ng g d directives/directives-folder-name/directives-name`  WARNING! (you have to create folder for each directive before generate)__
+Run `ng generate component components/component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.<br />
+You can use shortcut `ng g c components/component-name`<br />
+You can use shortcut `ng g d directives/directives-folder-name/directives-name`  WARNING! (you have to create folder for each directive before generate)<br />
 You can use shortcut `ng g s services/service-folder-name/service-name`  WARNING! (you have to create folder for each service before generate)
 
 ## Build
