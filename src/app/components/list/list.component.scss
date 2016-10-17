@@ -4,15 +4,11 @@
   color: $color-orange-dark;
   font-size : $font-size-header;
   line-height: 28px;
-  display: none;
+  display: inline-block;
   vertical-align: middle;
-
-  @include respond-to('xsmall'){
-    display: inline-block;
-  }
 }
 .sidebar-list-icon{
-  display:  inline-block;
+  display: none;
   font-size: 28px;
   height: 28px;
   cursor: pointer;
@@ -20,14 +16,10 @@
   .glyphicon{
     top: -2px;
   }
-
-  @include respond-to('xsmall'){
-    display: none;
-  }
 }
 .list-group{
   &-categories{
-    display: none;
+    display: block;
     margin-top: 3px;
 
     &-item{
@@ -35,12 +27,6 @@
         cursor: pointer;
         color: $color-orange;
       }
-    }
-    &-show{
-      display: block;
-    }
-    @include respond-to('xsmall'){
-      display: block;
     }
   }
 }
