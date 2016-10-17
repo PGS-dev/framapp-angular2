@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,QAAQ;EACN,UAAU,ECFF,OAAO;EDGf,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,IAAI",
+"sources": ["sidebar.component.scss","../../shared/styles/colors.scss"],
+"names": [],
+"file": "sidebar.component.css"
+}

@@ -1,0 +1,16 @@
+@import '../../shared/styles/colors';
+@import '../../../styles';
+.SidebarList{
+  padding: 10px;
+  .SidebarList-header{
+    margin: 0 0 20px 0;
+  }
+  .SidebarList-list{
+    list-style: none;
+    .SidebarList-element{
+      margin-bottom: 5px;
+      @include linkColor($default-dark-gray);
+
+    }
+  }
+}

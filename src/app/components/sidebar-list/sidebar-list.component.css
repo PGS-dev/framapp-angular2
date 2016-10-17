@@ -46,4 +46,15 @@ html, body {
   box-shadow: inset 0 0 5px #E8E3CC;
   text-shadow: 0 1px black; }
 
-/*# sourceMappingURL=styles.css.map */
+.SidebarList {
+  padding: 10px; }
+  .SidebarList .SidebarList-header {
+    margin: 0 0 20px 0; }
+  .SidebarList .SidebarList-list {
+    list-style: none; }
+    .SidebarList .SidebarList-list .SidebarList-element {
+      margin-bottom: 5px; }
+      .SidebarList .SidebarList-list .SidebarList-element a, .SidebarList .SidebarList-list .SidebarList-element a:focus, .SidebarList .SidebarList-list .SidebarList-element a:hover, .SidebarList .SidebarList-list .SidebarList-element a:active .SidebarList .SidebarList-list .SidebarList-element a:visited {
+        color: #152323; }
+
+/*# sourceMappingURL=sidebar-list.component.css.map */
