@@ -1,11 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes} from '@angular/router';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: []
-})
-export class FramappAngular2RoutingModule { }
+export const routes: Routes = [
+  { path: '', component: ProductsListComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
