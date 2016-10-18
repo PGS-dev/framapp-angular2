@@ -31,7 +31,7 @@ import {NavService} from "./services/nav.service";
     NoContent,
     KeysPipe,
     ListComponent,
-    ProductDetails
+    ProductDetails,
     ListComponent,
     HeaderComponent
   ],
