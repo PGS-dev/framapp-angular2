@@ -18,6 +18,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 import { ListComponent } from './components/list/list.component';
+import { HeaderComponent } from './components/header/header.component';
+import {NavService} from "./services/nav.service";
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ListComponent } from './components/list/list.component';
     Home,
     NoContent,
     KeysPipe,
-    ListComponent
+    ListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { ListComponent } from './components/list/list.component';
     HttpModule,
     RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
-  providers: [HttpService],
+  providers: [HttpService,NavService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
