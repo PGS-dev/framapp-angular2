@@ -22,7 +22,6 @@ import { ProductDetails } from './components/product-details/product-details.com
 import { HeaderComponent } from './components/header/header.component';
 import {NavService} from "./services/nav.service";
 
-
 @NgModule({
   declarations: [
     AppComponent,
