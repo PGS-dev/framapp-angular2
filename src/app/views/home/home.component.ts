@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'home',
   providers: [],
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   templateUrl: './home.component.html'
 })
 export class Home {

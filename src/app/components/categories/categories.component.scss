@@ -1,0 +1,14 @@
+@import '../../shared/variables.scss';
+
+nav{
+  @include respond-to('smallDown'){
+    position: absolute;
+    width:100%;
+    background-color: $color-background-app;
+    z-index: 1;
+
+    &.hide-me{
+      display: none;
+    }
+  }
+}

@@ -1,7 +1,9 @@
 @import 'shared/variables';
-
 .logo-wrapper{
   font-size: $font-size-header;
+}
+.container{
+  padding-bottom: 40px;
 }
 footer{
   position: fixed;
