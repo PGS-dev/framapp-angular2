@@ -18,6 +18,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 import { ListComponent } from './components/list/list.component';
+import { ProductDetails } from './components/product-details/product-details.component';
 import { HeaderComponent } from './components/header/header.component';
 import {NavService} from "./services/nav.service";
 
@@ -29,6 +30,8 @@ import {NavService} from "./services/nav.service";
     Home,
     NoContent,
     KeysPipe,
+    ListComponent,
+    ProductDetails
     ListComponent,
     HeaderComponent
   ],

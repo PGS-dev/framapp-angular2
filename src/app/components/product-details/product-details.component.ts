@@ -1,14 +1,41 @@
 /**
  * Created by tlaskowski on 10/12/2016.
  */
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ProductService, Product} from "../../services/product.service";
 
 
 @Component({
-  selector: 'about',
-  // Our list of styles in our component. We may add more to compose many styles together
+  selector: 'product-details',
   styleUrls: ['product-details.component.scss'],
-  // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: 'product-details.component.html'
+  templateUrl: 'product-details.component.html',
+  providers:  [ ProductService ]
 
 })
+
+export class ProductDetails implements OnInit {
+  public productDetails : Product ={
+    amount: 0,
+    category: "",
+    description: "",
+    edit: "",
+    id: "",
+    imageUrl: "",
+    price: 0,
+    promoted: false,
+    title: ""
+};
+
+  constructor(private productService: ProductService){};
+
+  ngOnInit() {
+    this.getProduct();
+  }
+
+  getProduct(){
+    this.productService.getProduct()
+      .subscribe(
+        productDetails => this.productDetails = productDetails
+      );
+  }
+}
