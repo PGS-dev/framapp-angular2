@@ -18,8 +18,10 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 import { ListComponent } from './components/list/list.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { HeaderComponent } from './components/header/header.component';
+import {NavService} from "./services/nav.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     NoContent,
     KeysPipe,
     ListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     HttpModule,
     RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
-  providers: [HttpService],
+  providers: [HttpService,NavService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
