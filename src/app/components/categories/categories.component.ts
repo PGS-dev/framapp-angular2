@@ -2,47 +2,50 @@
  * Created by rkubisiak on 10/12/2016.
  */
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CategoriesService, Category } from '../../services/categories.service';
-import { NavService } from "../../services/nav.service";
-import { Subscription } from 'rxjs/Subscription';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {CategoriesService, Category} from '../../services/categories.service';
+import {NavService} from "../../services/nav.service";
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
-  selector: 'cats',
+  selector: 'categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
-  providers:  [ CategoriesService ]
+  providers: [CategoriesService]
 })
-export class Categories implements OnInit,OnDestroy  {
-  private subscription:Subscription;
-  private isMenuVisible : boolean = false;
-  public categoryList : Category = {};
-  private isAdmin : boolean = true;
-  public adminMenu : Category = {
-    'products' : {
+export class Categories implements OnInit,OnDestroy {
+  private subscription: Subscription;
+  private isMenuVisible: boolean = false;
+  public categoryList: Category = {};
+  private isAdmin: boolean = true;
+  public adminMenu: Category = {
+    'products': {
       'title': 'Products',
       'id': '',
       'description': ''
     },
-    'categories' : {
-      'title' : 'Categories',
+    'categories': {
+      'title': 'Categories',
       'id': '',
       'description': ''
     }
   };
 
-  constructor(private categoriesService: CategoriesService, private _NavService:NavService){};
+  constructor(private categoriesService: CategoriesService, private _NavService: NavService) {
+  };
 
-  ngOnInit(){
+  ngOnInit() {
     this.getCategories();
     this.subscription = this._NavService.isVisible$.subscribe(
       isVisible => this.isMenuVisible = isVisible
     );
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-  getCategories(){
+
+  getCategories() {
     this.categoriesService.getCategories()
       .subscribe(
         categoryList => this.categoryList = categoryList
