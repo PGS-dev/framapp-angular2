@@ -4,17 +4,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService, Product} from "../../services/product.service";
 
-
 @Component({
   selector: 'product-details',
   styleUrls: ['product-details.component.scss'],
   templateUrl: 'product-details.component.html',
-  providers:  [ ProductService ]
+  providers: [ProductService]
 
 })
 
-export class ProductDetails implements OnInit {
-  public productDetails : Product ={
+export class ProductDetailsComponent implements OnInit {
+  public productDetails: Product = {
     amount: 0,
     category: "",
     description: "",
@@ -24,15 +23,16 @@ export class ProductDetails implements OnInit {
     price: 0,
     promoted: false,
     title: ""
-};
+  };
 
-  constructor(private productService: ProductService){};
+  constructor(private productService: ProductService) {
+  };
 
   ngOnInit() {
     this.getProduct();
   }
 
-  getProduct(){
+  getProduct() {
     this.productService.getProduct()
       .subscribe(
         productDetails => this.productDetails = productDetails

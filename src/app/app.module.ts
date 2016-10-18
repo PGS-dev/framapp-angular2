@@ -18,7 +18,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 import { ListComponent } from './components/list/list.component';
-import { ProductDetails } from './components/product-details/product-details.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { ProductDetails } from './components/product-details/product-details.com
     NoContent,
     KeysPipe,
     ListComponent,
-    ProductDetails
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
