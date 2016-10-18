@@ -36,18 +36,8 @@ export class Categories implements OnInit,OnDestroy  {
   ngOnInit(){
     this.getCategories();
     this.subscription = this._NavService.isVisible$.subscribe(
-      isVisible => {
-        this.isMenuVisible = isVisible;
-        console.log(isVisible);
-      },() => {
-        console.log('done2');
-      },
-      () => {
-        console.log('done');
-      }
+      isVisible => this.isMenuVisible = isVisible
     );
-
-    setInterval(()=>console.log(this.isMenuVisible),1000);
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

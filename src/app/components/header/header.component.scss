@@ -2,4 +2,21 @@
 
 .logo-wrapper{
   font-size: $font-size-header;
+  display: inline-block;
+}
+.btn-menu-mobile{
+  background-color: transparent;
+  color: $color-orange;
+  border: solid 2px $color-orange;
+  height: 38px;
+  display: inline-block;
+  text-transform: uppercase;
+  outline: none;
+
+  &:active{
+    outline: none;
+  }
+  @include respond-to('small'){
+    display: none;
+  }
 }

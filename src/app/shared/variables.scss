@@ -3,13 +3,19 @@ $color-orange-dark: rgb(217,98,27);
 $color-light: rgb(168,168,168);
 $color-light-gray: rgb(217,217,217);
 
+$color-background-app: white;
+
 $font-size-header: 22px;
 
 $breakpoints: (
   'xsmall' : ( min-width: 544px),
   'small'  : ( min-width:  767px ),
   'medium' : ( min-width:  992px ),
-  'large'  : ( min-width: 1200px )
+  'large'  : ( min-width: 1200px ),
+  'xsmallDown' : ( max-width: 543px),
+  'smallDown'  : ( max-width:  766px ),
+  'mediumDown' : ( max-width:  991px ),
+  'largeDown'  : ( max-width: 1199px ),
 );
 
 @import './mixins';

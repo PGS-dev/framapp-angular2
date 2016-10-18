@@ -1,4 +1,4 @@
-<nav>
+<nav [ngClass]="{'hide-me':!isMenuVisible}">
   <div class="sidebar-list">
     <app-list [header]="'Categories'" [list]="categoryList" [icoClasses]="'glyphicon glyphicon-list-alt'"></app-list>
   </div>
@@ -7,6 +7,3 @@
     <app-list [header]="'Admin'" [list]="adminMenu" [icoClasses]="'glyphicon glyphicon-user'"></app-list>
   </div>
 </nav>
-<div class="test" *ngIf="isMenuVisible">
-  test test
-</div>
