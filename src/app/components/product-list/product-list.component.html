@@ -1,11 +1,11 @@
 <ul class="ProductList">
-  <li class="ProductList-item" *ngFor="let product of products">
-    <a [routerLink]=" ['./product'+ product.guid]">
-      <i *ngIf="product.promoted">&star;</i>
+  <li class="ProductList-item" *ngFor="let product of productsList | keys">
+    <a [routerLink]="[product.key]">
+      <i *ngIf="product.promoted">&#9734;</i>
       <figure>
-        <img src="{{product.imageUrl}}" alt="{{product.title}}">
+        <img src="{{product.value.imageUrl}}" alt="{{product.value.title}}">
         <figcaption>
-          <h1>{{product.title}}</h1>
+          <h1>{{product.value.title}}</h1>
         </figcaption>
       </figure>
     </a>

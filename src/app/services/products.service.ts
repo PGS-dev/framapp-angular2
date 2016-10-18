@@ -4,23 +4,25 @@
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 
-export interface Product {
+export interface Products {
+  [key: string] : {
     amount: number
-    category: string;
-    description: string;
-    edit: string;
+    category: string
+    description: string
+    edit: string
     id: string;
     imageUrl: string;
     price: number;
-    promoted: boolean;
+    promoted: boolean
     title: string;
+  };
 }
 
 @Injectable()
-export class ProductService {
+export class ProductsService {
   constructor(private HttpService: HttpService){}
 
-  getProduct(productId: number){
-    return this.HttpService.getResources(`products/${productId}.json`);
+  getProducts(){
+    return this.HttpService.getResources('products.json');
   }
 }

@@ -1,8 +1,10 @@
 /**
  * Created by tlaskowski on 10/12/2016.
  */
-import {Component, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ProductService, Product} from "../../services/product.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'product-details',
@@ -25,15 +27,28 @@ export class ProductDetailsComponent implements OnInit {
     title: ""
   };
 
-  constructor(private productService: ProductService) {
+  private subscription: Subscription;
+
+  constructor(private productService: ProductService,
+              private activatedRoute: ActivatedRoute) {
   };
 
   ngOnInit() {
-    this.getProduct();
+    // subscribe to router event
+    this.subscription = this.activatedRoute.params.subscribe(
+      (param: any) => {
+        let productId = param['productId'];
+        this.getProduct(productId);
+      });
   }
 
-  getProduct() {
-    this.productService.getProduct()
+  ngOnDestroy() {
+    // prevent memory leak by unsubscribing
+    this.subscription.unsubscribe();
+  }
+
+  getProduct(productId: number) {
+    this.productService.getProduct(productId)
       .subscribe(
         productDetails => this.productDetails = productDetails
       );
