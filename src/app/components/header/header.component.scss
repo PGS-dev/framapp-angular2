@@ -1,5 +1,9 @@
 @import '../../shared/variables';
 
+header{
+  border-bottom: solid 1px $color-light;
+  margin-bottom: 22px;
+}
 .logo-wrapper{
   font-size: $font-size-header;
   display: inline-block;
