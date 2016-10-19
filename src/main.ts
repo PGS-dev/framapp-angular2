@@ -1,3 +1,4 @@
+///<reference path="../node_modules/firebase/firebase.d.ts"/>
 import './polyfills.ts';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -9,4 +10,4 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(AppModule, []);

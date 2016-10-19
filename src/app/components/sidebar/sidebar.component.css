@@ -1,6 +1,7 @@
 .Sidebar {
   background: #EDEADE;
   min-width: 200px;
+  max-width: 400px;
   height: 100%; }
 
 /*# sourceMappingURL=sidebar.component.css.map */

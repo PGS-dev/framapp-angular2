@@ -19,8 +19,10 @@ html, body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background: #EDEDED;
-  height: 100%; }
+  justify-content: flex-start;
+  align-content: stretch;
+  height: 100%;
+  background: #EDEDED; }
 
 .Header {
   width: 100%;
@@ -28,6 +30,11 @@ html, body {
   background: #E8E3CC; }
 
 .Main {
+  flex: 1; }
+
+sidebar {
+  flex: 0 1 auto;
+  align-self: auto;
   height: 100%; }
 
 .btn {
@@ -47,11 +54,13 @@ html, body {
   text-shadow: 0 1px black; }
 
 .SidebarList {
-  padding: 10px; }
+  padding: 10px;
+  padding-bottom: 20px; }
   .SidebarList .SidebarList-header {
     margin: 0 0 20px 0; }
   .SidebarList .SidebarList-list {
-    list-style: none; }
+    list-style: none;
+    padding-left: 20px; }
     .SidebarList .SidebarList-list .SidebarList-element {
       margin-bottom: 5px; }
       .SidebarList .SidebarList-list .SidebarList-element a, .SidebarList .SidebarList-list .SidebarList-element a:focus, .SidebarList .SidebarList-list .SidebarList-element a:hover, .SidebarList .SidebarList-list .SidebarList-element a:active .SidebarList .SidebarList-list .SidebarList-element a:visited {

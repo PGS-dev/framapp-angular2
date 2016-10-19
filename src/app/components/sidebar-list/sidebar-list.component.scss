@@ -2,11 +2,13 @@
 @import '../../../styles';
 .SidebarList{
   padding: 10px;
+  padding-bottom: 20px;
   .SidebarList-header{
     margin: 0 0 20px 0;
   }
   .SidebarList-list{
     list-style: none;
+    padding-left: 20px;
     .SidebarList-element{
       margin-bottom: 5px;
       @include linkColor($default-dark-gray);

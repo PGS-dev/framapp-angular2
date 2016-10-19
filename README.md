@@ -38,4 +38,23 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 ## Bootstrap components
 
 You can use bootstrap components for angular 2
-https://ng-bootstrap.github.io/#/components/accordion
+[Bootstrap](https://ng-bootstrap.github.io/#/components/accordion)
+
+## How to get data
+Implement this import </br>
+`import { DataService } from '../../services/data.service'; `</br>
+Add 'DataService' to providers in @Component </br>
+Inject `private dataService: DataService` into constructor </br>
+And then  </br>
+`this.dataService.getData('categories.json')
+  .subscribe(
+    (categoryList) => {
+      //Do something with data
+    }
+  );
+`</br>
+change 'categories.json' if you need different data.
+
+## Firebase for Angular2 official library(don't work yet)
+[AngularFire2](https://github.com/angular/angularfire2)
+
