@@ -17,7 +17,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
-import { ListComponent } from './components/list/list.component';
+import { ListComponent } from './components/_list/list.component';
 import { ProductList } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HeaderComponent } from './components/header/header.component';
