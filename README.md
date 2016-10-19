@@ -57,8 +57,8 @@ this.dataService.getData('categories.json')
 </br>
 change 'categories.json' if you need different data.
 
-## Firebase for Angular2 official library(don't work yet)
-[AngularFire2](https://github.com/angular/angularfire2)
+## Firebase for Angular2 official library
+[AngularFire2](https://github.com/angular/angularfire2)</br>
 If you want use AngularFire2 implement import:</br>
 `import { AngularFire} from 'angularfire2';`</br>
 for import library and </br>
