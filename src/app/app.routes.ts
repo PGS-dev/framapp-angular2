@@ -5,7 +5,7 @@ import {ProductDetailsComponent} from "./components/product-details/product-deta
 import {ProductList} from "./components/product-list/product-list.component";
 
 export const AppRoutes: Routes = [
-  {path: '', component: Home},
+  {path: '', component: ProductList},
   {path: 'home', component: Home},
   {path: 'products', component: ProductList},
   {path: 'products/:productId', component: ProductDetailsComponent},

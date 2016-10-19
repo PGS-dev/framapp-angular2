@@ -1,6 +1,6 @@
 <ul class="ProductList">
   <li class="ProductList-item" *ngFor="let product of productsList | keys">
-    <a [routerLink]="[product.key]">
+    <a [routerLink]="['/products',product.key]">
       <i *ngIf="product.promoted">&#9734;</i>
       <figure>
         <img src="{{product.value.imageUrl}}" alt="{{product.value.title}}">
