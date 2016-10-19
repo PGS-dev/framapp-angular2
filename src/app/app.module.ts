@@ -4,8 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router'
 
-import {AppComponent} from './app.component';
-import {Categories, Home, NoContent} from './shared/';
+import {AppComponent} from './components/app/app.component';
+import {Categories, NoContent} from './shared/';
 
 import {AppRoutes} from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
@@ -17,17 +17,20 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
-import { ListComponent } from './components/list/list.component';
+import { ListComponent } from './components/_list/list.component';
 import { ProductList } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HeaderComponent } from './components/header/header.component';
 import {NavService} from "./services/nav.service";
+import {ProductService} from "./services/product.service";
+import {UtilsService} from "./services/utils.service";
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     Categories,
-    Home,
     NoContent,
     KeysPipe,
     ListComponent,
@@ -41,7 +44,12 @@ import {NavService} from "./services/nav.service";
     HttpModule,
     RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
-  providers: [HttpService,NavService],
+  providers: [
+    HttpService,
+    NavService,
+    ProductService,
+    UtilsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

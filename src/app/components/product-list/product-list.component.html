@@ -1,7 +1,7 @@
-<ul class="ProductList col-xs-12">
-  <li class="ProductList-item" *ngFor="let product of productsList | keys">
-    <a [routerLink]="[product.key]">
-      <i *ngIf="product.value.promoted">&#9734;</i>
+<ul class="ProductList">
+  <li class="ProductList-item" *ngFor="let product of productListFiltered | keys">
+    <a [routerLink]="['/products',product.key]">
+      <i *ngIf="product.promoted">&#9734;</i>
       <figure>
         <img src="{{product.value.imageUrl}}" alt="{{product.value.title}}">
         <figcaption>

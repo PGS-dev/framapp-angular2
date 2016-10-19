@@ -1,29 +1,50 @@
 import {Component, ViewEncapsulation} from "@angular/core";
-import {ProductsService, Products} from "../../services/products.service";
+import {ProductService, Products, Product} from "../../services/product.service";
+import {Subscription} from "rxjs";
+import {UtilsService} from "../../services/utils.service";
 
 @Component({
-    selector: 'product-list',
-    encapsulation: ViewEncapsulation.None,
-    templateUrl: './product-list.component.html',
-    inputs: ['products'],
-    styleUrls: ['./product-list.scss'],
-    providers: [ProductsService]
+  selector: 'product-list',
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './product-list.component.html',
+  inputs: ['products'],
+  styleUrls: ['./product-list.scss'],
+  providers: []
 })
 export class ProductList {
+  selectedCategory: string = '';
+  productListFiltered: Products = {};
+  subscription: Subscription;
+  productsList: Products = {};
 
-    productsList: Products = {};
+  constructor(private productService: ProductService, private UtilsService: UtilsService) {
+    this.subscription = this.productService.selectedCategory$.subscribe(
+      selectedCategory => {
+        this.selectedCategory = selectedCategory;
+        this.filterProducts();
+      }
+    );
+  };
 
-    constructor(private productsService: ProductsService) {
-    };
+  ngOnInit() {
+    this.getProducts();
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
-    ngOnInit() {
-        this.getProducts();
-    }
-
-    getProducts() {
-        this.productsService.getProducts()
-            .subscribe(
-                productsList => this.productsList = productsList
-            );
-    }
+  getProducts() {
+    this.productService.getProducts()
+      .subscribe(
+        productsList => {
+          this.productsList = productsList;
+          this.filterProducts();
+        }
+      );
+  }
+  filterProducts(){
+    this.productListFiltered = this.UtilsService.filterObject(this.productsList,this.selectedCategory!=='' ? {
+      category: this.selectedCategory
+    } : {});
+  }
 }
