@@ -5,7 +5,7 @@ import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router'
 
 import {AppComponent} from './app.component';
-import {Categories, Home, NoContent} from './shared/';
+import {Categories, NoContent} from './shared/';
 
 import {AppRoutes} from './app.routes';
 import { KeysPipe } from './pipes/keys.pipe';
@@ -27,7 +27,6 @@ import {NavService} from "./services/nav.service";
   declarations: [
     AppComponent,
     Categories,
-    Home,
     NoContent,
     KeysPipe,
     ListComponent,
