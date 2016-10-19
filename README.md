@@ -59,4 +59,28 @@ change 'categories.json' if you need different data.
 
 ## Firebase for Angular2 official library(don't work yet)
 [AngularFire2](https://github.com/angular/angularfire2)
+If you want use AngularFire2 implement import:</br>
+`import { AngularFire} from 'angularfire2';`</br>
+for import library and </br>
+`import { FirebaseObjectObservable } from 'angularfire2';` or</br>
+`import { FirebaseListObservable } from 'angularfire2';`</br>
+to fetch data in Objects form or List from.</br>
+Declare variable to store demand Object:</br>
+`private objects: FirebaseObjectObservable<any>;`or </br>
+`private lists: FirebaseListObservable<any>;`</br>
+Inject `af: AngularFire` into constructor.</br>
+And use one of below:</br>
+```javascript
+this.objects = af.database.object('/api/v1/categories');
+this.objects.subscribe(
+  categoryList => console.log("angularfire", categoryList)
+);
+
+this.lists = af.database.list('/api/v1/categories');
+this.lists.subscribe(
+  categoryList => console.log("angularfire", categoryList)
+);
+```
+</br>
+Change 'categories' to fetch different data.
 

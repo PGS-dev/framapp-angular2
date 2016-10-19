@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFire, FirebaseObjectObservable} from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,18 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit{
-  private item: FirebaseObjectObservable<any>;
+  private objects: FirebaseObjectObservable<any>;
+  private lists: FirebaseListObservable<any>;
   constructor(af: AngularFire) {
-    // this.item = af.database.object('categories').subscribe(
-    //   categoryList => console.log("angularfire", categoryList)
-    // );
+    this.objects = af.database.object('/api/v1/categories');
+    this.objects.subscribe(
+      categoryList => console.log("angularfire", categoryList)
+    );
+
+    this.lists = af.database.list('/api/v1/categories');
+    this.lists.subscribe(
+      categoryList => console.log("angularfire", categoryList)
+    );
 
   }
   ngOnInit(){
