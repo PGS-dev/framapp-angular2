@@ -6,7 +6,7 @@ import {RouterModule} from '@angular/router'
 import {AppComponent} from './components/app/app.component';
 import {Categories, NoContent} from './shared/';
 import {AppRoutes} from './app.routes';
-import { KeysPipe } from './pipes/keys.pipe';
+import {KeysPipe} from './pipes/keys.pipe';
 import {HttpService} from "./services/http.service";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import {NavService} from "./services/nav.service";
 import {ProductService} from "./services/product.service";
 import {UtilsService} from "./services/utils.service";
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {UtilsService} from "./services/utils.service";
   providers: [
     HttpService,
     NavService,
+    AuthService,
     ProductService,
     UtilsService
   ],
