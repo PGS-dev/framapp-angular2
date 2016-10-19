@@ -7,6 +7,7 @@ import {CategoriesService, Category} from '../../services/categories.service';
 import {NavService} from "../../services/nav.service";
 import {Subscription} from 'rxjs/Subscription';
 import {ProductService} from "../../services/product.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'categories',
@@ -35,13 +36,17 @@ export class Categories implements OnInit,OnDestroy {
   constructor(
     private categoriesService: CategoriesService,
     private _NavService: NavService,
-    private productService: ProductService
+    private productService: ProductService,
+    private authService: AuthService
   ) {};
 
   ngOnInit() {
     this.getCategories();
     this.subscription = this._NavService.isVisible$.subscribe(
       isVisible => this.isMenuVisible = isVisible
+    );
+    this.authService.authentication$.subscribe(
+      authenticated => this.isAdmin = authenticated
     );
   }
 
