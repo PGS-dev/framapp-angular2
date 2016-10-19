@@ -6,7 +6,6 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {CategoriesService, Category} from '../../services/categories.service';
 import {NavService} from "../../services/nav.service";
 import {Subscription} from 'rxjs/Subscription';
-import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'categories',
@@ -34,8 +33,7 @@ export class Categories implements OnInit,OnDestroy {
 
   constructor(
     private categoriesService: CategoriesService,
-    private _NavService: NavService,
-    private productService: ProductService
+    private _NavService: NavService
   ) {};
 
   ngOnInit() {
@@ -54,8 +52,5 @@ export class Categories implements OnInit,OnDestroy {
       .subscribe(
         categoryList => this.categoryList = categoryList
       );
-  }
-  filterProductsByCategoryId(categoryId: string){
-    this.productService.changeCategory(categoryId);
   }
 }
