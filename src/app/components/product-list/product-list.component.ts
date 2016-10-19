@@ -43,8 +43,8 @@ export class ProductList {
       );
   }
   filterProducts(){
-    this.productListFiltered = this.UtilsService.filterObject(this.productsList,{
+    this.productListFiltered = this.UtilsService.filterObject(this.productsList,this.selectedCategory!=='' ? {
       category: this.selectedCategory
-    });
+    } : {});
   }
 }

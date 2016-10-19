@@ -9,19 +9,26 @@ export class UtilsService {
 
   filterObject(Obj,filterObj){
     let filterArr: Array<string> = Object.keys(filterObj);
+    let result;
 
-    let result = Object.keys(Obj).filter((key)=>{
-      var addFlag = true;
-      filterArr.forEach((value)=>{
-        if(!Obj[key][value] || Obj[key][value]!==filterObj[value]){
-          addFlag = false;
-        }
-      });
-      return addFlag;
-    }).reduce((obj, key) => {
-      obj[key] = Obj[key];
-      return obj;
-    }, {});
+    console.log(filterArr);
+    if(filterArr.length===0){
+      result = Obj;
+    }else{
+      result = Object.keys(Obj).filter((key)=>{
+        var addFlag = true;
+        filterArr.forEach((value)=>{
+          if(!Obj[key][value] || Obj[key][value]!==filterObj[value]){
+            addFlag = false;
+          }
+        });
+        return addFlag;
+      }).reduce((obj, key) => {
+        obj[key] = Obj[key];
+        return obj;
+      }, {});
+    }
+
 
     return result;
   }
