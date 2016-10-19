@@ -46,13 +46,14 @@ Implement this import </br>
 Add 'DataService' to providers in @Component </br>
 Inject `private dataService: DataService` into constructor </br>
 And then  </br>
-`this.dataService.getData('categories.json')</br>
-  .subscribe(</br>
-    (categoryList) => {</br>
-      //Do something with data</br>
-    }</br>
-  );</br>
-`</br>
+```javascript
+this.dataService.getData('categories.json')
+  .subscribe(
+    (categoryList) => {
+      //Do something with data
+    }
+  );
+```</br>
 change 'categories.json' if you need different data.
 
 ## Firebase for Angular2 official library(don't work yet)
