@@ -1,5 +1,5 @@
 <ul class="ProductList">
-  <li class="ProductList-item" *ngFor="let product of productsList | keys">
+  <li class="ProductList-item" *ngFor="let product of productListFiltered | keys">
     <a [routerLink]="['/products',product.key]">
       <i *ngIf="product.promoted">&#9734;</i>
       <figure>
