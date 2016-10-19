@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation} from "@angular/core";
 import {ProductService, Products, Product} from "../../services/product.service";
 import {Subscription} from "rxjs";
+import {UtilsService} from "../../services/utils.service";
 
 @Component({
   selector: 'product-list',
@@ -16,7 +17,7 @@ export class ProductList {
   subscription: Subscription;
   productsList: Products = {};
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private UtilsService: UtilsService) {
     this.subscription = this.productService.selectedCategory$.subscribe(
       selectedCategory => {
         this.selectedCategory = selectedCategory;
@@ -42,11 +43,8 @@ export class ProductList {
       );
   }
   filterProducts(){
-    this.productListFiltered = Object.keys(this.productsList).filter((key)=>{
-      return this.selectedCategory==='' || this.productsList[key].category===this.selectedCategory;
-    }).reduce((obj, key) => {
-      obj[key] = this.productsList[key];
-      return obj;
-    }, {});
+    this.productListFiltered = this.UtilsService.filterObject(this.productsList,{
+      category: this.selectedCategory
+    });
   }
 }

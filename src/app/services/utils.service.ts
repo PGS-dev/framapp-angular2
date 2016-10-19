@@ -7,12 +7,22 @@ import { Injectable } from '@angular/core';
 export class UtilsService {
   constructor(){}
 
-  // filterObject(filterObj){
-  //   this.productListFiltered = Object.keys(this.productsList).filter((key)=>{
-  //     return this.selectedCategory==='' || this.productsList[key].category===this.selectedCategory;
-  //   }).reduce((obj, key) => {
-  //     obj[key] = this.productsList[key];
-  //     return obj;
-  //   }, {});
-  // }
+  filterObject(Obj,filterObj){
+    let filterArr: Array<string> = Object.keys(filterObj);
+
+    let result = Object.keys(Obj).filter((key)=>{
+      var addFlag = true;
+      filterArr.forEach((value)=>{
+        if(!Obj[key][value] || Obj[key][value]!==filterObj[value]){
+          addFlag = false;
+        }
+      });
+      return addFlag;
+    }).reduce((obj, key) => {
+      obj[key] = Obj[key];
+      return obj;
+    }, {});
+
+    return result;
+  }
 }

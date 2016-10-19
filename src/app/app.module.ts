@@ -23,6 +23,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { HeaderComponent } from './components/header/header.component';
 import {NavService} from "./services/nav.service";
 import {ProductService} from "./services/product.service";
+import {UtilsService} from "./services/utils.service";
+
 
 
 @NgModule({
@@ -42,7 +44,12 @@ import {ProductService} from "./services/product.service";
     HttpModule,
     RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
-  providers: [HttpService,NavService,ProductService],
+  providers: [
+    HttpService,
+    NavService,
+    ProductService,
+    UtilsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
