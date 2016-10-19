@@ -11,7 +11,6 @@ export class UtilsService {
     let filterArr: Array<string> = Object.keys(filterObj);
     let result;
 
-    console.log(filterArr);
     if(filterArr.length===0){
       result = Obj;
     }else{
@@ -28,7 +27,6 @@ export class UtilsService {
         return obj;
       }, {});
     }
-
 
     return result;
   }
