@@ -53,7 +53,8 @@ this.dataService.getData('categories.json')
       //Do something with data
     }
   );
-```</br>
+```
+</br>
 change 'categories.json' if you need different data.
 
 ## Firebase for Angular2 official library(don't work yet)
