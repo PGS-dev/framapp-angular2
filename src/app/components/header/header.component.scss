@@ -1,8 +1,19 @@
 @import '../../shared/variables';
 
-.logo-wrapper {
+.header-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &:before, &:after {
+    content: initial;
+  }
+}
+
+.header-logo {
   font-size: $font-size-header;
   display: inline-block;
+  cursor: pointer;
 }
 
 .btn-menu-mobile {
@@ -14,10 +25,10 @@
   text-transform: uppercase;
   outline: none;
 
-  &:active{
+  &:active {
     outline: none;
   }
-  @include respond-to('small'){
+  @include respond-to('small') {
     display: none;
   }
 }
