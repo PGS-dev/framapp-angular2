@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarListComponent } from '../sidebar-list/sidebar-list.component';
 
+import { AuthService } from '../../services/auth.service';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -17,10 +18,10 @@ export class SidebarComponent implements OnInit {
   admin = {
     'title': 'Admin',
     'list': ['Products', 'Categories'],
-    'isAdminActive': false
+    'isAdminActive': this.authService.isAtuhenticated()
   };
 
-  constructor(private dataService: DataService ) {
+  constructor(private dataService: DataService, private authService: AuthService) {
   }
   getCategoriesList(){
     this.dataService.getData('categories.json')
