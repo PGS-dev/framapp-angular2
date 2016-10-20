@@ -1,14 +1,11 @@
 @import '../../shared/variables';
 
-header{
-  border-bottom: solid 1px $color-light;
-  margin-bottom: 22px;
-}
-.logo-wrapper{
+.logo-wrapper {
   font-size: $font-size-header;
   display: inline-block;
 }
-.btn-menu-mobile{
+
+.btn-menu-mobile {
   background-color: transparent;
   color: $color-orange;
   border: solid 2px $color-orange;
