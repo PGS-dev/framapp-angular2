@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Subscription} from 'rxjs/Subscription';
+
 import {NavService} from "../../services/nav.service";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -7,14 +10,25 @@ import {NavService} from "../../services/nav.service";
   styleUrls: ['header.component.scss'],
   providers: []
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  constructor(private _NavService:NavService) {
+  private isAuthenticated: boolean = false;
+  private subscription: Subscription;
+
+  constructor(private _NavService: NavService, private authService: AuthService) {
   }
 
-  toggleMenu(){
+  ngOnInit() {
+    this.subscription = this.authService.authentication$
+      .subscribe(authenticated => this.isAuthenticated = authenticated);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  toggleMenu() {
     this._NavService.changeVisible();
   }
-  ngOnInit() {
-  }
+
 }

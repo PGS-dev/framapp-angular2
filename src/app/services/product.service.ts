@@ -3,7 +3,6 @@
  */
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export interface Product {
     amount: number
@@ -22,15 +21,6 @@ export interface Products {
 
 @Injectable()
 export class ProductService {
-  /* BehaviorSubject - needed for filtering purposes, connected with components/categories.component.ts (subscriber) */
-    private _selectedCategory = new BehaviorSubject<string>('');
-    selectedCategory$ = this._selectedCategory.asObservable();
-
-    changeCategory(categoryId) {
-      this._selectedCategory.next(categoryId);
-    }
-  /* end of BehaviorSubject */
-
   constructor(private HttpService: HttpService){}
 
   getProducts(){

@@ -27,7 +27,6 @@ export class UtilsService {
         return obj;
       }, {});
     }
-
     return result;
   }
 }
