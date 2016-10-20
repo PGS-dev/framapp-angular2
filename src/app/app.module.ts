@@ -18,6 +18,7 @@ import {NavService} from "./services/nav.service";
 import {ProductService} from "./services/product.service";
 import {UtilsService} from "./services/utils.service";
 import {AuthService} from "./services/auth.service";
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {AuthService} from "./services/auth.service";
     ListComponent,
     HeaderComponent,
     ProductDetailsComponent,
-    ProductList
+    ProductList,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

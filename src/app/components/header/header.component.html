@@ -9,10 +9,12 @@
         </div>
       </div>
       <div>
-        <button class="btn btn-second" (click)="authService.login()"
-                *ngIf="!isAuthenticated">Login</button>
+        <button class="btn btn-second" [routerLink]="['./sign-in']"
+                *ngIf="!isAuthenticated">Sign in</button>
+        <span class=""
+              *ngIf="isAuthenticated">Hi, {{loggedUser}}</span>
         <button class="btn btn-second" (click)="authService.logout()"
-                *ngIf="isAuthenticated">Logout</button>
+                *ngIf="isAuthenticated">Sign out</button>
       </div>
     </div>
   </div>

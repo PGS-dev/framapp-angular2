@@ -9,12 +9,12 @@ import {Subscription} from 'rxjs/Subscription';
 import {AuthService} from "../../services/auth.service";
 
 @Component({
-  selector: 'categories',
+  selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
   providers: [CategoriesService]
 })
-export class Categories implements OnInit,OnDestroy {
+export class Categories implements OnInit, OnDestroy {
   private subscription: Subscription;
   private isMenuVisible: boolean = false;
   public categoryList: Category = {};
@@ -32,11 +32,10 @@ export class Categories implements OnInit,OnDestroy {
     }
   };
 
-  constructor(
-    private categoriesService: CategoriesService,
-    private _NavService: NavService,
-    private authService: AuthService
-  ) {};
+  constructor(private categoriesService: CategoriesService,
+              private _NavService: NavService,
+              private authService: AuthService) {
+  };
 
   ngOnInit() {
     this.getCategories();
@@ -44,7 +43,9 @@ export class Categories implements OnInit,OnDestroy {
       isVisible => this.isMenuVisible = isVisible
     );
     this.authService.authentication$.subscribe(
-      authenticated => this.isAdmin = authenticated
+      authState => {
+        this.isAdmin = authState.isAuthenticated;
+      }
     );
   }
 
