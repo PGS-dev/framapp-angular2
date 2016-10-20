@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { SidebarListComponent } from '../sidebar-list/sidebar-list.component';
+import {Component, OnInit} from '@angular/core';
+import {SidebarListComponent} from '../sidebar-list/sidebar-list.component';
 
-import { DataService } from '../../services/data.service';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'sidebar',
@@ -17,12 +17,13 @@ export class SidebarComponent implements OnInit {
   admin = {
     'title': 'Admin',
     'list': ['Products', 'Categories'],
-    'isAdminActive': false
+    'isAdminActive': true
   };
 
-  constructor(private dataService: DataService ) {
+  constructor(private dataService: DataService) {
   }
-  getCategoriesList(){
+
+  getCategoriesList() {
     this.dataService.getData('categories.json')
       .subscribe(
         (categoryList) => {
@@ -30,6 +31,7 @@ export class SidebarComponent implements OnInit {
         }
       );
   }
+
   ngOnInit() {
     this.getCategoriesList();
   }
