@@ -1,18 +1,15 @@
 <div class="Container">
-  <header class="Header">
-    header  <button class="btn">Sign Up</button>
-
+  <header>
+    <headbar></headbar>
   </header>
 
   <sidebar>
   </sidebar>
 
-  <main class="Main">
-    <ul>
-      <li class="text" >
-        {{ item}}
-      </li>
-    </ul>
+  <main class="Main" id="main">
+    <router-outlet></router-outlet>
+    <!--Don't put here any components. Handle it by routing-->
+
   </main>
 </div>
 

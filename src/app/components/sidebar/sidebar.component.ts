@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
   admin = {
     'title': 'Admin',
     'list': ['Products', 'Categories'],
-    'isAdminActive': true
+    'isAdminActive': false
   };
 
   constructor(private dataService: DataService ) {

@@ -1,0 +1,17 @@
+.Header {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px; }
+  .Header .Header-logo {
+    display: inline-block;
+    height: 70px; }
+    .Header .Header-logo img {
+      height: inherit;
+      width: auto; }
+  .Header .btn {
+    height: 42px; }
+
+/*# sourceMappingURL=headbar.component.css.map */

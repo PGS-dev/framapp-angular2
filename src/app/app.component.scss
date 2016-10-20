@@ -1,1 +1,25 @@
+header{
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  background: #E8E3CC;
+  headbar{
+    width: inherit;
+    height: inherit;
+  }
+}
 
+
+sidebar{
+  align-self: auto;
+  height: 100%;
+  flex: 0 0 250px;
+  padding-top: 80px;
+  display: flex;
+}
+
+.Main{
+  flex: 1 0 auto;
+  padding-top: 80px;
+  align-content: stretch;
+}

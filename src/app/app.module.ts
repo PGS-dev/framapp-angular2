@@ -4,10 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
+import { RouterModule }   from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
+import { HeadbarComponent } from './components/headbar/headbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -24,14 +27,20 @@ export const firebaseConfig = {
     AppComponent,
     SidebarComponent,
     SidebarListComponent,
-
+    HeadbarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    RouterModule.forRoot([
+
+      { path: '', component: HomeComponent },
+      { path: '**', component: HomeComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,24 +21,10 @@ html, body{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: stretch;
   height: 100%;
   background: #EDEDED;
 }
-.Header{
-  width: 100%;
-  height: 80px;
-  background: #E8E3CC;
-}
-.Main{
-  flex: 1;
-}
-sidebar{
-  flex: 0 1 auto;
-  align-self: auto;
-  height: 100%;
-}
+
 
 .btn{
   background: #717A7A;
