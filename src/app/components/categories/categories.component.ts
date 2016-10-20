@@ -14,11 +14,11 @@ import {AuthService} from "../../services/auth.service";
   styleUrls: ['./categories.component.scss'],
   providers: [CategoriesService]
 })
-export class Categories implements OnInit, OnDestroy {
+export class CategoriesComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   private isMenuVisible: boolean = false;
   public categoryList: Category = {};
-  private isAdmin: boolean = true;
+  private isAdmin: boolean = false;
   public adminMenu: Category = {
     'products': {
       'title': 'Products',
