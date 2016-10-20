@@ -11,7 +11,6 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['product-details.component.scss'],
   templateUrl: 'product-details.component.html',
   providers: [ProductService]
-
 })
 
 export class ProductDetailsComponent implements OnInit {

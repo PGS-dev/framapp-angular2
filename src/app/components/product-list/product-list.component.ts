@@ -1,7 +1,8 @@
 import {Component, ViewEncapsulation} from "@angular/core";
-import {ProductService, Products, Product} from "../../services/product.service";
-import {Subscription} from "rxjs";
+import {ProductService, Products } from "../../services/product.service";
 import {UtilsService} from "../../services/utils.service";
+import {Subscription} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'product-list',
@@ -12,25 +13,25 @@ import {UtilsService} from "../../services/utils.service";
   providers: []
 })
 export class ProductList {
+  private  subscription: Subscription;
   selectedCategory: string = '';
   productListFiltered: Products = {};
-  subscription: Subscription;
   productsList: Products = {};
 
-  constructor(private productService: ProductService, private UtilsService: UtilsService) {
-    this.subscription = this.productService.selectedCategory$.subscribe(
-      selectedCategory => {
-        this.selectedCategory = selectedCategory;
+  constructor(
+    private productService: ProductService,
+    private UtilsService: UtilsService,
+    private activatedRoute: ActivatedRoute
+  ){
+    this.subscription = this.activatedRoute.params.subscribe(
+      (param: any) => {
+        this.selectedCategory = param['categoryId'] || '';
         this.filterProducts();
-      }
-    );
+      });
   };
 
   ngOnInit() {
     this.getProducts();
-  }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   getProducts() {
