@@ -18,12 +18,14 @@ export class SidebarComponent implements OnInit {
   admin = {
     'title': 'Admin',
     'list': ['Products', 'Categories'],
-    'isAdminActive': this.authService.isAtuhenticated()
+    'isAdminActive': true
+    //'isAdminActive': this.authService.isAtuhenticated()
   };
 
   constructor(private dataService: DataService, private authService: AuthService) {
   }
-  getCategoriesList(){
+
+  getCategoriesList() {
     this.dataService.getData('categories.json')
       .subscribe(
         (categoryList) => {
@@ -31,6 +33,7 @@ export class SidebarComponent implements OnInit {
         }
       );
   }
+
   ngOnInit() {
     this.getCategoriesList();
   }

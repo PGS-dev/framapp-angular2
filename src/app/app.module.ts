@@ -11,6 +11,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
 import { HeadbarComponent } from './components/headbar/headbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProductPageComponent } from './components/product-page/product-page.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { LoginBtnComponent } from './components/login-btn/login-btn.component';
 
 import { AuthService } from './services/auth.service';
@@ -33,6 +35,8 @@ export const firebaseConfig = {
     HeadbarComponent,
     HomeComponent,
     LoginBtnComponent,
+    ProductPageComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ export const firebaseConfig = {
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot([
-
+      { path: 'products', component: ProductPageComponent},
       { path: '', component: HomeComponent },
       { path: '**', component: HomeComponent }
     ])
