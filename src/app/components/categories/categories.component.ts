@@ -16,6 +16,7 @@ import {AuthService} from "../../services/auth.service";
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
+  private authSubscription: Subscription;
   private isMenuVisible: boolean = false;
   public categoryList: Category = {};
   private isAdmin: boolean = false;
@@ -48,7 +49,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     this.subscription = this._NavService.isVisible$.subscribe(
       isVisible => this.isMenuVisible = isVisible
     );
-    this.authService.authentication$.subscribe(
+    this.authSubscription = this.authService.authentication$.subscribe(
       authState => {
         this.isAdmin = authState.isAuthenticated;
       }
@@ -57,6 +58,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.authSubscription.unsubscribe();
   }
 
   getCategories() {
