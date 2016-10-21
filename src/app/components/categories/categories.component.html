@@ -1,6 +1,6 @@
 <nav [ngClass]="{'hide-me':!isMenuVisible}">
   <div class="sidebar-list">
-    <app-list (listItemClickEE)="filterProductsByCategoryId($event)" [header]="'Categories'" [list]="categoryList" [isItemRoute]="true" [icoClasses]="'glyphicon glyphicon-list-alt'"></app-list>
+    <app-list [header]="'Categories'" [list]="categoryList" [icoClasses]="'glyphicon glyphicon-list-alt'"></app-list>
   </div>
 
   <div class="sidebar-list" *ngIf="isAdmin===true">

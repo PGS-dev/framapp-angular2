@@ -4,7 +4,8 @@
 <div class="sidebar-list-header" *ngIf="header!==''">{{header}}</div>
 <ul class="list-group list-group-categories">
   <li *ngFor="let listItem of list | keys"
-    [routerLink]="['/products/category',listItem.value.id ? listItem.value.id : listItem.key]"
+    [routerLink]="listItem.value.link || []"
+    [routerLinkActive]="['is-active']"
     class="list-group-item list-group-categories-item">
       {{listItem.value.title}}
   </li>

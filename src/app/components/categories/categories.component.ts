@@ -23,12 +23,18 @@ export class Categories implements OnInit,OnDestroy {
     'products': {
       'title': 'Products',
       'id': '',
-      'description': ''
+      'description': '',
+      link:[
+        '/productsAdmin'
+      ]
     },
     'categories': {
       'title': 'Categories',
       'id': '',
-      'description': ''
+      'description': '',
+      link:[
+        '/categoriesAdmin'
+      ]
     }
   };
 
@@ -55,7 +61,7 @@ export class Categories implements OnInit,OnDestroy {
   getCategories() {
     this.categoriesService.getCategories()
       .subscribe(
-        categoryList => this.categoryList = categoryList
+        categoryList => this.categoryList = this.categoriesService.fillCategoriesData(categoryList)
       );
   }
 }
