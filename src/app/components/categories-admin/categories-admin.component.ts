@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoriesService} from "../../services/categories.service";
 import {Category,tableData} from "../../interfaces/";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -20,7 +21,8 @@ export class CategoriesAdminComponent implements OnInit {
   };
 
   constructor(
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private router: Router
   ){}
 
   ngOnInit() {
@@ -44,6 +46,6 @@ export class CategoriesAdminComponent implements OnInit {
     console.log('Remove product:'+categoryId);
   }
   editCategory(categoryId){
-    console.log('Edit product:'+categoryId);
+    this.router.navigateByUrl(`categories/${categoryId}/edit`);
   }
 }
