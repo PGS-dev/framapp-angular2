@@ -1,13 +1,8 @@
-// import { DirectoryComponent } from "./components/directory/directory.component";
-// import { HomeComponent } from "./components/home/home.component";
-//
-// import { provideRouter } from "@angular/router";
-//
-// const APP_ROUTES = [
-//   { path: 'directory', component: DirectoryComponent },
-//   { path: '', component: HomeComponent }
-// ];
-//
-// export const APP_ROUTES_PROVIDER = [
-//   provideRouter(APP_ROUTES)
-// ];
+// import { Routes } from "@angular/router";
+import { HomeComponent } from "./components/home/home.component";
+
+export const ProductsAppRoutes = [
+  { path: '', component: HomeComponent },
+  { path: 'categories/:id', component: HomeComponent },
+  { path: '**', component: HomeComponent }
+];

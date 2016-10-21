@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { RouterModule }   from '@angular/router';
+import { ProductsAppRoutes } from "./app.routes";
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -36,11 +37,7 @@ export const firebaseConfig = {
     HttpModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot([
-
-      { path: '', component: HomeComponent },
-      { path: '**', component: HomeComponent }
-    ])
+    RouterModule.forRoot(ProductsAppRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

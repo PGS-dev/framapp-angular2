@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarListComponent } from '../sidebar-list/sidebar-list.component';
+// import { SidebarListComponent } from '../sidebar-list/sidebar-list.component';
 
 import { DataService } from '../../services/data.service';
 
@@ -7,17 +7,17 @@ import { DataService } from '../../services/data.service';
   selector: 'sidebar',
   templateUrl: 'sidebar.component.html',
   styleUrls: ['sidebar.component.scss'],
-  providers: [SidebarListComponent, DataService]
+  providers: [ DataService]
 })
 export class SidebarComponent implements OnInit {
   categories = {
-    'title': 'Categories',
-    'list': []
+    title: 'Categories',
+    list: []
   };
   admin = {
-    'title': 'Admin',
-    'list': ['Products', 'Categories'],
-    'isAdminActive': false
+    title: 'Admin',
+    list: ['Products', 'Categories'],
+    isAdminActive: false
   };
 
   constructor(private dataService: DataService ) {
@@ -26,6 +26,7 @@ export class SidebarComponent implements OnInit {
     this.dataService.getData('categories.json')
       .subscribe(
         (categoryList) => {
+          console.log(categoryList);
           this.categories.list = Object.keys(categoryList);
         }
       );
