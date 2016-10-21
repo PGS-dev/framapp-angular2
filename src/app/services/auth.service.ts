@@ -34,7 +34,9 @@ export class AuthService {
   }
 
   login(user, pass) {
-    this.firebase.auth.login({email: user, password: pass});
+    this.firebase.auth.login({email: user, password: pass}).catch(
+      err => console.log(err.message)
+    );
   }
 
   logout() {
