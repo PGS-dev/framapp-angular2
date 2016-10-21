@@ -48,4 +48,7 @@ export class CategoriesAdminComponent implements OnInit {
   editCategory(categoryId){
     this.router.navigateByUrl(`categories/${categoryId}/edit`);
   }
+  addCategory(){
+    this.router.navigateByUrl('categoriesAdmin/add');
+  }
 }

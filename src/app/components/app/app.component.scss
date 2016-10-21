@@ -14,7 +14,7 @@ header {
   top: 0;
   width: 100%;
   background: #fff;
-  border-bottom: solid 1px $color-light;
+  border-bottom: solid 1px $color-gray;
 }
 
 .MainContent {
@@ -27,7 +27,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 40px;
-  border-top: 1px solid $color-light;
+  border-top: 1px solid $color-gray;
   background-color: #fff;
   color: $color-orange;
 }
