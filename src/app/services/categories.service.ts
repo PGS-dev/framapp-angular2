@@ -3,16 +3,8 @@
  */
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
+import {tableData} from "../interfaces/";
 
-export interface Category {
-  [key: string] : {
-    title: string
-    id: string;
-    description: string,
-    link?: Array<any>,
-    isActive? : boolean
-  }
-}
 
 @Injectable()
 export class CategoriesService{
@@ -21,7 +13,7 @@ export class CategoriesService{
   ){}
 
   getCategories(){
-    return this.HttpService.getResources('categories.json');
+      return this.HttpService.getResources('categories.json');
   }
   fillCategoriesData(categoriesObj){
     let keys = Object.keys(categoriesObj);
@@ -30,5 +22,24 @@ export class CategoriesService{
       categoriesObj[key].link = ['/products/category/',key];
     });
     return categoriesObj;
+  }
+  toTableData(categoriesObj){
+    let keys = Object.keys(categoriesObj);
+    let result:tableData = {
+      hasRmEditBtns : true,
+      headers: [
+        'ID',
+        'Category name'
+      ],
+      dataRows: []
+    };
+    keys.forEach((key)=>{
+      result.dataRows.push({
+        rowId: key,
+        rowId2: categoriesObj[key].id,
+        rowColumns : [key,categoriesObj[key].title]
+      })
+    });
+    return result;
   }
 }

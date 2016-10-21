@@ -3,21 +3,7 @@
  */
 import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
-
-export interface Product {
-    amount: number
-    category: string;
-    description: string;
-    edit: string;
-    id: string;
-    imageUrl: string;
-    price: number;
-    promoted: boolean;
-    title: string;
-}
-export interface Products {
-  [key: string] : Product;
-}
+import {tableData} from "../interfaces/";
 
 @Injectable()
 export class ProductService {
@@ -28,5 +14,24 @@ export class ProductService {
   }
   getProduct(productId: number){
     return this.HttpService.getResources(`products/${productId}.json`);
+  }
+
+  toTableData(productsObj){
+    let keys = Object.keys(productsObj);
+    let result:tableData = {
+      hasRmEditBtns : true,
+      headers: [
+        'ID',
+        'Product name'
+      ],
+      dataRows: []
+    };
+    keys.forEach((key)=>{
+      result.dataRows.push({
+        rowId: productsObj[key].id,
+        rowColumns : [key,productsObj[key].title]
+      })
+    });
+    return result;
   }
 }

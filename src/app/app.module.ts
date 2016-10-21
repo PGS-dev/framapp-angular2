@@ -21,6 +21,8 @@ import {AuthService} from "./services/auth.service";
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { CategoriesAdminComponent } from './components/categories-admin/categories-admin.component';
 import { ProductAdminComponent } from './components/product-admin/product-admin.component';
+import { TableComponent } from './components/table/table.component';
+import {CategoriesService} from "./services/categories.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ProductAdminComponent } from './components/product-admin/product-admin.
     ProductList,
     SignInComponent,
     CategoriesAdminComponent,
-    ProductAdminComponent
+    ProductAdminComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { ProductAdminComponent } from './components/product-admin/product-admin.
     NavService,
     AuthService,
     ProductService,
-    UtilsService
+    UtilsService,
+    CategoriesService
   ],
   bootstrap: [AppComponent]
 })

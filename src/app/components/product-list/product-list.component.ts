@@ -1,8 +1,10 @@
 import {Component, ViewEncapsulation} from "@angular/core";
-import {ProductService, Products } from "../../services/product.service";
+import {ProductService } from "../../services/product.service";
 import {UtilsService} from "../../services/utils.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import {Products} from "../../interfaces/";
+
 
 @Component({
   selector: 'product-list',

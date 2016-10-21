@@ -3,16 +3,17 @@
  */
 
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {CategoriesService, Category} from '../../services/categories.service';
+import {CategoriesService} from '../../services/categories.service';
 import {NavService} from "../../services/nav.service";
 import {Subscription} from 'rxjs/Subscription';
 import {AuthService} from "../../services/auth.service";
+import {Category} from "../../interfaces/";
+
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss'],
-  providers: [CategoriesService]
+  styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
   private subscription: Subscription;

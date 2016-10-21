@@ -3,8 +3,10 @@
  */
 import {Subscription} from 'rxjs';
 import {Component, OnInit} from '@angular/core';
-import {ProductService, Product} from "../../services/product.service";
+import {ProductService} from "../../services/product.service";
 import {ActivatedRoute} from "@angular/router";
+import {Product} from "../../interfaces/";
+
 
 @Component({
   selector: 'product-details',

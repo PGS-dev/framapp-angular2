@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Category} from "../../services/categories.service";
+import {Category} from "../../interfaces/";
 
 @Component({
   selector: 'app-list',
