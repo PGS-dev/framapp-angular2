@@ -1,8 +1,31 @@
+@import '../../shared/variables';
+
 table{
-  //table-layout: fixed;
   width: 100%;
 
   td,th{
     text-align: center;
+  }
+  thead{
+    tr{
+      background-color: $color-gray;
+    }
+  }
+  tbody{
+    tr{
+      &:nth-child(2n){
+        background-color: $color-gray-light;
+      }
+    }
+    .action-label{
+      text-decoration: underline;
+      display: inline-block;
+      margin: 0 5px;
+
+      &:hover{
+        cursor: pointer;
+        color: $color-orange;
+      }
+    }
   }
 }

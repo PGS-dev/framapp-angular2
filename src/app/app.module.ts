@@ -24,6 +24,8 @@ import { CategoriesAdminComponent } from './components/categories-admin/categori
 import { ProductAdminComponent } from './components/product-admin/product-admin.component';
 import { TableComponent } from './components/table/table.component';
 import {CategoriesService} from "./services/categories.service";
+import { CategoriesAdminAddComponent } from './components/categories-admin-add/categories-admin-add.component';
+import { ProductAdminAddComponent } from './components/product-admin-add/product-admin-add.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {CategoriesService} from "./services/categories.service";
     CategoriesAdminComponent,
     ProductAdminComponent,
     TableComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    CategoriesAdminAddComponent,
+    ProductAdminAddComponent
   ],
   imports: [
     BrowserModule,

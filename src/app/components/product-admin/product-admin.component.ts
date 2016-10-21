@@ -47,4 +47,7 @@ export class ProductAdminComponent implements OnInit {
   editProduct(productId){
     this.router.navigateByUrl(`products/${productId}/edit`);
   }
+  addProduct(){
+    this.router.navigateByUrl('productsAdmin/add');
+  }
 }

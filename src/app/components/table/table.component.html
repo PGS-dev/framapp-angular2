@@ -1,4 +1,4 @@
-<table>
+<table border="1">
   <thead>
   <tr>
     <th *ngFor="let tableHeader of tableData.headers">{{tableHeader}}</th>
@@ -11,9 +11,9 @@
         {{dataColumn}}
       </td>
       <td *ngIf="tableData.actions.length>0">
-        <span *ngFor="let actionItem of tableData.actions" (click)="actionItemClick(actionItem,!!dataRow.rowId2 ? dataRow.rowId2 : dataRow.rowId)" class="action-label">
+        <div *ngFor="let actionItem of tableData.actions" (click)="actionItemClick(actionItem,!!dataRow.rowId2 ? dataRow.rowId2 : dataRow.rowId)" class="action-label">
           {{actionItem | uppercase}}
-        </span>
+        </div>
       </td>
     </tr>
   </tbody>

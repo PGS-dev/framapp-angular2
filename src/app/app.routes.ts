@@ -6,6 +6,8 @@ import {SignInComponent} from "./components/sign-in/sign-in.component";
 import {CategoriesAdminComponent} from "./components/categories-admin/categories-admin.component";
 import {ProductAdminComponent} from "./components/product-admin/product-admin.component";
 import {ProductEditComponent} from "./components/product-edit/product-edit.component";
+import {CategoriesAdminAddComponent} from "./components/categories-admin-add/categories-admin-add.component";
+import {ProductAdminAddComponent} from "./components/product-admin-add/product-admin-add.component";
 
 export const AppRoutes: Routes = [
   {path: '', component: ProductList},
@@ -14,7 +16,9 @@ export const AppRoutes: Routes = [
   {path: 'products/:productId', component: ProductDetailsComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'categoriesAdmin', component: CategoriesAdminComponent},
+  {path: 'categoriesAdmin/add', component: CategoriesAdminAddComponent},
   {path: 'productsAdmin', component: ProductAdminComponent},
+  {path: 'productsAdmin/add', component: ProductAdminAddComponent},
   {path: 'products/:productId/edit', component: ProductEditComponent},
   {path: '**', component: NoContent},
 ];
