@@ -19,6 +19,8 @@ import {ProductService} from "./services/product.service";
 import {UtilsService} from "./services/utils.service";
 import {AuthService} from "./services/auth.service";
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { CategoriesAdminComponent } from './components/categories-admin/categories-admin.component';
+import { ProductAdminComponent } from './components/product-admin/product-admin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     HeaderComponent,
     ProductDetailsComponent,
     ProductList,
-    SignInComponent
+    SignInComponent,
+    CategoriesAdminComponent,
+    ProductAdminComponent
   ],
   imports: [
     BrowserModule,
