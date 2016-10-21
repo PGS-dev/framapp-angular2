@@ -11,7 +11,10 @@ import {Category,tableData} from "../../interfaces/";
 export class CategoriesAdminComponent implements OnInit {
   public categoryList: Category = {};
   public tableData: tableData = {
-    hasRmEditBtns: true,
+    actions: [
+      'edit',
+      'remove'
+    ],
     headers : [],
     dataRows : []
   };
@@ -31,5 +34,16 @@ export class CategoriesAdminComponent implements OnInit {
           this.tableData = this.categoriesService.toTableData(categoryList);
         }
       );
+  }
+  actionItemClick(data){
+    if(this[data.action+'Category']){
+      this[data.action+'Category'](data.id);
+    }
+  }
+  removeCategory(categoryId){
+    console.log('Remove product:'+categoryId);
+  }
+  editCategory(categoryId){
+    console.log('Edit product:'+categoryId);
   }
 }

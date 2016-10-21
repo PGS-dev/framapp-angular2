@@ -2,7 +2,7 @@
   <thead>
   <tr>
     <th *ngFor="let tableHeader of tableData.headers">{{tableHeader}}</th>
-    <th *ngIf="tableData.hasRmEditBtns===true">Actions</th>
+    <th *ngIf="tableData.actions.length>0">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -10,7 +10,11 @@
       <td *ngFor="let dataColumn of dataRow.rowColumns">
         {{dataColumn}}
       </td>
-      <td *ngIf="tableData.hasRmEditBtns===true">EDIT/REMOVE</td>
+      <td *ngIf="tableData.actions.length>0">
+        <span *ngFor="let actionItem of tableData.actions" (click)="actionItemClick(actionItem,!!dataRow.rowId2 ? dataRow.rowId2 : dataRow.rowId)" class="action-label">
+          {{actionItem | uppercase}}
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>

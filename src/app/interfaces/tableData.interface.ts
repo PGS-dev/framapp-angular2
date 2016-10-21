@@ -4,7 +4,7 @@ export interface tableRow{
   rowColumns: Array<string>
 }
 export interface tableData{
-  hasRmEditBtns: boolean;
+  actions: Array<string>;
   headers : Array<string>;
   dataRows : tableRow[];
 }

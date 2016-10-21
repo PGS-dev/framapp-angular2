@@ -19,7 +19,10 @@ export class ProductService {
   toTableData(productsObj){
     let keys = Object.keys(productsObj);
     let result:tableData = {
-      hasRmEditBtns : true,
+      actions: [
+        'edit',
+        'remove'
+      ],
       headers: [
         'ID',
         'Product name'
@@ -28,7 +31,8 @@ export class ProductService {
     };
     keys.forEach((key)=>{
       result.dataRows.push({
-        rowId: productsObj[key].id,
+        rowId: key,
+        rowId2: productsObj[key].id,
         rowColumns : [key,productsObj[key].title]
       })
     });

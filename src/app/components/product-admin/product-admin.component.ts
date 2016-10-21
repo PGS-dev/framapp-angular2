@@ -10,7 +10,10 @@ import {ProductService} from "../../services/product.service";
 export class ProductAdminComponent implements OnInit {
   public productsList: Category = {};
   public tableData: tableData = {
-    hasRmEditBtns: true,
+    actions: [
+      'edit',
+      'remove'
+    ],
     headers : [],
     dataRows : []
   };
@@ -20,9 +23,14 @@ export class ProductAdminComponent implements OnInit {
   ){}
 
   ngOnInit() {
-    this.getCategories();
+    this.getProducts();
   }
-  getCategories() {
+  actionItemClick(data){
+    if(this[data.action+'Product']){
+      this[data.action+'Product'](data.id);
+    }
+  }
+  getProducts() {
     this.productService.getProducts()
       .subscribe(
         productsList => {
@@ -30,5 +38,11 @@ export class ProductAdminComponent implements OnInit {
           this.tableData = this.productService.toTableData(productsList);
         }
       );
+  }
+  removeProduct(productId){
+    console.log('Remove product:'+productId);
+  }
+  editProduct(productId){
+    console.log('Edit product:'+productId);
   }
 }

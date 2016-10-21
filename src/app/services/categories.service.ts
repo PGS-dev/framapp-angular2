@@ -26,7 +26,10 @@ export class CategoriesService{
   toTableData(categoriesObj){
     let keys = Object.keys(categoriesObj);
     let result:tableData = {
-      hasRmEditBtns : true,
+      actions: [
+        'edit',
+        'remove'
+      ],
       headers: [
         'ID',
         'Category name'
