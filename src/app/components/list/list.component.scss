@@ -27,6 +27,9 @@
         cursor: pointer;
         color: $color-orange;
       }
+      &.is-active{
+        color: $color-orange;
+      }
     }
   }
 }

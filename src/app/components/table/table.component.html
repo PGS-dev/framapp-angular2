@@ -1,0 +1,16 @@
+<table>
+  <thead>
+  <tr>
+    <th *ngFor="let tableHeader of tableData.headers">{{tableHeader}}</th>
+    <th *ngIf="tableData.hasRmEditBtns===true">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataRow of tableData.dataRows">
+      <td *ngFor="let dataColumn of dataRow.rowColumns">
+        {{dataColumn}}
+      </td>
+      <td *ngIf="tableData.hasRmEditBtns===true">EDIT/REMOVE</td>
+    </tr>
+  </tbody>
+</table>
