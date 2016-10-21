@@ -1,29 +1,42 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class AuthService {
   private adminLogin: string = 'admin';
   private adminPass: string = 'pass';
 
-  private isAuthenticated: boolean = false;
-  private _isAuthSource = new BehaviorSubject<boolean>(false);
+  private authState: AuthState = {
+    isAuthenticated: false,
+    authUser: ''
+  };
+  private _authSource = new Subject<AuthState>();
 
   get authentication$() {
-    return this._isAuthSource.asObservable();
+    return this._authSource.asObservable();
   }
 
-  private setAuthenticated(auth) {
-    this.isAuthenticated = auth;
-    this._isAuthSource.next(this.isAuthenticated);
+  private setAuthenticated(auth: boolean, user?: string) {
+    this.authState = {
+      isAuthenticated: auth,
+      authUser: user || ''
+    };
+    this._authSource.next(this.authState);
   }
 
   login(user, pass) {
-    this.setAuthenticated(true);
+    if (user === this.adminLogin && pass === this.adminPass) {
+      this.setAuthenticated(true, user);
+    }
   }
 
   logout() {
     this.setAuthenticated(false);
   }
 
+}
+
+export type AuthState = {
+  isAuthenticated: boolean,
+  authUser: string
 }

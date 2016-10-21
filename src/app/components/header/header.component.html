@@ -1,16 +1,20 @@
 <header>
   <div class="container">
-    <div class="row">
-      <button class='btn btn-menu-mobile' (click)="toggleMenu()"><b>Menu</b></button>
-      <div class="logo-wrapper" [routerLink]="['/']">
-        <img src="assets/pgs-logo.png" />
-        Framapp
+    <div class="row header-row">
+      <div>
+        <button class='btn btn-menu-mobile' (click)="toggleMenu()"><b>Menu</b></button>
+        <div class="header-logo" [routerLink]="['/']">
+          <img src="assets/pgs-logo.png" />
+          Framapp
+        </div>
       </div>
-      <div class="pull-right">
-        <button class="btn btn-first" (click)="authService.login()"
-                *ngIf="!isAuthenticated">Login</button>
-        <button class="btn btn-first" (click)="authService.logout()"
-                *ngIf="isAuthenticated">Logout</button>
+      <div>
+        <button class="btn btn-second" [routerLink]="['./sign-in']"
+                *ngIf="!isAuthenticated">Sign in</button>
+        <span class=""
+              *ngIf="isAuthenticated">Hi, {{loggedUser}}</span>
+        <button class="btn btn-second" (click)="authService.logout()"
+                *ngIf="isAuthenticated">Sign out</button>
       </div>
     </div>
   </div>

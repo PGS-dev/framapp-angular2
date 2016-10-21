@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router'
 import {AppComponent} from './components/app/app.component';
-import {Categories, NoContent} from './shared/';
+import {CategoriesComponent, NoContent} from './shared/';
 import {AppRoutes} from './app.routes';
 import {KeysPipe} from './pipes/keys.pipe';
 import {HttpService} from "./services/http.service";
@@ -18,17 +18,19 @@ import {NavService} from "./services/nav.service";
 import {ProductService} from "./services/product.service";
 import {UtilsService} from "./services/utils.service";
 import {AuthService} from "./services/auth.service";
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Categories,
+    CategoriesComponent,
     NoContent,
     KeysPipe,
     ListComponent,
     HeaderComponent,
     ProductDetailsComponent,
-    ProductList
+    ProductList,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
