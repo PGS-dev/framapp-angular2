@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Category,tableData} from "../../interfaces/";
 import {ProductService} from "../../services/product.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-product-admin',
@@ -19,7 +20,8 @@ export class ProductAdminComponent implements OnInit {
   };
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ){}
 
   ngOnInit() {
@@ -43,6 +45,6 @@ export class ProductAdminComponent implements OnInit {
     console.log('Remove product:'+productId);
   }
   editProduct(productId){
-    console.log('Edit product:'+productId);
+    this.router.navigateByUrl(`products/${productId}/edit`);
   }
 }
