@@ -1,0 +1,10 @@
+.ProductList {
+  width: 100%;
+  border-collapse: collapse; }
+  .ProductList th, .ProductList td {
+    border: 1px solid #ccc;
+    text-align: center; }
+  .ProductList-header {
+    background: #e8e3cc; }
+
+/*# sourceMappingURL=product-list.component.css.map */
