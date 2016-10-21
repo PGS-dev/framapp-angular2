@@ -14,6 +14,7 @@ import { ListComponent } from './components/list/list.component';
 import { ProductList } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import {NavService} from "./services/nav.service";
 import {ProductService} from "./services/product.service";
 import {UtilsService} from "./services/utils.service";
@@ -37,7 +38,8 @@ import {CategoriesService} from "./services/categories.service";
     SignInComponent,
     CategoriesAdminComponent,
     ProductAdminComponent,
-    TableComponent
+    TableComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,

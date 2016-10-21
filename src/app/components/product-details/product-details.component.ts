@@ -2,11 +2,11 @@
  * Created by tlaskowski on 10/12/2016.
  */
 import {Subscription} from 'rxjs';
-import {Component, OnInit} from '@angular/core';
-import {ProductService} from "../../services/product.service";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {ProductService, Product} from "../../services/product.service";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../../interfaces/";
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'product-details',
@@ -31,7 +31,8 @@ export class ProductDetailsComponent implements OnInit {
   private subscription: Subscription;
 
   constructor(private productService: ProductService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private location: Location) {
   };
 
   ngOnInit() {
@@ -53,5 +54,9 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(
         productDetails => this.productDetails = productDetails
       );
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
