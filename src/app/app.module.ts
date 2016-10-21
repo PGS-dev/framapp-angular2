@@ -10,20 +10,35 @@ import {KeysPipe} from './pipes/keys.pipe';
 import {HttpService} from "./services/http.service";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { ListComponent } from './components/list/list.component';
-import { ProductList } from './components/product-list/product-list.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import {ListComponent} from './components/list/list.component';
+import {ProductList} from './components/product-list/product-list.component';
+import {ProductDetailsComponent} from './components/product-details/product-details.component';
+import {HeaderComponent} from './components/header/header.component';
+import {ProductEditComponent} from './components/product-edit/product-edit.component';
 import {NavService} from "./services/nav.service";
 import {ProductService} from "./services/product.service";
 import {UtilsService} from "./services/utils.service";
 import {AuthService} from "./services/auth.service";
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { CategoriesAdminComponent } from './components/categories-admin/categories-admin.component';
-import { ProductAdminComponent } from './components/product-admin/product-admin.component';
-import { TableComponent } from './components/table/table.component';
+import {SignInComponent} from './components/sign-in/sign-in.component';
+import {CategoriesAdminComponent} from './components/categories-admin/categories-admin.component';
+import {ProductAdminComponent} from './components/product-admin/product-admin.component';
+import {TableComponent} from './components/table/table.component';
 import {CategoriesService} from "./services/categories.service";
+
+import {AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
+
+const myFirebaseConfig = {
+  apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
+  authDomain: 'https://project-5613440220430148247.firebaseapp.com',
+  databaseURL: 'https://project-5613440220430148247.firebaseio.com',
+  storageBucket: 'project-5613440220430148247.appspot.com',
+  messagingSenderId: '122242095723'
+};
+
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Password,
+  method: AuthMethods.Password
+};
 
 @NgModule({
   declarations: [
@@ -45,7 +60,8 @@ import {CategoriesService} from "./services/categories.service";
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(AppRoutes, {useHash: true})
+    RouterModule.forRoot(AppRoutes, {useHash: true}),
+    AngularFireModule.initializeApp(myFirebaseConfig, myFirebaseAuthConfig)
   ],
   providers: [
     HttpService,
@@ -57,4 +73,5 @@ import {CategoriesService} from "./services/categories.service";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
