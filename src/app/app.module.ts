@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFire} from 'angularfire2';
 import { RouterModule }   from '@angular/router';
-import { ProductsAppRoutes } from "./app.routes";
+import { AppRoutes } from "./app.routes";
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -17,7 +18,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { LoginBtnComponent } from './components/login-btn/login-btn.component';
 
 import { AuthService } from './services/auth.service';
-
+import { DataService } from './services/data.service';
 
 
 export const firebaseConfig = {
@@ -45,13 +46,9 @@ export const firebaseConfig = {
     HttpModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot([
-      { path: 'products', component: ProductPageComponent},
-      { path: '', component: HomeComponent },
-      { path: '**', component: HomeComponent }
-    ])
+    RouterModule.forRoot(AppRoutes)
   ],
-  providers: [AuthService],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

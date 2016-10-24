@@ -19,11 +19,11 @@ export class LoginBtnComponent implements OnInit {
   }
 
   private setBtnText(): void {
-    this.btnText = this.authService.isAtuhenticated() ? btnStates.signOut : btnStates.signIn;
+    this.btnText = this.authService.isAuthenticated() ? btnStates.signOut : btnStates.signIn;
   }
 
   userAuth(): void {
-    if (this.authService.isAtuhenticated()) {
+    if (this.authService.isAuthenticated()) {
       this.authService.logout();
     } else {
       this.authService.login();

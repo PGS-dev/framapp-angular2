@@ -16,7 +16,7 @@ export class AuthService {
     this.setAuthenticated(false);
   }
 
-  isAtuhenticated(): boolean {
+  isAuthenticated(): boolean {
     return this.atuhenticated;
   }
 }

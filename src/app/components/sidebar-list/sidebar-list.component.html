@@ -5,7 +5,7 @@
 
   <ul class="SidebarList-list">
     <li *ngFor="let listElement of list" class="SidebarList-element">
-      <a routerLink="{{listElement | lowercase}}" >{{listElement}}</a>
+      <a [routerLink]="['categories/', listElement.id]" >{{listElement.title}}</a>
     </li>
   </ul>
 

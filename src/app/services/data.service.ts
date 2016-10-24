@@ -9,7 +9,6 @@ export class DataService {
   constructor(private http: Http) { }
 
   getData (path: string): Observable<any> {
-    // console.log(this.baseUrl + path);
     return this.http.get(this.baseUrl + path)
       .map(DataService.extractData)
       .catch(DataService.handleError);

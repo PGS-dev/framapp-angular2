@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-// import { SidebarListComponent } from '../sidebar-list/sidebar-list.component';
+import { AngularFire} from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2';
 
 import { AuthService } from '../../services/auth.service';
-import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'sidebar',
   templateUrl: 'sidebar.component.html',
   styleUrls: ['sidebar.component.scss'],
-  providers: [ DataService]
 })
 export class SidebarComponent implements OnInit {
+  private categoriesList: FirebaseListObservable<any>;
   categories = {
     title: 'Categories',
     list: []
@@ -19,24 +19,25 @@ export class SidebarComponent implements OnInit {
     title: 'Admin',
     list: ['Products', 'Categories'],
     isAdminActive: false
-    //'isAdminActive': this.authService.isAtuhenticated()
+    //'isAdminActive': this.authService.isAuthenticated()
   };
 
-  constructor(private dataService: DataService, private authService: AuthService) {
+  constructor(private authService: AuthService, af: AngularFire) {
+    this.getCategoriesList(af);
+
   }
 
-  getCategoriesList() {
-    this.dataService.getData('categories.json')
-      .subscribe(
-        (categoryList) => {
-          console.log(categoryList);
-          this.categories.list = Object.keys(categoryList);
-        }
-      );
+  getCategoriesList(af) {
+    this.categoriesList = af.database.list('/api/v1/categories');
+    this.categoriesList.subscribe(
+      categoryList => {
+        // console.log("angularfire", categoryList);
+        this.categories.list = categoryList;
+      }
+    );
   }
 
   ngOnInit() {
-    this.getCategoriesList();
   }
 
 }
