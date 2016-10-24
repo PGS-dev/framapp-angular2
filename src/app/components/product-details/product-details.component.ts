@@ -16,6 +16,7 @@ import { Location } from '@angular/common';
 })
 
 export class ProductDetailsComponent implements OnInit {
+  private subscriptions: Array<Subscription> = [];
   public productDetails: Product = {
     amount: 0,
     category: "",
@@ -27,9 +28,6 @@ export class ProductDetailsComponent implements OnInit {
     promoted: false,
     title: ""
   };
-
-  private subscription: Subscription;
-
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private location: Location) {
@@ -37,23 +35,22 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     // subscribe to router event
-    this.subscription = this.activatedRoute.params.subscribe(
+    this.subscriptions.push(this.activatedRoute.params.subscribe(
       (param: any) => {
         let productId = param['productId'];
         this.getProduct(productId);
-      });
+      }));
   }
 
   ngOnDestroy() {
-    // prevent memory leak by unsubscribing
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   getProduct(productId: number) {
-    this.productService.getProduct(productId)
+    this.subscriptions.push(this.productService.getProduct(productId)
       .subscribe(
         productDetails => this.productDetails = productDetails
-      );
+      ));
   }
 
   goBack(): void {

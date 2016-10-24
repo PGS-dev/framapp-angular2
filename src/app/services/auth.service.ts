@@ -2,9 +2,11 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 
 import {AngularFire, FirebaseAuthState} from 'angularfire2';
+import {Subscription} from "rxjs";
 
 @Injectable()
 export class AuthService {
+  private subscriptions: Array<Subscription> = [];
   private authState: AuthState = {
     isAuthenticated: false,
     authUser: '',
@@ -14,7 +16,11 @@ export class AuthService {
   private _authSource = new Subject<AuthState>();
 
   constructor(private firebase: AngularFire) {
-    this.firebase.auth.subscribe(auth => this.setAuthenticated(auth));
+    this.subscriptions.push(this.firebase.auth.subscribe(auth => this.setAuthenticated(auth)));
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   get authentication$() {

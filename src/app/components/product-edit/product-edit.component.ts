@@ -18,6 +18,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 })
 export class ProductEditComponent implements OnInit {
+  private subscriptions: Array<Subscription> = [];
+  private productId: number;
+  private list: Category = {};
+  private product: FormGroup;
+  public categoryList: Category = {};
   public productDetails: Product = {
     amount: 0,
     category: "",
@@ -30,12 +35,6 @@ export class ProductEditComponent implements OnInit {
     title: ""
   };
 
-  private productId: number;
-  public categoryList: Category = {};
-  private subscription: Subscription;
-  private list: Category = {};
-  private product: FormGroup;
-
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private location: Location,
@@ -46,11 +45,11 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
     this.getCategories();
     // subscribe to router event
-    this.subscription = this.activatedRoute.params.subscribe(
+    this.subscriptions.push(this.activatedRoute.params.subscribe(
       (param: any) => {
         this.productId = param['productId'];
         this.getProduct(this.productId);
-      });
+      }));
     this.product = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2)]],
       description: ['', [Validators.required, Validators.maxLength(255)]],
@@ -63,35 +62,33 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // prevent memory leak by unsubscribing
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   getCategories() {
-    this.categoriesService.getCategories()
+    this.subscriptions.push(this.categoriesService.getCategories()
       .subscribe(
         categoryList => this.categoryList = categoryList
-      );
+      ));
   }
 
   getProduct(productId: number) {
-    this.productService.getProduct(productId)
+    this.subscriptions.push(this.productService.getProduct(productId)
       .subscribe(
         productDetails => this.productDetails = productDetails
-      );
+      ));
   }
 
   save() {
-    this.productService.updateProduct(this.productId, this.productDetails)
+    this.subscriptions.push(this.productService.updateProduct(this.productId, this.productDetails)
       .subscribe(
         productDetails => {
           this.productDetails = productDetails;
         }
-      );
+      ));
   }
 
   goBack(): void {
     this.location.back();
   }
-
 }
