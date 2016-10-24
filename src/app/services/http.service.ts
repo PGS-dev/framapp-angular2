@@ -24,6 +24,13 @@ export class HttpService {
         .catch(this.handleError);
   }
 
+  postResources (method:string, data:string): Observable<any> {
+    let url = `${this.apiUrl+this.apiVer}/${method}`;
+    return this.http.post(url, data)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     let body = res.json();
     return body || { };

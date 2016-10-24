@@ -1,6 +1,6 @@
-<div class="product-edit col-xs-12">
+<div class="product-form col-xs-12">
     <h3>Edit product</h3>
-    <form name="productEditForm" novalidate (ngSubmit)="onSubmit(product)" [formGroup]="product">
+    <form name="productForm" novalidate (ngSubmit)="onSubmit(product)" [formGroup]="product">
         <label>Title</label>
         <input type="text" name="productTitle" formControlName="title" [(ngModel)]="productDetails.title">
         <div class="error" *ngIf="product.get('title').touched && product.get('title').hasError('required')">

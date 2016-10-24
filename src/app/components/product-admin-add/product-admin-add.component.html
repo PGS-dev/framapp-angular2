@@ -1,3 +1,27 @@
-<p>
-  product-admin-add works!
-</p>
+<div class="product-form col-xs-12">
+  <h3>Add product</h3>
+  <form name="productForm" novalidate (ngSubmit)="onSubmit(product)" [formGroup]="product">
+    <label>Title</label>
+    <input type="text" name="productTitle" formControlName="title" [(ngModel)]="productDetails.title">
+    <div class="error" *ngIf="product.get('title').touched && product.get('title').hasError('required')">
+      Title is required
+    </div>
+    <div class="error" *ngIf="product.get('title').touched && product.get('title').hasError('minlength')">
+      Minimum of 2 characters
+    </div>
+    <label>Description</label>
+    <textarea rows="6" name="productDescription" formControlName="description" [(ngModel)]="productDetails.description"></textarea>
+    <div class="error" *ngIf="product.get('description').touched && product.get('description').hasError('required')">
+      Description is required
+    </div>
+    <div class="error" *ngIf="product.get('description').touched && product.get('description').hasError('maxlength')">
+      Maximum of 255 characters
+    </div>
+    <label>Category</label>
+    <select name="productCategory" >
+      <option *ngFor="let listItem of categoryList | keys" [ngValue]="listItem.key">{{listItem.value.title}}</option>
+    </select>
+    <button class="btn btn-first" type="submit" (click)="add()">Add</button>
+    <button class="btn btn-third" (click)="goBack()">Cancel</button>
+  </form>
+</div>
