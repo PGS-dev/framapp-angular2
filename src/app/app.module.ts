@@ -28,6 +28,7 @@ import { CategoriesAdminAddComponent } from './components/categories-admin-add/c
 import { ProductAdminAddComponent } from './components/product-admin-add/product-admin-add.component';
 
 import {AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
+import { CategoriesAdminEditComponent } from './components/categories-admin-edit/categories-admin-edit.component';
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
@@ -58,7 +59,8 @@ const myFirebaseAuthConfig = {
     TableComponent,
     ProductEditComponent,
     CategoriesAdminAddComponent,
-    ProductAdminAddComponent
+    ProductAdminAddComponent,
+    CategoriesAdminEditComponent
   ],
   imports: [
     BrowserModule,
