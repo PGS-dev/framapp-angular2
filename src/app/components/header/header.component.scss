@@ -1,0 +1,12 @@
+@import '../../variables';
+
+.Header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $HeaderHeight;
+	@media (min-width: $HeaderHeightBreakpoint) {
+		height: $HeaderHeightMobile;
+	}
+}
