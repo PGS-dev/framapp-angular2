@@ -15,7 +15,7 @@ import {Products} from "../../interfaces/";
   providers: []
 })
 export class ProductList {
-  private  subscription: Subscription;
+  private subscriptions: Array<Subscription> = [];
   selectedCategory: string = '';
   productListFiltered: Products = {};
   productsList: Products = {};
@@ -25,25 +25,29 @@ export class ProductList {
     private UtilsService: UtilsService,
     private activatedRoute: ActivatedRoute
   ){
-    this.subscription = this.activatedRoute.params.subscribe(
+    this.subscriptions.push(this.activatedRoute.params.subscribe(
       (param: any) => {
         this.selectedCategory = param['categoryId'] || '';
         this.filterProducts();
-      });
+      }));
   };
 
   ngOnInit() {
     this.getProducts();
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
   getProducts() {
-    this.productService.getProducts()
+    this.subscriptions.push(this.productService.getProducts()
       .subscribe(
         productsList => {
           this.productsList = productsList;
           this.filterProducts();
         }
-      );
+      ));
   }
   filterProducts(){
     this.productListFiltered = this.UtilsService.filterObject(this.productsList,this.selectedCategory!=='' ? {

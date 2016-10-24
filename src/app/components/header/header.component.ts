@@ -11,28 +11,26 @@ import {AuthService} from '../../services/auth.service';
   providers: []
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
   private isAuthenticated: boolean = false;
-  private subscription: Subscription;
+  private subscriptions: Array<Subscription> = [];
   private loggedUser: string;
 
   constructor(private _NavService: NavService, private authService: AuthService) {
   }
 
   ngOnInit() {
-    this.subscription = this.authService.authentication$
+    this.subscriptions.push(this.authService.authentication$
       .subscribe(authState => {
         this.isAuthenticated = authState.isAuthenticated;
         this.loggedUser = authState.authUser;
-      });
+      }));
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   toggleMenu() {
     this._NavService.changeVisible();
   }
-
 }

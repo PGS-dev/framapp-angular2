@@ -16,8 +16,7 @@ import {Category} from "../../interfaces/";
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
-  private authSubscription: Subscription;
+  private subscriptions: Array<Subscription> = [];
   private isMenuVisible: boolean = false;
   public categoryList: Category = {};
   private isAdmin: boolean = false;
@@ -47,25 +46,24 @@ export class CategoriesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getCategories();
-    this.subscription = this._NavService.isVisible$.subscribe(
+    this.subscriptions.push(this._NavService.isVisible$.subscribe(
       isVisible => this.isMenuVisible = isVisible
-    );
-    this.authSubscription = this.authService.authentication$.subscribe(
+    ));
+    this.subscriptions.push(this.authService.authentication$.subscribe(
       authState => {
         this.isAdmin = authState.isAuthenticated;
       }
-    );
+    ));
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
-    this.authSubscription.unsubscribe();
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   getCategories() {
-    this.categoriesService.getCategories()
+    this.subscriptions.push(this.categoriesService.getCategories()
       .subscribe(
         categoryList => this.categoryList = this.categoriesService.fillCategoriesData(categoryList)
-      );
+      ));
   }
 }

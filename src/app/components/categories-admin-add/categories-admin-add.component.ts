@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['categories-admin-add.component.css']
 })
 export class CategoriesAdminAddComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
   }
-
 }

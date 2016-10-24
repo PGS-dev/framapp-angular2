@@ -4,7 +4,7 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from "./http.service";
 import {tableData} from "../interfaces/";
-import {Http, Response} from '@angular/http';
+import {Http} from '@angular/http';
 
 export interface Product {
   amount: number
