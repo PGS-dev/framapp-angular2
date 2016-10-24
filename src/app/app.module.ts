@@ -24,11 +24,13 @@ import {CategoriesAdminComponent} from './components/categories-admin/categories
 import {ProductAdminComponent} from './components/product-admin/product-admin.component';
 import {TableComponent} from './components/table/table.component';
 import {CategoriesService} from "./services/categories.service";
-import { CategoriesAdminAddComponent } from './components/categories-admin-add/categories-admin-add.component';
-import { ProductAdminAddComponent } from './components/product-admin-add/product-admin-add.component';
+import {CategoriesAdminAddComponent} from './components/categories-admin-add/categories-admin-add.component';
+import {ProductAdminAddComponent} from './components/product-admin-add/product-admin-add.component';
 
 import {AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
-import { CategoriesAdminEditComponent } from './components/categories-admin-edit/categories-admin-edit.component';
+import {CategoriesAdminEditComponent} from './components/categories-admin-edit/categories-admin-edit.component';
+import {AccessService} from "./services/access.service";
+import {AuthGuard} from "./services/auth-guard.service";
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
@@ -67,8 +69,8 @@ const myFirebaseAuthConfig = {
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(AppRoutes, {useHash: true}),
-    AngularFireModule.initializeApp(myFirebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(myFirebaseConfig, myFirebaseAuthConfig),
+    RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
   providers: [
     HttpService,
@@ -76,7 +78,9 @@ const myFirebaseAuthConfig = {
     AuthService,
     ProductService,
     UtilsService,
-    CategoriesService
+    CategoriesService,
+    AccessService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

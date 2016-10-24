@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Category,tableData} from "../../interfaces/";
+import {Component, OnInit} from '@angular/core';
+import {Category, tableData} from "../../interfaces/";
 import {ProductService} from "../../services/product.service";
 import {Router} from "@angular/router";
 import {Subscription} from "rxjs";
@@ -17,14 +17,13 @@ export class ProductAdminComponent implements OnInit {
       'edit',
       'remove'
     ],
-    headers : [],
-    dataRows : []
+    headers: [],
+    dataRows: []
   };
 
-  constructor(
-    private productService: ProductService,
-    private router: Router
-  ){}
+  constructor(private productService: ProductService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.getProducts();
@@ -43,18 +42,22 @@ export class ProductAdminComponent implements OnInit {
         }
       ));
   }
-  actionItemClick(data){
-    if(this[data.action+'Product']){
-      this[data.action+'Product'](data.id);
+
+  actionItemClick(data) {
+    if (this[data.action + 'Product']) {
+      this[data.action + 'Product'](data.id);
     }
   }
-  removeProduct(productId){
-    console.log('Remove product:'+productId);
+
+  removeProduct(productId) {
+    console.log('Remove product:' + productId);
   }
-  editProduct(productId){
+
+  editProduct(productId) {
     this.router.navigateByUrl(`products/${productId}/edit`);
   }
-  addProduct(){
+
+  addProduct() {
     this.router.navigateByUrl('productsAdmin/add');
   }
 }

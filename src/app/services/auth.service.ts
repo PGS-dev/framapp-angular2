@@ -39,6 +39,10 @@ export class AuthService {
     this._authSource.next(this.authState);
   }
 
+  isAdmin() {
+    return this.firebase.auth.getAuth() !== null;
+  }
+
   login(user, pass) {
     this.firebase.auth.login({email: user, password: pass}).catch(
       err => console.log(err.message)
