@@ -28,6 +28,7 @@ export class CategoriesAdminComponent implements OnInit {
   ngOnInit() {
     this.getCategories();
   }
+
   getCategories() {
     this.categoriesService.getCategories()
       .subscribe(
@@ -37,17 +38,21 @@ export class CategoriesAdminComponent implements OnInit {
         }
       );
   }
+
   actionItemClick(data){
     if(this[data.action+'Category']){
       this[data.action+'Category'](data.id);
     }
   }
+
   removeCategory(categoryId){
     console.log('Remove product:'+categoryId);
   }
+
   editCategory(categoryId){
     this.router.navigateByUrl(`categories/${categoryId}/edit`);
   }
+
   addCategory(){
     this.router.navigateByUrl('categoriesAdmin/add');
   }

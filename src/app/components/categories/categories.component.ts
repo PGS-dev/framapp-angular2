@@ -18,6 +18,7 @@ import {Category} from "../../interfaces/";
 export class CategoriesComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   private authSubscription: Subscription;
+  private categoriesServiceSubscription: Subscription;
   private isMenuVisible: boolean = false;
   public categoryList: Category = {};
   private isAdmin: boolean = false;
@@ -60,10 +61,11 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.authSubscription.unsubscribe();
+    this.categoriesServiceSubscription.unsubscribe();
   }
 
   getCategories() {
-    this.categoriesService.getCategories()
+    this.categoriesServiceSubscription = this.categoriesService.getCategories()
       .subscribe(
         categoryList => this.categoryList = this.categoriesService.fillCategoriesData(categoryList)
       );

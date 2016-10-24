@@ -27,11 +27,6 @@ export class ProductAdminComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
   }
-  actionItemClick(data){
-    if(this[data.action+'Product']){
-      this[data.action+'Product'](data.id);
-    }
-  }
   getProducts() {
     this.productService.getProducts()
       .subscribe(
@@ -40,6 +35,11 @@ export class ProductAdminComponent implements OnInit {
           this.tableData = this.productService.toTableData(productsList);
         }
       );
+  }
+  actionItemClick(data){
+    if(this[data.action+'Product']){
+      this[data.action+'Product'](data.id);
+    }
   }
   removeProduct(productId){
     console.log('Remove product:'+productId);

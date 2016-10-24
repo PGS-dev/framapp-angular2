@@ -11,7 +11,6 @@ import {AuthService} from '../../services/auth.service';
   providers: []
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
   private isAuthenticated: boolean = false;
   private subscription: Subscription;
   private loggedUser: string;
@@ -34,5 +33,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
   toggleMenu() {
     this._NavService.changeVisible();
   }
-
 }
