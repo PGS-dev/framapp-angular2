@@ -36,7 +36,6 @@ export class ProductService {
   }
 
   updateProduct(productId, data) {
-    console.log(productId,data);
     return this.FirebaseService.updateResource(`products/${productId}`, data);
   }
 
@@ -45,7 +44,7 @@ export class ProductService {
   }
 
   deleteProduct(productId){
-    // delete product
+    return this.FirebaseService.removeResource(`products/${productId}`);
   }
 
   toTableData(productsObj) {

@@ -19,7 +19,12 @@ export class FirebaseService {
   updateResource(method: string,data){
     if(data.$key){
       delete data.$key;
+    }if(data.$exists){
+      delete data.$exists;
     }
     return this.getResource(method).update(data);
+  }
+  removeResource(method: string){
+    return this.getResource(method).remove();
   }
 }
