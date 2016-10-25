@@ -15,6 +15,18 @@ export class CategoriesService{
     return this.FirebaseService.getResources('categories');
   }
 
+  getCategory(categoryId: string) {
+    return this.FirebaseService.getResource(`categories/${categoryId}`);
+  }
+
+  updateCategory(categoryId, data) {
+    return this.FirebaseService.updateResource(`categories/${categoryId}`, data);
+  }
+
+  removeCategory(categoryId) {
+    return this.FirebaseService.removeResource(`categories/${categoryId}`);
+  }
+
   fillCategoriesData(categoriesObj) {
     categoriesObj.forEach((item)=>{
       item.link = ['/products/category/',item.$key];
