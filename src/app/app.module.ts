@@ -33,6 +33,7 @@ import {AuthGuard} from "./services/auth-guard.service";
 import { ModalComponent } from './components/modal/modal.component';
 import {FirebaseService} from "./services/firebase.service";
 
+
 const myFirebaseConfig = {
   apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
   authDomain: 'https://project-5613440220430148247.firebaseapp.com',

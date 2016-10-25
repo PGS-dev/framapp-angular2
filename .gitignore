@@ -24,6 +24,7 @@
 npm-debug.log
 testem.log
 /typings
+typings.json
 
 # e2e
 /e2e/*.js

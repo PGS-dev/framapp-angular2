@@ -12,8 +12,8 @@ export class FirebaseService {
                private af: AngularFire) {}
 
   getResources (method: string): Observable<any> {
-  return this.af.database.list(`${this.apiUrl}${this.apiVer}${method}`);
-}
+    return this.af.database.list(`${this.apiUrl}${this.apiVer}${method}`);
+  }
 
   getResource (method: string): Observable<any> {
     return this.af.database.object(`${this.apiUrl}${this.apiVer}${method}`);
