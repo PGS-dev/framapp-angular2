@@ -14,7 +14,7 @@ export class ProductAdminComponent implements OnInit {
   public deleteProductName: string = '';
   public deleteProductId: string = '';
   private subscriptions: Array<Subscription> = [];
-  public productsList: Category = {};
+  public productsList: Array<Category> = [];
   public tableData: tableData = {
     actions: [
       'edit',

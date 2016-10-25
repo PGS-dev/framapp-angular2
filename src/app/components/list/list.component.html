@@ -3,10 +3,10 @@
 </div>
 <div class="sidebar-list-header" *ngIf="header!==''">{{header}}</div>
 <ul class="list-group list-group-categories">
-  <li *ngFor="let listItem of list | keys"
-    [routerLink]="listItem.value.link || []"
+  <li *ngFor="let listItem of list"
+    [routerLink]="listItem.link || []"
     [routerLinkActive]="['is-active']"
     class="list-group-item list-group-categories-item">
-      {{listItem.value.title}}
+      {{listItem.title}}
   </li>
 </ul>

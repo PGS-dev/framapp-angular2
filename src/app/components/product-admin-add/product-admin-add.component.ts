@@ -27,7 +27,7 @@ export class ProductAdminAddComponent implements OnInit {
 
   private productId: number;
   private product: FormGroup;
-  public categoryList: Category = {};
+  public categoryList: Array<Category> = [];
 
 
   constructor(private productService: ProductService,

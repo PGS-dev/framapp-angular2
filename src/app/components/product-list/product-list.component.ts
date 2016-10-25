@@ -1,9 +1,8 @@
 import {Component, ViewEncapsulation} from "@angular/core";
 import {ProductService } from "../../services/product.service";
-import {UtilsService} from "../../services/utils.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
-import {Products} from "../../interfaces/";
+import {Product} from "../../interfaces/";
 
 
 @Component({
@@ -17,12 +16,11 @@ import {Products} from "../../interfaces/";
 export class ProductList {
   private subscriptions: Array<Subscription> = [];
   selectedCategory: string = '';
-  productListFiltered: Products = {};
-  productsList: Products = {};
+  productListFiltered: Array<Product> = [];
+  productsList: Array<Product> = [];
 
   constructor(
     private productService: ProductService,
-    private UtilsService: UtilsService,
     private activatedRoute: ActivatedRoute
   ){
     this.subscriptions.push(this.activatedRoute.params.subscribe(
@@ -50,8 +48,8 @@ export class ProductList {
       ));
   }
   filterProducts(){
-    this.productListFiltered = this.UtilsService.filterObject(this.productsList,this.selectedCategory!=='' ? {
-      category: this.selectedCategory
-    } : {});
+    this.productListFiltered = this.productsList.filter((item)=>{
+      return item.category === this.selectedCategory || this.selectedCategory==='';
+    });
   }
 }

@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['categories-admin.component.scss']
 })
 export class CategoriesAdminComponent implements OnInit {
-  public categoryList: Category = {};
+  public categoryList: Array<Category> = [];
   public tableData: tableData = {
     actions: [
       'edit',

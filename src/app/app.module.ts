@@ -7,7 +7,6 @@ import {AppComponent} from './components/app/app.component';
 import {CategoriesComponent, NoContent} from './shared/';
 import {AppRoutes} from './app.routes';
 import {KeysPipe} from './pipes/keys.pipe';
-import {HttpService} from "./services/http.service";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {ListComponent} from './components/list/list.component';
@@ -32,6 +31,7 @@ import {AuthService} from "./services/auth.service";
 import {AccessService} from "./services/access.service";
 import {AuthGuard} from "./services/auth-guard.service";
 import { ModalComponent } from './components/modal/modal.component';
+import {FirebaseService} from "./services/firebase.service";
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
@@ -76,7 +76,7 @@ const myFirebaseAuthConfig = {
     RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
   providers: [
-    HttpService,
+    FirebaseService,
     NavService,
     AuthService,
     ProductService,

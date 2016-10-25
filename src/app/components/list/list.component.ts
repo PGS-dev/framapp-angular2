@@ -9,7 +9,7 @@ import {Category} from "../../interfaces/";
   outputs: []
 })
 export class ListComponent{
-  private list: Category = {};
+  private list: Array<Category> = [];
   private header: string = '';
   private icoClasses: string = '';
 

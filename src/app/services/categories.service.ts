@@ -2,24 +2,22 @@
  * Created by rkubisiak on 10/13/2016.
  */
 import { Injectable } from '@angular/core';
-import {HttpService} from "./http.service";
 import {tableData} from "../interfaces/";
+import {FirebaseService} from '../services/firebase.service';
 
 
 @Injectable()
 export class CategoriesService{
   constructor(
-    private HttpService: HttpService
+    private FirebaseService:FirebaseService
   ){}
 
   getCategories(){
-      return this.HttpService.getResources('categories');
+      return this.FirebaseService.getResources('categories');
   }
   fillCategoriesData(categoriesObj){
-    let keys = Object.keys(categoriesObj);
-
-    keys.forEach((key) => {
-      categoriesObj[key].link = ['/products/category/',key];
+    categoriesObj.forEach((item)=>{
+      item.link = ['/products/category/',item.$key];
     });
     return categoriesObj;
   }

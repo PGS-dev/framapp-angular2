@@ -18,26 +18,24 @@ import {Category} from "../../interfaces/";
 export class CategoriesComponent implements OnInit, OnDestroy {
   private subscriptions: Array<Subscription> = [];
   private isMenuVisible: boolean = false;
-  public categoryList: Category = {};
+  public categoryList: Array<Category> = [];
   private isAdmin: boolean = false;
-  public adminMenu: Category = {
-    'products': {
-      'title': 'Products',
-      'id': '',
-      'description': '',
-      link:[
-        '/productsAdmin'
-      ]
-    },
-    'categories': {
-      'title': 'Categories',
-      'id': '',
-      'description': '',
-      link:[
-        '/categoriesAdmin'
-      ]
-    }
-  };
+  public adminMenu: Array<Category> = [
+  {
+    'title': 'Products',
+    'id': '',
+    'description': '',
+    link:[
+      '/productsAdmin'
+    ]
+  },{
+    'title': 'Categories',
+    'id': '',
+    'description': '',
+    link:[
+      '/categoriesAdmin'
+    ]
+  }];
 
   constructor(private categoriesService: CategoriesService,
               private _NavService: NavService,

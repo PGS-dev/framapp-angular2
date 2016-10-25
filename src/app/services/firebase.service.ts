@@ -1,25 +1,27 @@
 import { Injectable }     from '@angular/core';
 import {Http, Response} from '@angular/http';
 import { Observable }     from 'rxjs/Rx';
+import { AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
 
 @Injectable()
-export class HttpService {
-  private apiUrl: string = 'https://project-5613440220430148247.firebaseio.com/api/';  // URL to web API
-  private apiVer: string = 'v1';
+export class FirebaseService {
+  private apiUrl: string = '/api/';
+  private apiVer: string = 'v1/';
+  private objects: FirebaseObjectObservable<any>;
+  private lists: FirebaseListObservable<any>;
 
-  constructor (private http: Http) {}
+  constructor (private http: Http,
+               private af: AngularFire) {}
 
   getResources (method: string): Observable<any> {
-    return this.http.get(this.apiUrl+this.apiVer+'/'+method)
-      .map(this.extractData)
-      .catch(this.handleError);
+    return this.af.database.list(`${this.apiUrl}${this.apiVer}${method}`);
   }
 
   putResources (method:string, data:string): Observable<any> {
     let url = `${this.apiUrl+this.apiVer}/${method}`;
     return this.http.put(url, data)
-        .map(this.extractData)
-        .catch(this.handleError);
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   postResources (method:string, data:string): Observable<any> {

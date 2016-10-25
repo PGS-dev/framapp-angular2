@@ -2,7 +2,7 @@
  * Created by rkubisiak on 10/13/2016.
  */
 import {Injectable} from '@angular/core';
-import {HttpService} from "./http.service";
+import {FirebaseService} from '../services/firebase.service';
 import {tableData} from "../interfaces/";
 import {Http} from '@angular/http';
 
@@ -26,20 +26,20 @@ export class ProductService {
 
   public productsList: Products = {};
 
-  constructor(private HttpService: HttpService,
+  constructor(private FirebaseService: FirebaseService,
               private http: Http) {
   }
 
   getProducts() {
-    return this.HttpService.getResources('products');
+    return this.FirebaseService.getResources('products');
   }
 
   getProduct(productId: number) {
-    return this.HttpService.getResources(`products/${productId}`);
+    return this.FirebaseService.getResources(`products/${productId}`);
   }
 
   updateProduct(productId, data) {
-    return this.HttpService.putResources(`products/${productId}`, JSON.stringify(data));
+    return this.FirebaseService.putResources(`products/${productId}`, JSON.stringify(data));
   }
 
   addProduct() {

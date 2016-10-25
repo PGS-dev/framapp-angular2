@@ -21,9 +21,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ProductEditComponent implements OnInit {
   private subscriptions: Array<Subscription> = [];
   private productId: number;
-  private list: Category = {};
+  private list: Array<Category> = [];
+  public categoryList: Array<Category> = [];
   private product: FormGroup;
-  public categoryList: Category = {};
   public productDetails: Product = {
     amount: 0,
     category: "",

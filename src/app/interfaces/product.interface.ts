@@ -9,6 +9,3 @@ export interface Product {
   promoted: boolean;
   title: string;
 }
-export interface Products {
-  [key: string] : Product;
-}
