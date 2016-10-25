@@ -40,6 +40,7 @@ export class CategoriesService{
       result.dataRows.push({
         rowId: key,
         rowId2: categoriesObj[key].id,
+        title: categoriesObj[key].title,
         rowColumns : [key,categoriesObj[key].title]
       })
     });

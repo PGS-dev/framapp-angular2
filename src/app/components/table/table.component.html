@@ -11,7 +11,7 @@
         {{dataColumn}}
       </td>
       <td *ngIf="tableData.actions.length>0">
-        <div *ngFor="let actionItem of tableData.actions" (click)="actionItemClick(actionItem,!!dataRow.rowId2 ? dataRow.rowId2 : dataRow.rowId)" class="action-label">
+        <div *ngFor="let actionItem of tableData.actions" (click)="actionItemClick(actionItem,!!dataRow.rowId2 ? dataRow.rowId2 : dataRow.rowId,dataRow.title)" class="action-label">
           {{actionItem | uppercase}}
         </div>
       </td>

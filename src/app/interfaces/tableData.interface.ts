@@ -1,6 +1,7 @@
 export interface tableRow{
   rowId: string;
   rowId2?: string;
+  title?: string;
   rowColumns: Array<string>
 }
 export interface tableData{

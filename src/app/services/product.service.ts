@@ -46,6 +46,10 @@ export class ProductService {
     //add product
   }
 
+  deleteProduct(productId){
+    // delete product
+  }
+
   toTableData(productsObj) {
     let keys = Object.keys(productsObj);
     let result: tableData = {
@@ -63,6 +67,7 @@ export class ProductService {
       result.dataRows.push({
         rowId: key,
         rowId2: productsObj[key].id,
+        title: productsObj[key].title,
         rowColumns: [key, productsObj[key].title]
       })
     });
