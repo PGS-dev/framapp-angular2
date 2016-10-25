@@ -51,7 +51,6 @@ export class ProductService {
   }
 
   toTableData(productsObj) {
-    let keys = Object.keys(productsObj);
     let result: tableData = {
       actions: [
         'edit',
@@ -63,12 +62,11 @@ export class ProductService {
       ],
       dataRows: []
     };
-    keys.forEach((key)=> {
+    productsObj.forEach((item)=>{
       result.dataRows.push({
-        rowId: key,
-        rowId2: productsObj[key].id,
-        title: productsObj[key].title,
-        rowColumns: [key, productsObj[key].title]
+        rowId: item.$key,
+        title: item.title,
+        rowColumns: [item.$key, item.title]
       })
     });
     return result;
