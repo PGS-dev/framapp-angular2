@@ -7,9 +7,6 @@ import {ProductService} from "../../services/product.service";
 import {ActivatedRoute} from "@angular/router";
 import {Product} from "../../interfaces/";
 import { Location } from '@angular/common';
-import { AngularFire} from 'angularfire2';
-import { FirebaseObjectObservable } from 'angularfire2';
-import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'product-details',
@@ -20,8 +17,6 @@ import { FirebaseListObservable } from 'angularfire2';
 
 export class ProductDetailsComponent implements OnInit {
   private subscriptions: Array<Subscription> = [];
-    private objects: FirebaseObjectObservable<any>;
-    private lists: FirebaseListObservable<any>;
   public productDetails: Product = {
     amount: 0,
     category: "",

@@ -7,14 +7,16 @@ import { AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'an
 export class FirebaseService {
   private apiUrl: string = '/api/';
   private apiVer: string = 'v1/';
-  private objects: FirebaseObjectObservable<any>;
-  private lists: FirebaseListObservable<any>;
 
   constructor (private http: Http,
                private af: AngularFire) {}
 
   getResources (method: string,isFlat: boolean = false): Observable<any> {
-    return this.af.database.list(`${this.apiUrl}${this.apiVer}${method}`);
+  return this.af.database.list(`${this.apiUrl}${this.apiVer}${method}`);
+}
+
+  getResource (method: string,isFlat: boolean = false): Observable<any> {
+    return this.af.database.object(`${this.apiUrl}${this.apiVer}${method}`);
   }
 
   putResources (method:string, data:string): Observable<any> {

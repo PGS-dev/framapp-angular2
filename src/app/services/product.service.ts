@@ -35,7 +35,7 @@ export class ProductService {
   }
 
   getProduct(productId: number) {
-    return this.FirebaseService.getResources(`products/${productId}`);
+    return this.FirebaseService.getResource(`products/${productId}`);
   }
 
   updateProduct(productId, data) {
