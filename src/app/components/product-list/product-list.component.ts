@@ -1,17 +1,15 @@
-import {Component, ViewEncapsulation} from "@angular/core";
-import {ProductService } from "../../services/product.service";
-import {Subscription} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
-import {Product} from "../../interfaces/";
-
+import {Component, ViewEncapsulation} from '@angular/core';
+import {ProductService } from '../../services/product.service';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
+import {Product} from '../../interfaces/';
 
 @Component({
   selector: 'product-list',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './product-list.component.html',
   inputs: ['products'],
-  styleUrls: ['./product-list.scss'],
-  providers: []
+  styleUrls: ['./product-list.scss']
 })
 export class ProductList {
   private subscriptions: Array<Subscription> = [];
@@ -22,7 +20,7 @@ export class ProductList {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute
-  ){
+  ) {
     this.subscriptions.push(this.activatedRoute.params.subscribe(
       (param: any) => {
         this.selectedCategory = param['categoryId'] || '';
@@ -47,7 +45,8 @@ export class ProductList {
         }
       ));
   }
-  filterProducts(){
+
+  filterProducts() {
     this.productListFiltered = this.productsList.filter((item)=>{
       return item.category === this.selectedCategory || this.selectedCategory==='';
     });

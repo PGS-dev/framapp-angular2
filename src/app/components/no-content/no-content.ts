@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'no-content',
@@ -8,6 +8,4 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class NoContent {
-
-}
+export class NoContent {}

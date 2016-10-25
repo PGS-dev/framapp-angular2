@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {CategoriesService} from "../../services/categories.service";
-import {Category,tableData} from "../../interfaces/";
-import {Router} from "@angular/router";
-
+import {Component, OnInit} from '@angular/core';
+import {CategoriesService} from '../../services/categories.service';
+import {Category, TableData} from '../../interfaces/';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-categories-admin',
@@ -11,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class CategoriesAdminComponent implements OnInit {
   public categoryList: Array<Category> = [];
-  public tableData: tableData = {
+  public tableData: TableData = {
     actions: [
       'edit',
       'remove'
@@ -23,7 +22,7 @@ export class CategoriesAdminComponent implements OnInit {
   constructor(
     private categoriesService: CategoriesService,
     private router: Router
-  ){}
+  ) {}
 
   ngOnInit() {
     this.getCategories();
@@ -39,21 +38,21 @@ export class CategoriesAdminComponent implements OnInit {
       );
   }
 
-  actionItemClick(data){
+  actionItemClick(data) {
     if(this[data.action+'Category']){
       this[data.action+'Category'](data.id);
     }
   }
 
-  removeCategory(categoryId){
+  removeCategory(categoryId) {
     console.log('Remove product:'+categoryId);
   }
 
-  editCategory(categoryId){
+  editCategory(categoryId) {
     this.router.navigateByUrl(`categories/${categoryId}/edit`);
   }
 
-  addCategory(){
+  addCategory() {
     this.router.navigateByUrl('categoriesAdmin/add');
   }
 }

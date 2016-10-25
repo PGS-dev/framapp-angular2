@@ -1,4 +1,4 @@
-import {Injectable }     from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class FirebaseService {
     return this.af.database.object(`${this.apiUrl}${this.apiVer}${method}`);
   }
 
-  updateResource(method: string,data){
+  updateResource(method: string,data) {
     if(data.$key){
       delete data.$key;
     }if(data.$exists){
@@ -24,7 +24,8 @@ export class FirebaseService {
     }
     return this.getResource(method).update(data);
   }
-  removeResource(method: string){
+
+  removeResource(method: string) {
     return this.getResource(method).remove();
   }
 }

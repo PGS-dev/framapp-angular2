@@ -1,4 +1,4 @@
-import {Component,ViewChild, EventEmitter} from '@angular/core';
+import {Component,ViewChild,EventEmitter} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -8,13 +8,14 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
   inputs: ['isYesNoModal:isYesNoModal','msg:msg'],
   outputs: ['modalCloseEE']
 })
-export class ModalComponent{
+export class ModalComponent {
   private isYesNoModal: boolean = false;
   private msg: string = '';
   private modalCloseEE: EventEmitter<any> = new EventEmitter();
   @ViewChild('content') modal: ViewChild;
 
   constructor(private modalService: NgbModal) {}
+
   open() {
     this.modalService.open(this.modal).result.then((result) => {
       /* close */

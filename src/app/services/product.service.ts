@@ -3,29 +3,11 @@
  */
 import {Injectable} from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
-import {tableData} from "../interfaces/";
-
-export interface Product {
-  amount: number
-  category: string;
-  description: string;
-  edit: string;
-  id: string;
-  imageUrl: string;
-  price: number;
-  promoted: boolean;
-  title: string;
-}
-export interface Products {
-  [key: string]: Product;
-}
+import {TableData} from '../interfaces/';
 
 @Injectable()
 export class ProductService {
-  public productsList: Products = {};
-
-  constructor(private FirebaseService: FirebaseService) {
-  }
+  constructor(private FirebaseService: FirebaseService) {}
 
   getProducts() {
     return this.FirebaseService.getResources('products');
@@ -43,12 +25,12 @@ export class ProductService {
     //add product
   }
 
-  deleteProduct(productId){
+  deleteProduct(productId) {
     return this.FirebaseService.removeResource(`products/${productId}`);
   }
 
   toTableData(productsObj) {
-    let result: tableData = {
+    let result: TableData = {
       actions: [
         'edit',
         'remove'

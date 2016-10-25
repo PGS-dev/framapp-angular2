@@ -7,7 +7,10 @@ import {Observable} from 'rxjs/Rx';
 export class AuthGuard implements CanActivate {
   fallbackUrl: string = '/sign-in';
 
-  constructor(private firebase: AngularFire, private router: Router) {
+  constructor(
+    private firebase: AngularFire,
+    private router: Router
+  ) {
     var obj = false;
     if(obj) Observable.throw('asdfasdf');
   }

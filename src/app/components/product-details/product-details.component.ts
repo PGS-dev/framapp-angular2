@@ -2,11 +2,11 @@
  * Created by tlaskowski on 10/12/2016.
  */
 import {Subscription} from 'rxjs';
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ProductService} from "../../services/product.service";
-import {ActivatedRoute} from "@angular/router";
-import {Product} from "../../interfaces/";
-import { Location } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {ProductService} from '../../services/product.service';
+import {ActivatedRoute} from '@angular/router';
+import {Product} from '../../interfaces/';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'product-details',
@@ -14,7 +14,6 @@ import { Location } from '@angular/common';
   templateUrl: 'product-details.component.html',
   providers: [ProductService]
 })
-
 export class ProductDetailsComponent implements OnInit {
   private subscriptions: Array<Subscription> = [];
   public productDetails: Product = {
@@ -28,10 +27,12 @@ export class ProductDetailsComponent implements OnInit {
     promoted: false,
     title: ""
   };
-  constructor(private productService: ProductService,
-              private activatedRoute: ActivatedRoute,
-              private location: Location) {
-  };
+
+  constructor(
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute,
+    private location: Location
+  ) {};
 
   ngOnInit() {
     // subscribe to router event

@@ -14,25 +14,22 @@ import {TableComponent} from './components/table/table.component';
 import {CategoriesAdminComponent} from './components/categories-admin/categories-admin.component';
 import {CategoriesAdminAddComponent} from './components/categories-admin-add/categories-admin-add.component';
 import {CategoriesAdminEditComponent} from './components/categories-admin-edit/categories-admin-edit.component';
-import {CategoriesService} from "./services/categories.service";
+import {CategoriesService} from './services/categories.service';
 import {ProductList} from './components/product-list/product-list.component';
 import {ProductDetailsComponent} from './components/product-details/product-details.component';
 import {ProductAdminComponent} from './components/product-admin/product-admin.component';
 import {ProductAdminAddComponent} from './components/product-admin-add/product-admin-add.component';
 import {ProductEditComponent} from './components/product-edit/product-edit.component';
-import {ProductService} from "./services/product.service";
+import {ProductService} from './services/product.service';
 import {SignInComponent} from './components/sign-in/sign-in.component';
 import {HeaderComponent} from './components/header/header.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
-import {NavService} from "./services/nav.service";
-import {UtilsService} from "./services/utils.service";
-import {AuthService} from "./services/auth.service";
-import {AccessService} from "./services/access.service";
-import {AuthGuard} from "./services/auth-guard.service";
+import {NavService} from './services/nav.service';
+import {AuthService} from './services/auth.service';
+import {AuthGuard} from './services/auth-guard.service';
 import { ModalComponent } from './components/modal/modal.component';
 import {FirebaseService} from "./services/firebase.service";
-
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
@@ -81,12 +78,9 @@ const myFirebaseAuthConfig = {
     NavService,
     AuthService,
     ProductService,
-    UtilsService,
     CategoriesService,
-    AccessService,
     AuthGuard
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

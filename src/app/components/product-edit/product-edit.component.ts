@@ -1,14 +1,12 @@
 import {Subscription} from 'rxjs';
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ProductService} from "../../services/product.service";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ProductService} from '../../services/product.service';
+import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
-import {CategoriesService} from "../../services/categories.service";
-import {Category} from "../../interfaces/";
-import {Product} from "../../interfaces/";
+import {CategoriesService} from '../../services/categories.service';
+import {Category} from '../../interfaces/';
+import {Product} from '../../interfaces/';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
-
 
 @Component({
   selector: 'app-product-edit',
@@ -16,7 +14,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['product-edit.component.css'],
   inputs: ['list:list'],
   providers: [ProductService, CategoriesService]
-
 })
 export class ProductEditComponent implements OnInit {
   private subscriptions: Array<Subscription> = [];
@@ -36,12 +33,13 @@ export class ProductEditComponent implements OnInit {
     title: ""
   };
 
-  constructor(private productService: ProductService,
-              private activatedRoute: ActivatedRoute,
-              private location: Location,
-              private categoriesService: CategoriesService,
-              private fb: FormBuilder) {
-  };
+  constructor(
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute,
+    private location: Location,
+    private categoriesService: CategoriesService,
+    private fb: FormBuilder
+  ) {};
 
   ngOnInit() {
     this.getCategories();
@@ -58,7 +56,7 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
-  onSubmit({ value, valid }: { value: Product, valid: boolean }) {
+  onSubmit({value, valid}: {value: Product, valid: boolean}) {
     this.save();
   }
 

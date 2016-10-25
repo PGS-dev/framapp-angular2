@@ -1,28 +1,30 @@
 /**
  * Created by rkubisiak on 10/13/2016.
  */
-import { Injectable } from '@angular/core';
-import {tableData} from "../interfaces/";
+import {Injectable} from '@angular/core';
+import {TableData} from '../interfaces/';
 import {FirebaseService} from '../services/firebase.service';
 
 @Injectable()
 export class CategoriesService{
   constructor(
     private FirebaseService:FirebaseService
-  ){}
+  ) {}
 
-  getCategories(){
-      return this.FirebaseService.getResources('categories');
+  getCategories() {
+    return this.FirebaseService.getResources('categories');
   }
-  fillCategoriesData(categoriesObj){
+
+  fillCategoriesData(categoriesObj) {
     categoriesObj.forEach((item)=>{
       item.link = ['/products/category/',item.$key];
     });
     return categoriesObj;
   }
-  toTableData(categoriesObj){
+
+  toTableData(categoriesObj) {
     let keys = Object.keys(categoriesObj);
-    let result:tableData = {
+    let result:TableData = {
       actions: [
         'edit',
         'remove'

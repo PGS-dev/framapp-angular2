@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Category, tableData} from "../../interfaces/";
-import {ProductService} from "../../services/product.service";
-import {Router} from "@angular/router";
-import {Subscription} from "rxjs";
+import {Category, TableData} from '../../interfaces/';
+import {ProductService} from '../../services/product.service';
+import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-product-admin',
@@ -15,7 +15,7 @@ export class ProductAdminComponent implements OnInit {
   public deleteProductId: string = '';
   private subscriptions: Array<Subscription> = [];
   public productsList: Array<Category> = [];
-  public tableData: tableData = {
+  public tableData: TableData = {
     actions: [
       'edit',
       'remove'
@@ -24,9 +24,10 @@ export class ProductAdminComponent implements OnInit {
     dataRows: []
   };
 
-  constructor(private productService: ProductService,
-              private router: Router) {
-  }
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getProducts();
@@ -57,13 +58,15 @@ export class ProductAdminComponent implements OnInit {
     this.deleteProductId = productId;
     this.removeModal.open();
   }
-  modalCloseEE(result){
+
+  modalCloseEE(result) {
     if(result===true && this.deleteProductId!==''){
       this.productService.deleteProduct(this.deleteProductId);
       this.deleteProductId='';
       this.deleteProductName='';
     }
   }
+
   editProduct(productId) {
     this.router.navigateByUrl(`products/${productId}/edit`);
   }
