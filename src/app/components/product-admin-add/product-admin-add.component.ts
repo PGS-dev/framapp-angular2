@@ -56,7 +56,7 @@ export class ProductAdminAddComponent implements OnInit {
       );
   }
 
-  // add() {
+  // addProduct() {
   //   this.productService.addProduct()
   //     .subscribe(
   //       productDetails => {

@@ -13,7 +13,7 @@ export class CategoriesService{
   ){}
 
   getCategories(){
-      return this.HttpService.getResources('categories.json');
+      return this.HttpService.getResources('categories');
   }
   fillCategoriesData(categoriesObj){
     let keys = Object.keys(categoriesObj);

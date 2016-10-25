@@ -1,5 +1,5 @@
 import {Subscription} from 'rxjs';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ProductService} from "../../services/product.service";
 import {ActivatedRoute} from "@angular/router";
 import {Location} from '@angular/common';
@@ -7,6 +7,7 @@ import {CategoriesService} from "../../services/categories.service";
 import {Category} from "../../interfaces/";
 import {Product} from "../../interfaces/";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 
 
 @Component({

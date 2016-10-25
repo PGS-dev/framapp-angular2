@@ -31,15 +31,15 @@ export class ProductService {
   }
 
   getProducts() {
-    return this.HttpService.getResources('products.json');
+    return this.HttpService.getResources('products');
   }
 
   getProduct(productId: number) {
-    return this.HttpService.getResources(`products/${productId}.json`);
+    return this.HttpService.getResources(`products/${productId}`);
   }
 
   updateProduct(productId, data) {
-    return this.HttpService.putResources(`products/${productId}.json`, JSON.stringify(data));
+    return this.HttpService.putResources(`products/${productId}`, JSON.stringify(data));
   }
 
   addProduct() {

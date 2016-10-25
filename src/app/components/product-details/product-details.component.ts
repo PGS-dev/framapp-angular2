@@ -2,11 +2,14 @@
  * Created by tlaskowski on 10/12/2016.
  */
 import {Subscription} from 'rxjs';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ProductService} from "../../services/product.service";
 import {ActivatedRoute} from "@angular/router";
 import {Product} from "../../interfaces/";
 import { Location } from '@angular/common';
+import { AngularFire} from 'angularfire2';
+import { FirebaseObjectObservable } from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'product-details',
@@ -17,6 +20,8 @@ import { Location } from '@angular/common';
 
 export class ProductDetailsComponent implements OnInit {
   private subscriptions: Array<Subscription> = [];
+    private objects: FirebaseObjectObservable<any>;
+    private lists: FirebaseListObservable<any>;
   public productDetails: Product = {
     amount: 0,
     category: "",
