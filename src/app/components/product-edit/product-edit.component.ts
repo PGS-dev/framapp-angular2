@@ -59,7 +59,6 @@ export class ProductEditComponent implements OnInit {
   }
 
   onSubmit({ value, valid }: { value: Product, valid: boolean }) {
-    console.log(value, valid);
     this.save();
   }
 

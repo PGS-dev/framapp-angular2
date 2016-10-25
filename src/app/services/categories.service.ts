@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 import {tableData} from "../interfaces/";
 import {FirebaseService} from '../services/firebase.service';
 
-
 @Injectable()
 export class CategoriesService{
   constructor(

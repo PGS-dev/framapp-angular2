@@ -21,7 +21,7 @@
         <select name="productCategory" >
             <option *ngFor="let listItem of categoryList | keys" [ngValue]="listItem.key">{{listItem.value.title}}</option>
         </select>
-        <button class="btn btn-first" type="submit" (click)="save()">Save</button>
+        <button class="btn btn-first" (click)="save()">Save</button>
         <button class="btn btn-third" (click)="goBack()">Cancel</button>
     </form>
 </div>
