@@ -14,10 +14,12 @@ export class TableComponent {
 
   constructor() {}
 
-  actionItemClick(actionType,rowItemId){
+  actionItemClick(actionType,rowItemId,itemTitle){
+    console.log(itemTitle);
     this.actionItemClickEE.next({
       action: actionType,
-      id: rowItemId
+      id: rowItemId,
+      title: itemTitle
     });
   }
 }

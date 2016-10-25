@@ -6,3 +6,9 @@
     <button class="btn btn-add-new pull-right" (click)="addProduct()">Add new</button>
   </div>
 </div>
+
+<app-modal #removeModal
+  [isYesNoModal]="true"
+  [msg]="deleteProductName+'\r\nCzy na pewno chcesz usunąć produkt?'"
+  (modalCloseEE)="modalCloseEE($event)"
+></app-modal>

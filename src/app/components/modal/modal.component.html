@@ -1,0 +1,18 @@
+<template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="d(false)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Warning!</h4>
+  </div>
+  <div class="modal-body">
+    <p>{{msg}}</p>
+  </div>
+  <div class="modal-footer">
+    <div class="yesNoWrapper" *ngIf="isYesNoModal===true">
+      <button type="button" class="btn btn-primary" (click)="c(true)">Yes</button>
+      <button type="button" class="btn btn-primary" (click)="c(false)">No</button>
+    </div>
+    <button *ngIf="isYesNoModal!==true" type="button" class="btn btn-secondary" (click)="c(false)">Close</button>
+  </div>
+</template>

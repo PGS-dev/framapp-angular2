@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Category, tableData} from "../../interfaces/";
 import {ProductService} from "../../services/product.service";
 import {Router} from "@angular/router";
@@ -10,6 +10,9 @@ import {Subscription} from "rxjs";
   styleUrls: ['product-admin.component.scss']
 })
 export class ProductAdminComponent implements OnInit {
+  @ViewChild('removeModal') removeModal;
+  public deleteProductName: string = '';
+  public deleteProductId: string = '';
   private subscriptions: Array<Subscription> = [];
   public productsList: Category = {};
   public tableData: tableData = {
@@ -45,14 +48,22 @@ export class ProductAdminComponent implements OnInit {
 
   actionItemClick(data) {
     if (this[data.action + 'Product']) {
-      this[data.action + 'Product'](data.id);
+      this[data.action + 'Product'](data.id,data.title);
     }
   }
 
-  removeProduct(productId) {
-    console.log('Remove product:' + productId);
+  removeProduct(productId,productName) {
+    this.deleteProductName = productName;
+    this.deleteProductId = productId;
+    this.removeModal.open();
   }
-
+  modalCloseEE(result){
+    if(result===true && this.deleteProductId!==''){
+      this.productService.deleteProduct(this.deleteProductId);
+      this.deleteProductId='';
+      this.deleteProductName='';
+    }
+  }
   editProduct(productId) {
     this.router.navigateByUrl(`products/${productId}/edit`);
   }

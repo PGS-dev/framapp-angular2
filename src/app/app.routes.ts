@@ -9,10 +9,12 @@ import {ProductEditComponent} from "./components/product-edit/product-edit.compo
 import {CategoriesAdminAddComponent} from "./components/categories-admin-add/categories-admin-add.component";
 import {ProductAdminAddComponent} from "./components/product-admin-add/product-admin-add.component";
 import {AuthGuard} from "./services/auth-guard.service";
+import {ModalComponent} from "./components/modal/modal.component";
 
 export const AppRoutes: Routes = [
   {path: '', component: ProductList},
   {path: 'products', component: ProductList},
+  {path: 'test', component: ModalComponent},
   {path: 'products/category/:categoryId', component: ProductList},
   {path: 'products/:productId', component: ProductDetailsComponent},
   {path: 'sign-in', component: SignInComponent},
