@@ -9,13 +9,13 @@ import {Product} from '../../interfaces/';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-product-edit',
-  templateUrl: 'product-edit.component.html',
-  styleUrls: ['product-edit.component.css'],
+  selector: 'app-product-admin-edit',
+  templateUrl: 'product-admin-edit.component.html',
+  styleUrls: ['product-admin-edit.component.css'],
   inputs: ['list:list'],
   providers: [ProductService, CategoriesService]
 })
-export class ProductEditComponent implements OnInit {
+export class ProductAdminEditComponent implements OnInit {
   private subscriptions: Array<Subscription> = [];
   private productId: number;
   private list: Array<Category> = [];

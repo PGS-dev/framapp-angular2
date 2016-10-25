@@ -18,7 +18,7 @@ import {ProductList} from './components/product-list/product-list.component';
 import {ProductDetailsComponent} from './components/product-details/product-details.component';
 import {ProductAdminComponent} from './components/product-admin/product-admin.component';
 import {ProductAdminAddComponent} from './components/product-admin-add/product-admin-add.component';
-import {ProductEditComponent} from './components/product-edit/product-edit.component';
+import {ProductAdminEditComponent} from './components/product-admin-edit/product-admin-edit.component';
 import {ProductService} from './services/product.service';
 import {SignInComponent} from './components/sign-in/sign-in.component';
 import {HeaderComponent} from './components/header/header.component';
@@ -56,7 +56,7 @@ const myFirebaseAuthConfig = {
     CategoriesAdminComponent,
     ProductAdminComponent,
     TableComponent,
-    ProductEditComponent,
+    ProductAdminEditComponent,
     CategoriesAdminAddComponent,
     ProductAdminAddComponent,
     CategoriesAdminEditComponent,

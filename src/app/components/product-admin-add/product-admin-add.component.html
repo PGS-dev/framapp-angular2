@@ -18,8 +18,8 @@
       Maximum of 255 characters
     </div>
     <label>Category</label>
-    <select name="productCategory" >
-      <option *ngFor="let listItem of categoryList | keys" [ngValue]="listItem.key">{{listItem.value.title}}</option>
+    <select name="productCategory">
+      <option *ngFor="let listItem of categoryList" [ngValue]="listItem.$key">{{listItem.title}}</option>
     </select>
     <button class="btn btn-first" type="submit" (click)="addProduct()">Add</button>
     <button class="btn btn-third" (click)="goBack()">Cancel</button>
