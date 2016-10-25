@@ -54,7 +54,10 @@ export class ProductDetailsComponent implements OnInit {
   getProduct(productId: number) {
     this.subscriptions.push(this.productService.getProduct(productId)
       .subscribe(
-        productDetails => this.productDetails = productDetails
+        productDetails => {
+          this.productDetails = productDetails;
+          console.log(productDetails);
+        }
       ));
   }
 

@@ -13,7 +13,7 @@ export class FirebaseService {
   constructor (private http: Http,
                private af: AngularFire) {}
 
-  getResources (method: string): Observable<any> {
+  getResources (method: string,isFlat: boolean = false): Observable<any> {
     return this.af.database.list(`${this.apiUrl}${this.apiVer}${method}`);
   }
 

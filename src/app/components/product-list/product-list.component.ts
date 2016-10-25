@@ -42,6 +42,7 @@ export class ProductList {
     this.subscriptions.push(this.productService.getProducts()
       .subscribe(
         productsList => {
+          console.log(productsList);
           this.productsList = productsList;
           this.filterProducts();
         }
