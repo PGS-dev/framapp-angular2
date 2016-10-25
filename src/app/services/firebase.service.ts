@@ -1,7 +1,7 @@
 import {Injectable }     from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable}     from 'rxjs/Rx';
-import {AngularFire} from 'angularfire2';
+import {AngularFire, FirebaseObjectObservable, FirebaseListObservable} from 'angularfire2';
 
 @Injectable()
 export class FirebaseService {
@@ -11,12 +11,19 @@ export class FirebaseService {
   constructor (private http: Http,
                private af: AngularFire) {}
 
-  getResources (method: string): Observable<any> {
+  getResources (method: string): FirebaseListObservable<any> {
     return this.af.database.list(`${this.apiUrl}${this.apiVer}${method}`);
   }
 
-  getResource (method: string): Observable<any> {
+  getResource (method: string): FirebaseObjectObservable<any> {
     return this.af.database.object(`${this.apiUrl}${this.apiVer}${method}`);
+  }
+
+  updateResource(method: string,data){
+    if(data.$key){
+      delete data.$key;
+    }
+    return this.af.database.object(`${this.apiUrl}${this.apiVer}${method}`).update(data);
   }
 
   putResources (method:string, data:string): Observable<any> {

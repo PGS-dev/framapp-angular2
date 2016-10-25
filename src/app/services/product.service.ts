@@ -4,7 +4,6 @@
 import {Injectable} from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 import {tableData} from "../interfaces/";
-import {Http} from '@angular/http';
 
 export interface Product {
   amount: number
@@ -23,11 +22,9 @@ export interface Products {
 
 @Injectable()
 export class ProductService {
-
   public productsList: Products = {};
 
-  constructor(private FirebaseService: FirebaseService,
-              private http: Http) {
+  constructor(private FirebaseService: FirebaseService) {
   }
 
   getProducts() {
@@ -39,7 +36,8 @@ export class ProductService {
   }
 
   updateProduct(productId, data) {
-    return this.FirebaseService.putResources(`products/${productId}`, JSON.stringify(data));
+    console.log(productId,data);
+    return this.FirebaseService.updateResource(`products/${productId}`, data);
   }
 
   addProduct() {

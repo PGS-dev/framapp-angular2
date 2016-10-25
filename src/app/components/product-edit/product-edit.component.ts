@@ -60,6 +60,7 @@ export class ProductEditComponent implements OnInit {
 
   onSubmit({ value, valid }: { value: Product, valid: boolean }) {
     console.log(value, valid);
+    this.save();
   }
 
   ngOnDestroy() {
@@ -81,12 +82,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   save() {
-    this.subscriptions.push(this.productService.updateProduct(this.productId, this.productDetails)
-      .subscribe(
-        productDetails => {
-          this.productDetails = productDetails;
-        }
-      ));
+    this.productService.updateProduct(this.productId, this.productDetails);
   }
 
   goBack(): void {
