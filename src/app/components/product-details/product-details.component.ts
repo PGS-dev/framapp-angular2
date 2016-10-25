@@ -2,30 +2,30 @@
  * Created by tlaskowski on 10/12/2016.
  */
 import {Subscription} from 'rxjs';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ProductService} from '../../services/product.service';
 import {ActivatedRoute} from '@angular/router';
 import {Product} from '../../interfaces/';
 import {Location} from '@angular/common';
 
 @Component({
-  selector: 'product-details',
+  selector: 'app-product-details',
   styleUrls: ['product-details.component.scss'],
   templateUrl: 'product-details.component.html',
   providers: [ProductService]
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
   private subscriptions: Array<Subscription> = [];
   public productDetails: Product = {
     amount: 0,
-    category: "",
-    description: "",
-    edit: "",
-    id: "",
-    imageUrl: "",
+    category: '',
+    description: '',
+    edit: '',
+    id: '',
+    imageUrl: '',
     price: 0,
     promoted: false,
-    title: ""
+    title: ''
   };
 
   constructor(

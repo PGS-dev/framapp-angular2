@@ -2,9 +2,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {RouterModule} from '@angular/router'
+import {RouterModule} from '@angular/router';
 import {AppComponent} from './components/app/app.component';
-import {CategoriesComponent, NoContent} from './shared/';
+import {CategoriesComponent, NoContentComponent} from './shared/';
 import {AppRoutes} from './app.routes';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -14,7 +14,7 @@ import {CategoriesAdminComponent} from './components/categories-admin/categories
 import {CategoriesAdminAddComponent} from './components/categories-admin-add/categories-admin-add.component';
 import {CategoriesAdminEditComponent} from './components/categories-admin-edit/categories-admin-edit.component';
 import {CategoriesService} from './services/categories.service';
-import {ProductList} from './components/product-list/product-list.component';
+import {ProductListComponent} from './components/product-list/product-list.component';
 import {ProductDetailsComponent} from './components/product-details/product-details.component';
 import {ProductAdminComponent} from './components/product-admin/product-admin.component';
 import {ProductAdminAddComponent} from './components/product-admin-add/product-admin-add.component';
@@ -47,11 +47,11 @@ const myFirebaseAuthConfig = {
   declarations: [
     AppComponent,
     CategoriesComponent,
-    NoContent,
+    NoContentComponent,
     ListComponent,
     HeaderComponent,
     ProductDetailsComponent,
-    ProductList,
+    ProductListComponent,
     SignInComponent,
     CategoriesAdminComponent,
     ProductAdminComponent,

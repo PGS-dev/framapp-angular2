@@ -1,17 +1,15 @@
-import {Component,ViewChild,EventEmitter} from '@angular/core';
+import {Component, ViewChild, EventEmitter, Output, Input} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-modal',
   templateUrl: 'modal.component.html',
-  styleUrls: ['modal.component.css'],
-  inputs: ['isYesNoModal:isYesNoModal','msg:msg'],
-  outputs: ['modalCloseEE']
+  styleUrls: ['modal.component.css']
 })
 export class ModalComponent {
-  private isYesNoModal: boolean = false;
-  private msg: string = '';
-  private modalCloseEE: EventEmitter<any> = new EventEmitter();
+  @Input('isYesNoModal') isYesNoModal: boolean = false;
+  @Input('msg') msg: string = '';
+  @Output('modalCloseEE') modalCloseEE: EventEmitter<any> = new EventEmitter();
   @ViewChild('content') modal: ViewChild;
 
   constructor(private modalService: NgbModal) {}

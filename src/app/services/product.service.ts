@@ -22,7 +22,6 @@ export class ProductService {
   }
 
   addProduct() {
-    //add product
   }
 
   deleteProduct(productId) {
@@ -41,12 +40,12 @@ export class ProductService {
       ],
       dataRows: []
     };
-    productsObj.forEach((item)=>{
+    productsObj.forEach((item) => {
       result.dataRows.push({
         rowId: item.$key,
         title: item.title,
         rowColumns: [item.$key, item.title]
-      })
+      });
     });
     return result;
   }

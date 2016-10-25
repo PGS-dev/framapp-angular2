@@ -11,8 +11,10 @@ export class AuthGuard implements CanActivate {
     private firebase: AngularFire,
     private router: Router
   ) {
-    var obj = false;
-    if(obj) Observable.throw('asdfasdf');
+    let obj = false;
+    if (obj) {
+      Observable.throw('asdfasdf');
+    }
   }
 
   canActivate() {

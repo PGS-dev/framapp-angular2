@@ -17,14 +17,14 @@ export class ProductAdminAddComponent implements OnInit {
   public categoryList: Array<Category> = [];
   public productDetails: Product = {
     amount: 0,
-    category: "",
-    description: "",
-    edit: "",
-    id: "",
-    imageUrl: "",
+    category: '',
+    description: '',
+    edit: '',
+    id: '',
+    imageUrl: '',
     price: 0,
     promoted: false,
-    title: ""
+    title: ''
   };
 
   constructor(

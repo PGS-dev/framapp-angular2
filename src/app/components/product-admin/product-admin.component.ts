@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, OnDestroy} from '@angular/core';
 import {Category, TableData} from '../../interfaces/';
 import {ProductService} from '../../services/product.service';
 import {Router} from '@angular/router';
@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs';
   templateUrl: 'product-admin.component.html',
   styleUrls: ['product-admin.component.scss']
 })
-export class ProductAdminComponent implements OnInit {
+export class ProductAdminComponent implements OnInit, OnDestroy {
   @ViewChild('removeModal') removeModal;
   public deleteProductName: string = '';
   public deleteProductId: string = '';
@@ -49,21 +49,21 @@ export class ProductAdminComponent implements OnInit {
 
   actionItemClick(data) {
     if (this[data.action + 'Product']) {
-      this[data.action + 'Product'](data.id,data.title);
+      this[data.action + 'Product'](data.id, data.title);
     }
   }
 
-  removeProduct(productId,productName) {
+  removeProduct(productId, productName) {
     this.deleteProductName = productName;
     this.deleteProductId = productId;
     this.removeModal.open();
   }
 
   modalCloseEE(result) {
-    if(result===true && this.deleteProductId!==''){
+    if (result === true && this.deleteProductId !== '') {
       this.productService.deleteProduct(this.deleteProductId);
-      this.deleteProductId='';
-      this.deleteProductName='';
+      this.deleteProductId = '';
+      this.deleteProductName = '';
     }
   }
 

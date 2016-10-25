@@ -16,10 +16,11 @@ export class FirebaseService {
     return this.af.database.object(`${this.apiUrl}${this.apiVer}${method}`);
   }
 
-  updateResource(method: string,data) {
-    if(data.$key){
+  updateResource(method: string, data) {
+    if (data.$key) {
       delete data.$key;
-    }if(data.$exists){
+    }
+    if (data.$exists) {
       delete data.$exists;
     }
     return this.getResource(method).update(data);

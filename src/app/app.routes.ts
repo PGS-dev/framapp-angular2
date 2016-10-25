@@ -1,7 +1,7 @@
 import {Routes} from '@angular/router';
-import {NoContent} from './components/no-content';
+import {NoContentComponent} from './components/no-content';
 import {ProductDetailsComponent} from './components/product-details/product-details.component';
-import {ProductList} from './components/product-list/product-list.component';
+import {ProductListComponent} from './components/product-list/product-list.component';
 import {SignInComponent} from './components/sign-in/sign-in.component';
 import {CategoriesAdminComponent} from './components/categories-admin/categories-admin.component';
 import {ProductAdminComponent} from './components/product-admin/product-admin.component';
@@ -11,9 +11,9 @@ import {ProductAdminAddComponent} from './components/product-admin-add/product-a
 import {AuthGuard} from './services/auth-guard.service';
 
 export const AppRoutes: Routes = [
-  {path: '', component: ProductList},
-  {path: 'products', component: ProductList},
-  {path: 'products/category/:categoryId', component: ProductList},
+  {path: '', component: ProductListComponent},
+  {path: 'products', component: ProductListComponent},
+  {path: 'products/category/:categoryId', component: ProductListComponent},
   {path: 'products/:productId', component: ProductDetailsComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'categoriesAdmin', component: CategoriesAdminComponent, canActivate: [AuthGuard]},
@@ -21,5 +21,5 @@ export const AppRoutes: Routes = [
   {path: 'productsAdmin', component: ProductAdminComponent, canActivate: [AuthGuard]},
   {path: 'productsAdmin/add', component: ProductAdminAddComponent, canActivate: [AuthGuard]},
   {path: 'products/:productId/edit', component: ProductAdminEditComponent, canActivate: [AuthGuard]},
-  {path: '**', component: NoContent},
+  {path: '**', component: NoContentComponent},
 ];

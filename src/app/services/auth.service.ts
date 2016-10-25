@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {AngularFire, FirebaseAuthState} from 'angularfire2';
 import {Subscription} from 'rxjs';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnDestroy {
   private subscriptions: Array<Subscription> = [];
   private _authSource = new Subject<AuthState>();
   private authState: AuthState = {
@@ -34,10 +34,6 @@ export class AuthService {
       firebaseState: auth || null
     };
     this._authSource.next(this.authState);
-  }
-
-  isAdmin() {
-    return this.firebase.auth.getAuth() !== null;
   }
 
   login(user, pass) {

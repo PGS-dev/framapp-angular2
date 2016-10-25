@@ -1,5 +1,5 @@
 import {Subscription} from 'rxjs';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {ProductService} from '../../services/product.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
@@ -12,25 +12,24 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   selector: 'app-product-admin-edit',
   templateUrl: 'product-admin-edit.component.html',
   styleUrls: ['product-admin-edit.component.css'],
-  inputs: ['list:list'],
   providers: [ProductService, CategoriesService]
 })
-export class ProductAdminEditComponent implements OnInit {
+export class ProductAdminEditComponent implements OnInit, OnDestroy {
+  @Input('list') list: Array<Category> = [];
   private subscriptions: Array<Subscription> = [];
   private productId: number;
-  private list: Array<Category> = [];
   public categoryList: Array<Category> = [];
   private product: FormGroup;
   public productDetails: Product = {
     amount: 0,
-    category: "",
-    description: "",
-    edit: "",
-    id: "",
-    imageUrl: "",
+    category: '',
+    description: '',
+    edit: '',
+    id: '',
+    imageUrl: '',
     price: 0,
     promoted: false,
-    title: ""
+    title: ''
   };
 
   constructor(

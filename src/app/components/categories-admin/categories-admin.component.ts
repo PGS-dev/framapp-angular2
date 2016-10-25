@@ -39,13 +39,13 @@ export class CategoriesAdminComponent implements OnInit {
   }
 
   actionItemClick(data) {
-    if(this[data.action+'Category']){
-      this[data.action+'Category'](data.id);
+    if (this[data.action + 'Category']) {
+      this[data.action + 'Category'](data.id);
     }
   }
 
   removeCategory(categoryId) {
-    console.log('Remove product:'+categoryId);
+    console.log('Remove product:' + categoryId);
   }
 
   editCategory(categoryId) {

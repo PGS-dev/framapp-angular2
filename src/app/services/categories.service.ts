@@ -6,9 +6,9 @@ import {TableData} from '../interfaces/';
 import {FirebaseService} from '../services/firebase.service';
 
 @Injectable()
-export class CategoriesService{
+export class CategoriesService {
   constructor(
-    private FirebaseService:FirebaseService
+    private FirebaseService: FirebaseService
   ) {}
 
   getCategories() {
@@ -28,15 +28,15 @@ export class CategoriesService{
   }
 
   fillCategoriesData(categoriesObj) {
-    categoriesObj.forEach((item)=>{
-      item.link = ['/products/category/',item.$key];
+    categoriesObj.forEach((item) => {
+      item.link = ['/products/category/', item.$key];
     });
     return categoriesObj;
   }
 
   toTableData(categoriesObj) {
     let keys = Object.keys(categoriesObj);
-    let result:TableData = {
+    let result: TableData = {
       actions: [
         'edit',
         'remove'
@@ -47,13 +47,13 @@ export class CategoriesService{
       ],
       dataRows: []
     };
-    keys.forEach((key)=>{
+    keys.forEach((key) => {
       result.dataRows.push({
         rowId: key,
         rowId2: categoriesObj[key].id,
         title: categoriesObj[key].title,
-        rowColumns : [key,categoriesObj[key].title]
-      })
+        rowColumns : [key, categoriesObj[key].title]
+      });
     });
     return result;
   }

@@ -3,7 +3,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class NavService {
-  private isVisible : boolean = false;
+  private isVisible: boolean = false;
   private _isVisibleSource = new BehaviorSubject<boolean>(false);
   isVisible$ = this._isVisibleSource.asObservable();
 

@@ -1,5 +1,5 @@
 export interface Product {
-  amount: number
+  amount: number;
   category: string;
   description: string;
   edit: string;

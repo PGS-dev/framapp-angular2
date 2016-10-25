@@ -10,20 +10,20 @@ export class HttpService {
   constructor (private http: Http) {}
 
   getResources (method: string): Observable<any> {
-    return this.http.get(this.apiUrl+this.apiVer+'/'+method)
+    return this.http.get(this.apiUrl + this.apiVer + '/' + method)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
-  putResources (method:string, data:string): Observable<any> {
-    let url = `${this.apiUrl+this.apiVer}/${method}`;
+  putResources (method: string, data: string): Observable<any> {
+    let url = `${this.apiUrl + this.apiVer}/${method}`;
     return this.http.put(url, data)
         .map(this.extractData)
         .catch(this.handleError);
   }
 
-  postResources (method:string, data:string): Observable<any> {
-    let url = `${this.apiUrl+this.apiVer}/${method}`;
+  postResources (method: string, data: string): Observable<any> {
+    let url = `${this.apiUrl + this.apiVer}/${method}`;
     return this.http.post(url, data)
       .map(this.extractData)
       .catch(this.handleError);
