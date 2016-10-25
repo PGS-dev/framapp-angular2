@@ -6,7 +6,6 @@ import {RouterModule} from '@angular/router'
 import {AppComponent} from './components/app/app.component';
 import {CategoriesComponent, NoContent} from './shared/';
 import {AppRoutes} from './app.routes';
-import {KeysPipe} from './pipes/keys.pipe';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {ListComponent} from './components/list/list.component';
@@ -28,8 +27,8 @@ import {AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
 import {NavService} from './services/nav.service';
 import {AuthService} from './services/auth.service';
 import {AuthGuard} from './services/auth-guard.service';
-import { ModalComponent } from './components/modal/modal.component';
-import {FirebaseService} from "./services/firebase.service";
+import {ModalComponent} from './components/modal/modal.component';
+import {FirebaseService} from './services/firebase.service';
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
@@ -49,7 +48,6 @@ const myFirebaseAuthConfig = {
     AppComponent,
     CategoriesComponent,
     NoContent,
-    KeysPipe,
     ListComponent,
     HeaderComponent,
     ProductDetailsComponent,
