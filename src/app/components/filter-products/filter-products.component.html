@@ -1,0 +1,14 @@
+<div class="col-xs-12 col-md-6">
+  <div class="row">
+    <select name="productCategory"
+            (change)="changeCategory($event.target.value)">
+      <option [value]="''" selected>All categories</option>
+      <option *ngFor="let listItem of categoryList" [value]="listItem.$key">{{listItem.title}}</option>
+    </select>
+  </div>
+</div>
+<div class="col-xs-12 col-md-6">
+  <div class="row">
+    <input [(ngModel)]="filterString" (keyup.enter)="changeFilterString()" placeholder="Filter by string"/>
+  </div>
+</div>

@@ -3,32 +3,12 @@
  */
 import {Injectable} from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
-import {tableData} from "../interfaces/";
-import {Http} from '@angular/http';
-
-export interface Product {
-  amount: number
-  category: string;
-  description: string;
-  edit: string;
-  id: string;
-  imageUrl: string;
-  price: number;
-  promoted: boolean;
-  title: string;
-}
-export interface Products {
-  [key: string]: Product;
-}
+import {TableData} from '../interfaces/';
+import {Product} from "../interfaces/product.interface";
 
 @Injectable()
 export class ProductService {
-
-  public productsList: Products = {};
-
-  constructor(private FirebaseService: FirebaseService,
-              private http: Http) {
-  }
+  constructor(private FirebaseService: FirebaseService) {}
 
   getProducts() {
     return this.FirebaseService.getResources('products');
@@ -39,19 +19,25 @@ export class ProductService {
   }
 
   updateProduct(productId, data) {
-    return this.FirebaseService.putResources(`products/${productId}`, JSON.stringify(data));
+    return this.FirebaseService.updateResource(`products/${productId}`, this.updateImg(data));
+
   }
 
-  addProduct() {
-    //add product
+  addProduct(data) {
+    return this.FirebaseService.addResource(`products/`, this.updateImg(data));
   }
 
-  deleteProduct(productId){
-    // delete product
+  updateImg(productDetails){
+    productDetails.imageUrl = `https://placeholdit.imgix.net/~text?txtsize=33&w=200&h=200&txt=${productDetails.title}`;
+    return productDetails;
+  }
+
+  deleteProduct(productId) {
+    return this.FirebaseService.removeResource(`products/${productId}`);
   }
 
   toTableData(productsObj) {
-    let result: tableData = {
+    let result: TableData = {
       actions: [
         'edit',
         'remove'
@@ -62,13 +48,38 @@ export class ProductService {
       ],
       dataRows: []
     };
-    productsObj.forEach((item)=>{
+    productsObj.forEach((item) => {
       result.dataRows.push({
         rowId: item.$key,
         title: item.title,
         rowColumns: [item.$key, item.title]
-      })
+      });
     });
     return result;
+  }
+
+  filterProductsByCategory(productsList, selectedCategory) {
+    return productsList.filter((item) => {
+      return item.category === selectedCategory || selectedCategory === '';
+    });
+  }
+
+  filterProductsByString(productsList: Array<Product>, filterString: string) {
+    return productsList.filter((item) => {
+      if (filterString === '') {
+        return true;
+      } else {
+        let result = false;
+        let keys = Object.keys(item);
+
+        keys.forEach((key) => {
+          if (typeof(item[key]) === 'string' && (item[key].toLowerCase()).indexOf(filterString.toLowerCase()) !== -1) {
+            result = true;
+          }
+        });
+
+        return result;
+      }
+    });
   }
 }

@@ -4,11 +4,10 @@
 
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {CategoriesService} from '../../services/categories.service';
-import {NavService} from "../../services/nav.service";
+import {NavService} from '../../services/nav.service';
 import {Subscription} from 'rxjs/Subscription';
-import {AuthService} from "../../services/auth.service";
-import {Category} from "../../interfaces/";
-
+import {AuthService} from '../../services/auth.service';
+import {Category} from '../../interfaces/';
 
 @Component({
   selector: 'app-categories',
@@ -25,22 +24,23 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     'title': 'Products',
     'id': '',
     'description': '',
-    link:[
+    link: [
       '/productsAdmin'
     ]
-  },{
+  }, {
     'title': 'Categories',
     'id': '',
     'description': '',
-    link:[
+    link: [
       '/categoriesAdmin'
     ]
   }];
 
-  constructor(private categoriesService: CategoriesService,
-              private _NavService: NavService,
-              private authService: AuthService) {
-  };
+  constructor(
+    private categoriesService: CategoriesService,
+    private _NavService: NavService,
+    private authService: AuthService
+  ) {};
 
   ngOnInit() {
     this.getCategories();

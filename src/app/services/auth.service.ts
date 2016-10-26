@@ -1,19 +1,17 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-
 import {AngularFire, FirebaseAuthState} from 'angularfire2';
-import {Subscription} from "rxjs";
+import {Subscription} from 'rxjs';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnDestroy {
   private subscriptions: Array<Subscription> = [];
+  private _authSource = new Subject<AuthState>();
   private authState: AuthState = {
     isAuthenticated: false,
     authUser: '',
     firebaseState: null
   };
-
-  private _authSource = new Subject<AuthState>();
 
   constructor(private firebase: AngularFire) {
     this.subscriptions.push(this.firebase.auth.subscribe(auth => this.setAuthenticated(auth)));
@@ -28,7 +26,6 @@ export class AuthService {
   }
 
   private setAuthenticated(auth: FirebaseAuthState) {
-    console.log('Authenticated:', auth !== null);
     const username = auth ? auth.auth.email : '';
 
     this.authState = {
@@ -37,10 +34,6 @@ export class AuthService {
       firebaseState: auth || null
     };
     this._authSource.next(this.authState);
-  }
-
-  isAdmin() {
-    return this.firebase.auth.getAuth() !== null;
   }
 
   login(user, pass) {
@@ -52,7 +45,6 @@ export class AuthService {
   logout() {
     this.firebase.auth.logout();
   }
-
 }
 
 export type AuthState = {

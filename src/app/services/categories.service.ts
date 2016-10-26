@@ -1,29 +1,41 @@
 /**
  * Created by rkubisiak on 10/13/2016.
  */
-import { Injectable } from '@angular/core';
-import {tableData} from "../interfaces/";
+import {Injectable} from '@angular/core';
+import {TableData} from '../interfaces/';
 import {FirebaseService} from '../services/firebase.service';
 
-
 @Injectable()
-export class CategoriesService{
+export class CategoriesService {
   constructor(
-    private FirebaseService:FirebaseService
-  ){}
+    private FirebaseService: FirebaseService
+  ) {}
 
-  getCategories(){
-      return this.FirebaseService.getResources('categories');
+  getCategories() {
+    return this.FirebaseService.getResources('categories');
   }
-  fillCategoriesData(categoriesObj){
-    categoriesObj.forEach((item)=>{
-      item.link = ['/products/category/',item.$key];
+
+  getCategory(categoryId: string) {
+    return this.FirebaseService.getResource(`categories/${categoryId}`);
+  }
+
+  updateCategory(categoryId, data) {
+    return this.FirebaseService.updateResource(`categories/${categoryId}`, data);
+  }
+
+  removeCategory(categoryId) {
+    return this.FirebaseService.removeResource(`categories/${categoryId}`);
+  }
+
+  fillCategoriesData(categoriesObj) {
+    categoriesObj.forEach((item) => {
+      item.link = ['/products/category/', item.$key];
     });
     return categoriesObj;
   }
-  toTableData(categoriesObj){
-    let keys = Object.keys(categoriesObj);
-    let result:tableData = {
+
+  toTableData(categoriesObj) {
+    let result: TableData = {
       actions: [
         'edit',
         'remove'
@@ -34,13 +46,12 @@ export class CategoriesService{
       ],
       dataRows: []
     };
-    keys.forEach((key)=>{
+    categoriesObj.forEach((listItem) => {
       result.dataRows.push({
-        rowId: key,
-        rowId2: categoriesObj[key].id,
-        title: categoriesObj[key].title,
-        rowColumns : [key,categoriesObj[key].title]
-      })
+        rowId: listItem.$key,
+        title: listItem.title,
+        rowColumns : [listItem.$key, listItem.title]
+      });
     });
     return result;
   }

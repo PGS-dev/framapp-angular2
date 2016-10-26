@@ -1,19 +1,16 @@
-import {Component, ViewEncapsulation} from "@angular/core";
-import {ProductService } from "../../services/product.service";
-import {Subscription} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
-import {Product} from "../../interfaces/";
-
+import {Component, ViewEncapsulation, OnInit, OnDestroy} from '@angular/core';
+import {ProductService } from '../../services/product.service';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
+import {Product} from '../../interfaces/';
 
 @Component({
-  selector: 'product-list',
+  selector: 'app-product-list',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './product-list.component.html',
-  inputs: ['products'],
-  styleUrls: ['./product-list.scss'],
-  providers: []
+  styleUrls: ['./product-list.scss']
 })
-export class ProductList {
+export class ProductListComponent implements OnInit, OnDestroy {
   private subscriptions: Array<Subscription> = [];
   selectedCategory: string = '';
   productListFiltered: Array<Product> = [];
@@ -22,7 +19,7 @@ export class ProductList {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute
-  ){
+  ) {
     this.subscriptions.push(this.activatedRoute.params.subscribe(
       (param: any) => {
         this.selectedCategory = param['categoryId'] || '';
@@ -47,9 +44,7 @@ export class ProductList {
         }
       ));
   }
-  filterProducts(){
-    this.productListFiltered = this.productsList.filter((item)=>{
-      return item.category === this.selectedCategory || this.selectedCategory==='';
-    });
+  filterProducts() {
+    this.productListFiltered = this.productService.filterProductsByCategory(this.productsList, this.selectedCategory);
   }
 }

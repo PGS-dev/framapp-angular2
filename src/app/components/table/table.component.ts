@@ -1,21 +1,16 @@
-import {Component, EventEmitter} from '@angular/core';
-import {tableData} from "../../interfaces/";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {TableData} from '../../interfaces/';
 
 @Component({
   selector: 'app-table',
   templateUrl: 'table.component.html',
-  styleUrls: ['table.component.scss'],
-  inputs: ["tableData:tableData"],
-  outputs: ['actionItemClickEE']
+  styleUrls: ['table.component.scss']
 })
 export class TableComponent {
-  private tableData:tableData;
-  private actionItemClickEE: EventEmitter<any> = new EventEmitter();
+  @Input('tableData') tableData: TableData;
+  @Output('actionItemClickEE') actionItemClickEE: EventEmitter<any> = new EventEmitter();
 
-  constructor() {}
-
-  actionItemClick(actionType,rowItemId,itemTitle){
-    console.log(itemTitle);
+  actionItemClick(actionType, rowItemId, itemTitle) {
     this.actionItemClickEE.next({
       action: actionType,
       id: rowItemId,

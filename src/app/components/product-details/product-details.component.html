@@ -1,7 +1,7 @@
 <div class="product-details col-xs-12">
   <div class="product-details-data row">
     <div class="product-details-info col-sm-8 col-xs-12">
-      <button class="btn btn-third" (click)="goBack()">&#8592; products</button>
+      <button class="btn btn-third" [routerLink]="['/']">&#8592; products</button>
       <h2>{{productDetails.title}}</h2>
       <p>{{productDetails.description}}</p>
     </div>

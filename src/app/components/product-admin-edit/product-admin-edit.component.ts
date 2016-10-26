@@ -1,47 +1,45 @@
 import {Subscription} from 'rxjs';
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {ProductService} from "../../services/product.service";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+import {ProductService} from '../../services/product.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
-import {CategoriesService} from "../../services/categories.service";
-import {Category} from "../../interfaces/";
-import {Product} from "../../interfaces/";
+import {CategoriesService} from '../../services/categories.service';
+import {Category} from '../../interfaces/';
+import {Product} from '../../interfaces/';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-
-
 @Component({
-  selector: 'app-product-edit',
-  templateUrl: 'product-edit.component.html',
-  styleUrls: ['product-edit.component.css'],
-  inputs: ['list:list'],
+  selector: 'app-product-admin-edit',
+  templateUrl: 'product-admin-edit.component.html',
+  styleUrls: ['product-admin-edit.component.scss'],
   providers: [ProductService, CategoriesService]
-
 })
-export class ProductEditComponent implements OnInit {
+export class ProductAdminEditComponent implements OnInit, OnDestroy {
+  @Input('list') list: Array<Category> = [];
   private subscriptions: Array<Subscription> = [];
   private productId: number;
-  private list: Array<Category> = [];
   public categoryList: Array<Category> = [];
   private product: FormGroup;
   public productDetails: Product = {
     amount: 0,
-    category: "",
-    description: "",
-    edit: "",
-    id: "",
-    imageUrl: "",
+    category: '',
+    description: '',
+    edit: '',
+    id: '',
+    imageUrl: '',
     price: 0,
     promoted: false,
-    title: ""
+    title: ''
   };
 
-  constructor(private productService: ProductService,
-              private activatedRoute: ActivatedRoute,
-              private location: Location,
-              private categoriesService: CategoriesService,
-              private fb: FormBuilder) {
-  };
+  constructor(
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute,
+    private router:Router,
+    private location: Location,
+    private categoriesService: CategoriesService,
+    private fb: FormBuilder
+  ) {};
 
   ngOnInit() {
     this.getCategories();
@@ -58,8 +56,8 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
-  onSubmit({ value, valid }: { value: Product, valid: boolean }) {
-    console.log(value, valid);
+  onSubmit({value, valid}: {value: Product, valid: boolean}) {
+    this.save();
   }
 
   ngOnDestroy() {
@@ -81,15 +79,12 @@ export class ProductEditComponent implements OnInit {
   }
 
   save() {
-    this.subscriptions.push(this.productService.updateProduct(this.productId, this.productDetails)
-      .subscribe(
-        productDetails => {
-          this.productDetails = productDetails;
-        }
-      ));
+    this.productService.updateProduct(this.productId, this.productDetails);
+    this.location.back();
   }
 
   goBack(): void {
     this.location.back();
   }
-}
+
+  }

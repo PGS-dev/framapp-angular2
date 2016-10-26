@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {CategoriesService} from "../../services/categories.service";
-import {Category,tableData} from "../../interfaces/";
-import {Router} from "@angular/router";
-
+/**
+ * Created by rkubisiak on 10/12/2016.
+ */
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {CategoriesService} from '../../services/categories.service';
+import {Category, TableData} from '../../interfaces/';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-categories-admin',
@@ -10,8 +12,11 @@ import {Router} from "@angular/router";
   styleUrls: ['categories-admin.component.scss']
 })
 export class CategoriesAdminComponent implements OnInit {
+  @ViewChild('removeModal') removeModal;
+  public deleteCategoryName: string = '';
+  public deleteCategoryId: string = '';
   public categoryList: Array<Category> = [];
-  public tableData: tableData = {
+  public tableData: TableData = {
     actions: [
       'edit',
       'remove'
@@ -23,7 +28,7 @@ export class CategoriesAdminComponent implements OnInit {
   constructor(
     private categoriesService: CategoriesService,
     private router: Router
-  ){}
+  ) {}
 
   ngOnInit() {
     this.getCategories();
@@ -39,21 +44,31 @@ export class CategoriesAdminComponent implements OnInit {
       );
   }
 
-  actionItemClick(data){
-    if(this[data.action+'Category']){
-      this[data.action+'Category'](data.id);
+  actionItemClick(data) {
+    if (this[data.action + 'Category']) {
+      this[data.action + 'Category'](data.id);
     }
   }
 
-  removeCategory(categoryId){
-    console.log('Remove product:'+categoryId);
+  removeCategory(categoryId, categoryName) {
+    this.deleteCategoryName = categoryName;
+    this.deleteCategoryId = categoryId;
+    this.removeModal.open();
   }
 
-  editCategory(categoryId){
-    this.router.navigateByUrl(`categories/${categoryId}/edit`);
+  modalCloseEE(result) {
+    if (result === true && this.deleteCategoryId !== '') {
+      this.categoriesService.removeCategory(this.deleteCategoryId);
+      this.deleteCategoryId = '';
+      this.deleteCategoryName = '';
+    }
   }
 
-  addCategory(){
+  editCategory(categoryId) {
+    this.router.navigateByUrl(`categoriesAdmin/${categoryId}/edit`);
+  }
+
+  addCategory() {
     this.router.navigateByUrl('categoriesAdmin/add');
   }
 }

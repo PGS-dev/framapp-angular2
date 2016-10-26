@@ -1,17 +1,13 @@
-import {Component} from '@angular/core';
-import {Category} from "../../interfaces/";
+import {Component, Input} from '@angular/core';
+import {Category} from '../../interfaces/';
 
 @Component({
   selector: 'app-list',
   templateUrl: 'list.component.html',
-  styleUrls: ['list.component.scss'],
-  inputs: ['list:list','header:header','icoClasses:icoClasses'],
-  outputs: []
+  styleUrls: ['list.component.scss']
 })
-export class ListComponent{
-  private list: Array<Category> = [];
-  private header: string = '';
-  private icoClasses: string = '';
-
-  constructor() {}
+export class ListComponent {
+  @Input('list')list: Array<Category> = [];
+  @Input('header')header: string = '';
+  @Input('icoClasses')icoClasses: string = '';
 }
