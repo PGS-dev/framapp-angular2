@@ -24,14 +24,14 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     'title': 'Products',
     'id': '',
     'description': '',
-    link:[
+    link: [
       '/productsAdmin'
     ]
-  },{
+  }, {
     'title': 'Categories',
     'id': '',
     'description': '',
-    link:[
+    link: [
       '/categoriesAdmin'
     ]
   }];

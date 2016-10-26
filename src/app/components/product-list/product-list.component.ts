@@ -10,7 +10,7 @@ import {Product} from '../../interfaces/';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.scss']
 })
-export class ProductListComponent implements OnInit, OnDestroy{
+export class ProductListComponent implements OnInit, OnDestroy {
   private subscriptions: Array<Subscription> = [];
   selectedCategory: string = '';
   productListFiltered: Array<Product> = [];
@@ -44,10 +44,7 @@ export class ProductListComponent implements OnInit, OnDestroy{
         }
       ));
   }
-
   filterProducts() {
-    this.productListFiltered = this.productsList.filter((item) => {
-      return item.category === this.selectedCategory || this.selectedCategory === '';
-    });
+    this.productListFiltered = this.productService.filterProductsByCategory(this.productsList, this.selectedCategory);
   }
 }

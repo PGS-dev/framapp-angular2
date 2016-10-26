@@ -1,19 +1,17 @@
-import {Component, OnInit, ViewChild, OnDestroy} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Category, TableData} from '../../interfaces/';
 import {ProductService} from '../../services/product.service';
 import {Router} from '@angular/router';
-import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-product-admin',
   templateUrl: 'product-admin.component.html',
   styleUrls: ['product-admin.component.scss']
 })
-export class ProductAdminComponent implements OnInit, OnDestroy {
+export class ProductAdminComponent {
   @ViewChild('removeModal') removeModal;
   public deleteProductName: string = '';
   public deleteProductId: string = '';
-  private subscriptions: Array<Subscription> = [];
   public productsList: Array<Category> = [];
   public tableData: TableData = {
     actions: [
@@ -29,23 +27,9 @@ export class ProductAdminComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    this.getProducts();
-  }
-
-  ngOnDestroy() {
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
-  }
-
-  getProducts() {
-    this.subscriptions.push(this.productService.getProducts()
-      .subscribe(
-        productsList => {
-          this.productsList = productsList;
-          this.tableData = this.productService.toTableData(productsList);
-            console.log(productsList)
-        }
-      ));
+  updateProductList(productsList) {
+    this.productsList = productsList;
+    this.tableData = this.productService.toTableData(this.productsList);
   }
 
   actionItemClick(data) {
