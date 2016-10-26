@@ -4,6 +4,7 @@
 import {Injectable} from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 import {TableData} from '../interfaces/';
+import {Product} from "../interfaces/product.interface";
 
 @Injectable()
 export class ProductService {
@@ -48,5 +49,30 @@ export class ProductService {
       });
     });
     return result;
+  }
+
+  filterProductsByCategory(productsList, selectedCategory) {
+    return productsList.filter((item) => {
+      return item.category === selectedCategory || selectedCategory === '';
+    });
+  }
+
+  filterProductsByString(productsList: Array<Product>, filterString: string) {
+    return productsList.filter((item) => {
+      if (filterString === '') {
+        return true;
+      } else {
+        let result = false;
+        let keys = Object.keys(item);
+
+        keys.forEach((key) => {
+          if (typeof(item[key]) === 'string' && (item[key].toLowerCase()).indexOf(filterString.toLowerCase()) !== -1) {
+            result = true;
+          }
+        });
+
+        return result;
+      }
+    });
   }
 }

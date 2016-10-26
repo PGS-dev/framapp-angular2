@@ -29,6 +29,7 @@ import {AuthService} from './services/auth.service';
 import {AuthGuard} from './services/auth-guard.service';
 import {ModalComponent} from './components/modal/modal.component';
 import {FirebaseService} from './services/firebase.service';
+import { FilterProductsComponent } from './components/filter-products/filter-products.component';
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
@@ -60,7 +61,8 @@ const myFirebaseAuthConfig = {
     CategoriesAdminAddComponent,
     ProductAdminAddComponent,
     CategoriesAdminEditComponent,
-    ModalComponent
+    ModalComponent,
+    FilterProductsComponent
   ],
   imports: [
     NgbModule.forRoot(),

@@ -1,3 +1,6 @@
+/**
+ * Created by rkubisiak on 10/12/2016.
+ */
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CategoriesService} from '../../services/categories.service';
 import {Category, TableData} from '../../interfaces/';
