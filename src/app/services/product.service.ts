@@ -4,7 +4,7 @@
 import {Injectable} from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 import {TableData} from '../interfaces/';
-import {Product} from "../interfaces/product.interface";
+import {Product} from '../interfaces/product.interface';
 
 @Injectable()
 export class ProductService {
@@ -20,14 +20,13 @@ export class ProductService {
 
   updateProduct(productId, data) {
     return this.FirebaseService.updateResource(`products/${productId}`, this.updateImg(data));
-
   }
 
   addProduct(data) {
     return this.FirebaseService.addResource(`products/`, this.updateImg(data));
   }
 
-  updateImg(productDetails){
+  updateImg(productDetails) {
     productDetails.imageUrl = `https://placeholdit.imgix.net/~text?txtsize=33&w=200&h=200&txt=${productDetails.title}`;
     return productDetails;
   }

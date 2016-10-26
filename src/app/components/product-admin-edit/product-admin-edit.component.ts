@@ -35,7 +35,7 @@ export class ProductAdminEditComponent implements OnInit, OnDestroy {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private router:Router,
+    private router: Router,
     private location: Location,
     private categoriesService: CategoriesService,
     private fb: FormBuilder
