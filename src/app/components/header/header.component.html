@@ -13,7 +13,7 @@
                 *ngIf="!isAuthenticated">Sign in</button>
         <span class=""
               *ngIf="isAuthenticated">Hi, {{loggedUser}}</span>
-        <button class="btn btn-second" (click)="authService.logout()"
+        <button class="btn btn-second" (click)="signOut()"
                 *ngIf="isAuthenticated">Sign out</button>
       </div>
     </div>

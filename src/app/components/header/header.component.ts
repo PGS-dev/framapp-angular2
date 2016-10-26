@@ -1,4 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {NavService} from '../../services/nav.service';
 import {AuthService} from '../../services/auth.service';
@@ -13,10 +14,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private subscriptions: Array<Subscription> = [];
   private loggedUser: string;
 
-  constructor(
-    private _NavService: NavService,
-    private authService: AuthService
-  ) {}
+  constructor(private _NavService: NavService,
+              private authService: AuthService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.subscriptions.push(this.authService.authentication$
@@ -28,6 +29,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  signOut(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
+
   }
 
   toggleMenu() {
