@@ -30,7 +30,7 @@ import {UtilsService} from "./services/utils.service";
 import {AuthService} from "./services/auth.service";
 import {AccessService} from "./services/access.service";
 import {AuthGuard} from "./services/auth-guard.service";
-import { ModalComponent } from './components/modal/modal.component';
+import {ModalComponent} from './components/modal/modal.component';
 import {FirebaseService} from "./services/firebase.service";
 
 
