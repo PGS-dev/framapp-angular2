@@ -80,6 +80,7 @@ export class ProductAdminEditComponent implements OnInit, OnDestroy {
 
   save() {
     this.productService.updateProduct(this.productId, this.productDetails);
+    this.location.back();
   }
 
   goBack(): void {

@@ -14,8 +14,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ProductAdminAddComponent implements OnInit {
     private product: FormGroup;
-    private productId: number;
-
     public categoryList: Array<Category> = [];
     public productDetails: Product = {
         amount: 0,
@@ -58,6 +56,7 @@ export class ProductAdminAddComponent implements OnInit {
 
     add() {
         this.productService.addProduct(this.productDetails);
+        this.location.back();
     }
 
     goBack(): void {

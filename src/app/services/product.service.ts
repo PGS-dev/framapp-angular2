@@ -24,7 +24,6 @@ export class ProductService {
   }
 
   addProduct(data) {
-    console.log(this.updateImg(data));
     return this.FirebaseService.addResource(`products/`, this.updateImg(data));
   }
 
