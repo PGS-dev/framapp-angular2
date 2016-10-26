@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CategoriesService} from '../../services/categories.service';
 import {Category, TableData} from '../../interfaces/';
 import {Router} from '@angular/router';
@@ -9,6 +9,9 @@ import {Router} from '@angular/router';
   styleUrls: ['categories-admin.component.scss']
 })
 export class CategoriesAdminComponent implements OnInit {
+  @ViewChild('removeModal') removeModal;
+  public deleteCategoryName: string = '';
+  public deleteCategoryId: string = '';
   public categoryList: Array<Category> = [];
   public tableData: TableData = {
     actions: [
@@ -44,12 +47,22 @@ export class CategoriesAdminComponent implements OnInit {
     }
   }
 
-  removeCategory(categoryId) {
-    console.log('Remove product:' + categoryId);
+  removeCategory(categoryId, categoryName) {
+    this.deleteCategoryName = categoryName;
+    this.deleteCategoryId = categoryId;
+    this.removeModal.open();
+  }
+
+  modalCloseEE(result) {
+    if (result === true && this.deleteCategoryId !== '') {
+      this.categoriesService.removeCategory(this.deleteCategoryId);
+      this.deleteCategoryId = '';
+      this.deleteCategoryName = '';
+    }
   }
 
   editCategory(categoryId) {
-    this.router.navigateByUrl(`categories/${categoryId}/edit`);
+    this.router.navigateByUrl(`categoriesAdmin/${categoryId}/edit`);
   }
 
   addCategory() {

@@ -9,17 +9,19 @@ import {ProductAdminEditComponent} from './components/product-admin-edit/product
 import {CategoriesAdminAddComponent} from './components/categories-admin-add/categories-admin-add.component';
 import {ProductAdminAddComponent} from './components/product-admin-add/product-admin-add.component';
 import {AuthGuard} from './services/auth-guard.service';
+import {CategoriesAdminEditComponent} from './components/categories-admin-edit/categories-admin-edit.component';
 
 export const AppRoutes: Routes = [
   {path: '', component: ProductListComponent},
-  {path: 'products', component: ProductListComponent},
-  {path: 'products/category/:categoryId', component: ProductListComponent},
-  {path: 'products/:productId', component: ProductDetailsComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'categoriesAdmin', component: CategoriesAdminComponent, canActivate: [AuthGuard]},
   {path: 'categoriesAdmin/add', component: CategoriesAdminAddComponent, canActivate: [AuthGuard]},
+  {path: 'categoriesAdmin/:categoryId/edit', component: CategoriesAdminEditComponent, canActivate: [AuthGuard]},
+  {path: 'products', component: ProductListComponent},
+  {path: 'products/category/:categoryId', component: ProductListComponent},
+  {path: 'products/:productId', component: ProductDetailsComponent},
   {path: 'productsAdmin', component: ProductAdminComponent, canActivate: [AuthGuard]},
   {path: 'productsAdmin/add', component: ProductAdminAddComponent, canActivate: [AuthGuard]},
   {path: 'productsAdmin/:productId/edit', component: ProductAdminEditComponent, canActivate: [AuthGuard]},
-  {path: '**', component: NoContentComponent},
+  {path: '**', component: NoContentComponent}
 ];
