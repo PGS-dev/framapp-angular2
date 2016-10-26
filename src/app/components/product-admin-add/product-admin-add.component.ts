@@ -7,54 +7,60 @@ import {Product} from '../../interfaces/';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-product-admin-add',
-  templateUrl: 'product-admin-add.component.html',
-  styleUrls: ['product-admin-add.component.css'],
-  providers: [ProductService, CategoriesService]
+    selector: 'app-product-admin-add',
+    templateUrl: 'product-admin-add.component.html',
+    styleUrls: ['product-admin-add.component.scss'],
+    providers: [ProductService, CategoriesService]
 })
 export class ProductAdminAddComponent implements OnInit {
-  private product: FormGroup;
-  public categoryList: Array<Category> = [];
-  public productDetails: Product = {
-    amount: 0,
-    category: '',
-    description: '',
-    edit: '',
-    id: '',
-    imageUrl: '',
-    price: 0,
-    promoted: false,
-    title: ''
-  };
+    private product: FormGroup;
+    private productId: number;
 
-  constructor(
-    private location: Location,
-    private categoriesService: CategoriesService,
-    private fb: FormBuilder
-  ) {}
+    public categoryList: Array<Category> = [];
+    public productDetails: Product = {
+        amount: 0,
+        category: '',
+        description: '',
+        edit: '',
+        id: '',
+        imageUrl: '',
+        price: 0,
+        promoted: false,
+        title: ''
+    };
 
-  ngOnInit() {
-    this.getCategories();
+    constructor(private location: Location,
+                private categoriesService: CategoriesService,
+                private productService: ProductService,
+                private fb: FormBuilder) {
+    }
 
-    this.product = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(2)]],
-      description: ['', [Validators.required, Validators.maxLength(255)]],
-      category: ['', [Validators.required]]
-    });
-  }
+    ngOnInit() {
+        this.getCategories();
 
-  onSubmit({ value, valid }: { value: Product, valid: boolean }) {
-    console.log(value, valid);
-  }
+        this.product = this.fb.group({
+            title: ['', [Validators.required, Validators.minLength(2)]],
+            description: ['', [Validators.required, Validators.maxLength(255)]],
+            category: ['', [Validators.required]]
+        });
+    }
 
-  getCategories() {
-    this.categoriesService.getCategories()
-      .subscribe(
-        categoryList => this.categoryList = categoryList
-      );
-  }
+    onSubmit({value, valid}: { value: Product, valid: boolean }) {
+        this.add();
+    }
 
-  goBack(): void {
-    this.location.back();
-  }
+    getCategories() {
+        this.categoriesService.getCategories()
+            .subscribe(
+                categoryList => this.categoryList = categoryList
+            );
+    }
+
+    add() {
+        this.productService.addProduct(this.productDetails);
+    }
+
+    goBack(): void {
+        this.location.back();
+    }
 }

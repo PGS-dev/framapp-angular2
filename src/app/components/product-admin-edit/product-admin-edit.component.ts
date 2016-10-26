@@ -1,7 +1,7 @@
 import {Subscription} from 'rxjs';
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {ProductService} from '../../services/product.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {CategoriesService} from '../../services/categories.service';
 import {Category} from '../../interfaces/';
@@ -11,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-product-admin-edit',
   templateUrl: 'product-admin-edit.component.html',
-  styleUrls: ['product-admin-edit.component.css'],
+  styleUrls: ['product-admin-edit.component.scss'],
   providers: [ProductService, CategoriesService]
 })
 export class ProductAdminEditComponent implements OnInit, OnDestroy {
@@ -35,6 +35,7 @@ export class ProductAdminEditComponent implements OnInit, OnDestroy {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
+    private router:Router,
     private location: Location,
     private categoriesService: CategoriesService,
     private fb: FormBuilder
@@ -84,4 +85,5 @@ export class ProductAdminEditComponent implements OnInit, OnDestroy {
   goBack(): void {
     this.location.back();
   }
-}
+
+  }

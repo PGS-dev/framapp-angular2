@@ -26,6 +26,10 @@ export class FirebaseService {
     return this.getResource(method).update(data);
   }
 
+  addResource(method: string, data) {
+    return this.getResources(method).push(data);
+  }
+
   removeResource(method: string) {
     return this.getResource(method).remove();
   }

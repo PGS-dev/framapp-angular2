@@ -1,6 +1,6 @@
 <div class="product-form col-xs-12">
     <h3>Edit product</h3>
-    <form name="productForm" novalidate (ngSubmit)="onSubmit(product)" [formGroup]="product">
+    <form name="productForm" novalidate (ngSubmit)="onSubmit(product)" [formGroup]="product" #productForm="ngForm">
         <label>Title</label>
         <input type="text" name="productTitle" formControlName="title" [(ngModel)]="productDetails.title">
         <div class="error" *ngIf="product.get('title').touched && product.get('title').hasError('required')">
@@ -18,10 +18,10 @@
           Maximum of 255 characters
         </div>
         <label>Category</label>
-        <select name="productCategory">
+        <select name="productCategory" formControlName="category" [(ngModel)]="productDetails.category">
             <option *ngFor="let listItem of categoryList" [ngValue]="listItem.$key">{{listItem.title}}</option>
         </select>
-        <button class="btn btn-first" (click)="save()">Save</button>
-        <button class="btn btn-third" (click)="goBack()">Cancel</button>
+        <button class="btn btn-first" (click)="save()" [disabled]="!productForm.form.valid">Save</button>
+        <a class="btn btn-third btn-cancel" (click)="goBack()" >Cancel</a>
     </form>
 </div>

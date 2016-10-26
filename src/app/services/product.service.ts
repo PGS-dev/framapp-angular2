@@ -18,10 +18,18 @@ export class ProductService {
   }
 
   updateProduct(productId, data) {
-    return this.FirebaseService.updateResource(`products/${productId}`, data);
+    return this.FirebaseService.updateResource(`products/${productId}`, this.updateImg(data));
+
   }
 
-  addProduct() {
+  addProduct(data) {
+    console.log(this.updateImg(data));
+    return this.FirebaseService.addResource(`products/`, this.updateImg(data));
+  }
+
+  updateImg(productDetails){
+    productDetails.imageUrl = `https://placeholdit.imgix.net/~text?txtsize=33&w=200&h=200&txt=${productDetails.title}`;
+    return productDetails;
   }
 
   deleteProduct(productId) {

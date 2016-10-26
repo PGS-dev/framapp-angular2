@@ -14,7 +14,7 @@
     min-height: 45px;
 }
 
-.product-form button {
+.product-form .btn {
     display: inline-block;
     margin: 20px 20px 0 0;
 }
@@ -27,4 +27,8 @@
   padding: 15px;
   margin-top: 5px;
   max-width: 300px;
+}
+
+.btn-cancel {
+  color: #000000;
 }

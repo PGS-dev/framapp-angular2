@@ -52,7 +52,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       .subscribe(
         productDetails => {
           this.productDetails = productDetails;
-          console.log(productDetails);
+
         }
       ));
   }

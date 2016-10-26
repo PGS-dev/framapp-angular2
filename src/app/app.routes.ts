@@ -20,6 +20,6 @@ export const AppRoutes: Routes = [
   {path: 'categoriesAdmin/add', component: CategoriesAdminAddComponent, canActivate: [AuthGuard]},
   {path: 'productsAdmin', component: ProductAdminComponent, canActivate: [AuthGuard]},
   {path: 'productsAdmin/add', component: ProductAdminAddComponent, canActivate: [AuthGuard]},
-  {path: 'products/:productId/edit', component: ProductAdminEditComponent, canActivate: [AuthGuard]},
+  {path: 'productsAdmin/:productId/edit', component: ProductAdminEditComponent, canActivate: [AuthGuard]},
   {path: '**', component: NoContentComponent},
 ];

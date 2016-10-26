@@ -43,6 +43,7 @@ export class ProductAdminComponent implements OnInit, OnDestroy {
         productsList => {
           this.productsList = productsList;
           this.tableData = this.productService.toTableData(productsList);
+            console.log(productsList)
         }
       ));
   }
@@ -68,7 +69,7 @@ export class ProductAdminComponent implements OnInit, OnDestroy {
   }
 
   editProduct(productId) {
-    this.router.navigateByUrl(`products/${productId}/edit`);
+    this.router.navigateByUrl(`productsAdmin/${productId}/edit`);
   }
 
   addProduct() {
