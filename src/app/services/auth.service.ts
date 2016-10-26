@@ -37,9 +37,14 @@ export class AuthService implements OnDestroy {
   }
 
   login(user, pass) {
-    this.firebase.auth.login({email: user, password: pass}).catch(
+    return this.firebase.auth.login({email: user, password: pass}).catch(
       err => console.log(err.message)
-    );
+    ).then((state) => {
+      if (state) {
+        return true;
+      }
+      return false;
+    });
   }
 
   logout() {

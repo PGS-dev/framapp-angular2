@@ -14,11 +14,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private subscriptions: Array<Subscription> = [];
   private loggedUser: string;
 
-  constructor(
-    private _NavService: NavService,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private _NavService: NavService,
+              private authService: AuthService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.subscriptions.push(this.authService.authentication$
@@ -34,7 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   signOut(): void {
     this.authService.logout();
-    this.router.navigate(['/sign-in']);
+    this.router.navigate(['/']);
 
   }
 
