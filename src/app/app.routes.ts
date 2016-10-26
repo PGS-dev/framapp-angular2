@@ -21,7 +21,7 @@ export const AppRoutes: Routes = [
   {path: 'products/category/:categoryId', component: ProductListComponent},
   {path: 'products/:productId', component: ProductDetailsComponent},
   {path: 'productsAdmin', component: ProductAdminComponent, canActivate: [AuthGuard]},
-  {path: 'productsAdmin/add', component: ProductAdminAddComponent, canActivate: [AuthGuard]},
-  {path: 'productsAdmin/:productId/edit', component: ProductAdminEditComponent, canActivate: [AuthGuard]},
+  {path: 'productsAdmin/add', component: ProductAdminAddComponent, canActivate: [AuthGuard], data: {isNew: true}},
+  {path: 'productsAdmin/:productId/edit', component: ProductAdminEditComponent, canActivate: [AuthGuard], data: {isNew: false}},
   {path: '**', component: NoContentComponent}
 ];

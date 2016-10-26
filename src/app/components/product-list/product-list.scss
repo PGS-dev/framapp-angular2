@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .ProductList {
   display: flex;
   justify-content: space-between;
@@ -29,5 +31,13 @@
 
 .ProductList:after {
   content: '';
-  flex-grow: 1000000000;
+
+  @include respond-to('xsmall') {
+    flex-grow: 4;
+  }
+
+  @include respond-to('large') {
+    flex-grow: 1000000000;
+  }
 }
+

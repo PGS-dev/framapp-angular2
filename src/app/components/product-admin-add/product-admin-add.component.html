@@ -1,6 +1,6 @@
 <div class="product-form col-xs-12">
-  <h3>Add product</h3>
-  <form name="productForm" novalidate (ngSubmit)="onSubmit(product)" [formGroup]="product" #productForm="ngForm">
+  <h3>{{isNew === true ? "Add product" : "Edit product"}}</h3>
+  <form name="productForm" novalidate (ngSubmit)="onSubmitNew(product)" [formGroup]="product" #productForm="ngForm">
     <label>Title</label>
     <input type="text" name="productTitle" formControlName="title" [(ngModel)]="productDetails.title">
     <div class="error" *ngIf="product.get('title').touched && product.get('title').hasError('required')">
@@ -22,6 +22,7 @@
       <option *ngFor="let listItem of categoryList" [ngValue]="listItem.$key">{{listItem.title}}</option>
     </select>
     <button class="btn btn-first" type="submit" [disabled]="!productForm.form.valid">Add</button>
+    <button class="btn btn-first" (click)="save()" [disabled]="!productForm.form.valid">Save</button>
     <a class="btn btn-third btn-cancel" (click)="goBack()">Cancel</a>
   </form>
 </div>
