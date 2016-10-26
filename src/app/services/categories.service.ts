@@ -35,7 +35,6 @@ export class CategoriesService {
   }
 
   toTableData(categoriesObj) {
-    let keys = Object.keys(categoriesObj);
     let result: TableData = {
       actions: [
         'edit',
@@ -47,12 +46,11 @@ export class CategoriesService {
       ],
       dataRows: []
     };
-    keys.forEach((key) => {
+    categoriesObj.forEach((listItem) => {
       result.dataRows.push({
-        rowId: key,
-        rowId2: categoriesObj[key].id,
-        title: categoriesObj[key].title,
-        rowColumns : [key, categoriesObj[key].title]
+        rowId: listItem.$key,
+        title: listItem.title,
+        rowColumns : [listItem.$key, listItem.title]
       });
     });
     return result;

@@ -68,7 +68,7 @@ export class ProductAdminComponent implements OnInit, OnDestroy {
   }
 
   editProduct(productId) {
-    this.router.navigateByUrl(`products/${productId}/edit`);
+    this.router.navigateByUrl(`productsAdmin/${productId}/edit`);
   }
 
   addProduct() {
