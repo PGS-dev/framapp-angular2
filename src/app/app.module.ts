@@ -3,66 +3,34 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
-import {AppComponent} from './components/app/app.component';
-import {CategoriesComponent, NoContentComponent} from './shared/';
-import {AppRoutes} from './app.routes';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AngularFireModule} from 'angularfire2';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {ListComponent} from './components/list/list.component';
-import {TableComponent} from './components/table/table.component';
-import {CategoriesAdminComponent} from './components/categories-admin/categories-admin.component';
-import {CategoriesAdminAddComponent} from './components/categories-admin-add/categories-admin-add.component';
-import {CategoriesAdminEditComponent} from './components/categories-admin-edit/categories-admin-edit.component';
-import {CategoriesService} from './services/categories.service';
-import {ProductListComponent} from './components/product-list/product-list.component';
-import {ProductDetailsComponent} from './components/product-details/product-details.component';
-import {ProductAdminComponent} from './components/product-admin/product-admin.component';
-import {ProductAdminAddComponent} from './components/product-admin-add/product-admin-add.component';
-import {ProductAdminEditComponent} from './components/product-admin-edit/product-admin-edit.component';
-import {ProductService} from './services/product.service';
-import {SignInComponent} from './components/sign-in/sign-in.component';
-import {HeaderComponent} from './components/header/header.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {AngularFireModule, AuthProviders, AuthMethods} from 'angularfire2';
-import {NavService} from './services/nav.service';
-import {AuthService} from './services/auth.service';
-import {AuthGuard} from './services/auth-guard.service';
-import {ModalComponent} from './components/modal/modal.component';
-import {FirebaseService} from './services/firebase.service';
-import { FilterProductsComponent } from './components/filter-products/filter-products.component';
-
-const myFirebaseConfig = {
-  apiKey: 'AIzaSyBKP4cOP508h0JLKmjFvzJooO0MqV8l4fU',
-  authDomain: 'https://project-5613440220430148247.firebaseapp.com',
-  databaseURL: 'https://project-5613440220430148247.firebaseio.com',
-  storageBucket: 'project-5613440220430148247.appspot.com',
-  messagingSenderId: '122242095723'
-};
-
-const myFirebaseAuthConfig = {
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password
-};
+import {myFirebaseConfig, myFirebaseAuthConfig} from './cfg/firebase.config';
+import {AppRoutes} from './app.routes';
+import * as services from './services/';
+import {Components} from './components/';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CategoriesComponent,
-    NoContentComponent,
-    ListComponent,
-    HeaderComponent,
-    ProductDetailsComponent,
-    ProductListComponent,
-    SignInComponent,
-    CategoriesAdminComponent,
-    ProductAdminComponent,
-    TableComponent,
-    ProductAdminEditComponent,
-    CategoriesAdminAddComponent,
-    ProductAdminAddComponent,
-    CategoriesAdminEditComponent,
-    ModalComponent,
-    FilterProductsComponent
+    Components.layout.AppComponent,
+    Components.layout.HeaderComponent,
+    Components.layout.ModalComponent,
+    Components.layout.NoContentComponent,
+    Components.misc.ListComponent,
+    Components.misc.TableComponent,
+    Components.categories.CategoriesListComponent,
+    Components.categories.CategoriesAdminComponent,
+    Components.categories.CategoriesAdminAddComponent,
+    Components.categories.CategoriesAdminEditComponent,
+    Components.products.ProductListComponent,
+    Components.products.ProductDetailsComponent,
+    Components.products.ProductAdminComponent,
+    Components.products.ProductAdminAddComponent,
+    Components.products.ProductAdminEditComponent,
+    Components.products.FilterProductsComponent,
+    Components.signIn.SignInComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -74,13 +42,13 @@ const myFirebaseAuthConfig = {
     RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
   providers: [
-    FirebaseService,
-    NavService,
-    AuthService,
-    ProductService,
-    CategoriesService,
-    AuthGuard
+    services.FirebaseService,
+    services.NavService,
+    services.AuthService,
+    services.ProductService,
+    services.CategoriesService,
+    services.AuthGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [Components.layout.AppComponent]
 })
 export class AppModule {}

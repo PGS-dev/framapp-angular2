@@ -1,7 +1,6 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
 import {AngularFire, FirebaseAuthState} from 'angularfire2';
-import {Subscription} from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 
 @Injectable()
 export class AuthService implements OnDestroy {

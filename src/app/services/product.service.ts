@@ -2,9 +2,8 @@
  * Created by rkubisiak on 10/13/2016.
  */
 import {Injectable} from '@angular/core';
-import {FirebaseService} from '../services/firebase.service';
-import {TableData} from '../interfaces/';
-import {Product} from '../interfaces/product.interface';
+import {TableData, Product} from '../interfaces/';
+import {FirebaseService} from './firebase.service';
 
 @Injectable()
 export class ProductService {

@@ -1,15 +1,15 @@
 import {Routes} from '@angular/router';
-import {NoContentComponent} from './components/no-content';
-import {ProductDetailsComponent} from './components/product-details/product-details.component';
-import {ProductListComponent} from './components/product-list/product-list.component';
+import {NoContentComponent} from './components/layout/no-content';
+import {ProductDetailsComponent} from './components/products/product-details/product-details.component';
+import {ProductListComponent} from './components/products/product-list/product-list.component';
 import {SignInComponent} from './components/sign-in/sign-in.component';
-import {CategoriesAdminComponent} from './components/categories-admin/categories-admin.component';
-import {ProductAdminComponent} from './components/product-admin/product-admin.component';
-import {ProductAdminEditComponent} from './components/product-admin-edit/product-admin-edit.component';
-import {CategoriesAdminAddComponent} from './components/categories-admin-add/categories-admin-add.component';
-import {ProductAdminAddComponent} from './components/product-admin-add/product-admin-add.component';
-import {AuthGuard} from './services/auth-guard.service';
-import {CategoriesAdminEditComponent} from './components/categories-admin-edit/categories-admin-edit.component';
+import {CategoriesAdminComponent} from './components/categories/categories-admin/categories-admin.component';
+import {ProductAdminComponent} from './components/products/product-admin/product-admin.component';
+import {ProductAdminEditComponent} from './components/products/product-admin-edit/product-admin-edit.component';
+import {CategoriesAdminAddComponent} from './components/categories/categories-admin-add/categories-admin-add.component';
+import {ProductAdminAddComponent} from './components/products/product-admin-add/product-admin-add.component';
+import {AuthGuard} from './services/';
+import {CategoriesAdminEditComponent} from './components/categories/categories-admin-edit/categories-admin-edit.component';
 
 export const AppRoutes: Routes = [
   {path: '', component: ProductListComponent},

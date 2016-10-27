@@ -3,7 +3,7 @@
  */
 import {Injectable} from '@angular/core';
 import {TableData} from '../interfaces/';
-import {FirebaseService} from '../services/firebase.service';
+import {FirebaseService} from './firebase.service';
 
 @Injectable()
 export class CategoriesService {
