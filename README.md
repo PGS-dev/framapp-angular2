@@ -4,7 +4,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## Before start
 Required tools:<br/>
-angular-cli:&nbsp;`npm install -g angular-cli`
+**angular-cli**:&nbsp;`npm install -g angular-cli`
 
 Install dependencies:&nbsp;`npm install`
 
@@ -12,7 +12,7 @@ Install dependencies:&nbsp;`npm install`
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 To change the host to be able to run it both on localhost and on IP address, add --host 0.0.0.0<br/>
-To change the server port, add --port <port_number>
+To change the server port, add --port {port_number}
 
 ## Code scaffolding
 
