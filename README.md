@@ -9,14 +9,17 @@ Required tools:<br/>
 Install dependencies:&nbsp;`npm install`
 
 ## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Run `ng serve` for a dev server.
+- Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 To change the host to be able to run it both on localhost and on IP address, add --host 0.0.0.0<br/>
 To change the server port, add --port {port_number}
 
 ## Code scaffolding
 
-Run `ng g component component-name` to generate a new component (kebab-case). You can also generate other types of elements `ng g directive / pipe / service / class`.
+Run `ng g component component-name` to generate a new component (kebab-case).
+
+You can also generate other types of elements using `ng g directive / pipe / service / class`.
 
 ## Build
 
