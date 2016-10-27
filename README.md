@@ -47,6 +47,6 @@ You can use bootstrap components for Angular 2
 [AngularFire2](https://github.com/angular/angularfire2)<br/>
 If you want use AngularFire2 use:<br/>
 `import { AngularFire} from 'angularfire2';`<br/>
-for import library and <br/>
+For retrieving data from databases use: <br/>
 `import { FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2';`<br/>
 to fetch data in Objects form or List from.<br/>
