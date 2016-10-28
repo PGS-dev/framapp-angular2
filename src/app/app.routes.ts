@@ -15,8 +15,11 @@ export const AppRoutes: Routes = [
   {path: '', component: ProductListComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'categoriesAdmin', component: CategoriesAdminComponent, canActivate: [AuthGuard]},
-  {path: 'categoriesAdmin/add', component: CategoriesAdminAddComponent, canActivate: [AuthGuard]},
-  {path: 'categoriesAdmin/:categoryId/edit', component: CategoriesAdminEditComponent, canActivate: [AuthGuard]},
+  // {path: 'categoriesAdmin/add', component: CategoriesAdminAddComponent, canActivate: [AuthGuard]},
+  {path: 'categoriesAdmin/create', component: CategoriesAdminAddComponent, canActivate: [AuthGuard], data: {status: 'create'}},
+  {path: 'categoriesAdmin/:categoryId', component: CategoriesAdminAddComponent, canActivate: [AuthGuard], data: {status: 'edit'}},
+
+  {path: 'categoriesAdmin/:categoryId/edit', component: CategoriesAdminEditComponent, canActivate: [AuthGuard], data: {isNewCategory: false}},
   {path: 'products', component: ProductListComponent},
   {path: 'products/category/:categoryId', component: ProductListComponent},
   {path: 'products/:productId', component: ProductDetailsComponent},

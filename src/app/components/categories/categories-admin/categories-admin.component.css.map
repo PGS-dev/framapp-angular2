@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,kBAAkB;EAChB,OAAO,EAAE,IAAI;EAEb,+BAAY;IACV,MAAM,EAAC,MAAM",
+"sources": ["categories-admin.component.scss"],
+"names": [],
+"file": "categories-admin.component.css"
+}

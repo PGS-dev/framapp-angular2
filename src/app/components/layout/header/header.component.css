@@ -1,0 +1,18 @@
+.header-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+  .header-row:before, .header-row:after {
+    content: initial; }
+
+.header-logo {
+  font-size: 22px;
+  display: inline-block;
+  cursor: pointer; }
+
+@media (min-width: 767px) {
+  .btn-menu-mobile {
+    display: none; } }
+
+/*# sourceMappingURL=header.component.css.map */

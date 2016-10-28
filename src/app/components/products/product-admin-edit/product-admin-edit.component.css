@@ -1,0 +1,30 @@
+.product-form label {
+  display: block;
+  text-transform: uppercase;
+  margin-top: 10px; }
+
+.product-form input, textarea, select {
+  min-width: 300px;
+  border: 1px solid #d9d9d9;
+  display: block; }
+
+.product-form input, select {
+  min-height: 45px; }
+
+.product-form .btn {
+  display: inline-block;
+  margin: 20px 20px 0 0; }
+
+.error {
+  font-size: 13px;
+  color: #c7254e;
+  background: #f9f2f4;
+  border-radius: 3px;
+  padding: 15px;
+  margin-top: 5px;
+  max-width: 300px; }
+
+.btn-cancel {
+  color: #000000; }
+
+/*# sourceMappingURL=product-admin-edit.component.css.map */

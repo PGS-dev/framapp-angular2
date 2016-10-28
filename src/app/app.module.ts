@@ -12,6 +12,7 @@ import {AppRoutes} from './app.routes';
 import * as services from './services/';
 import {Components} from './components/';
 
+
 @NgModule({
   declarations: [
     Components.layout.AppComponent,
@@ -51,4 +52,5 @@ import {Components} from './components/';
   ],
   bootstrap: [Components.layout.AppComponent]
 })
+
 export class AppModule {}

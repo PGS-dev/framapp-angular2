@@ -11,9 +11,16 @@
         {{dataColumn}}
       </td>
       <td *ngIf="tableData.actions.length>0">
-        <div *ngFor="let actionItem of tableData.actions" (click)="actionItemClick(actionItem,!!dataRow.rowId2 ? dataRow.rowId2 : dataRow.rowId,dataRow.title)" class="action-label">
-          {{actionItem | uppercase}}
+        <!--<div class="action-label" [routerLink]="['/categoriesAdmin/create', 'edit']"> edit </div>-->
+        <!--<div class="action-label" (click)="deleteModal( )"> remove </div>-->
+
+        <div *ngFor="let actionItem of tableData.actions"
+             class="action-label"
+             (click)="actionItemClick(actionItem,!!dataRow.rowId2 ? dataRow.rowId2 : dataRow.rowId,dataRow.title)">
+        {{actionItem | uppercase}}
         </div>
+        <!--//operator w funkcji. fuj-->
+        <!--//przerost formy nad trescia. Kod zupełnie nieczytelny, do wywalenia.-->
       </td>
     </tr>
   </tbody>

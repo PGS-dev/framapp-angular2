@@ -17,6 +17,7 @@ export class FirebaseService {
   }
 
   updateResource(method: string, data) {
+    console.log(method, data);
     if (data.$key) {
       delete data.$key;
     }

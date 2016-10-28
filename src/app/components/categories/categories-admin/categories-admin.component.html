@@ -1,12 +1,14 @@
 <div class="col-xs-12 component-wrapper">
   <div class="row">
-    <button class="btn btn-add-new pull-right" (click)="addCategory()">Add new</button>
+    <button class="btn btn-add-new pull-right" [routerLink]="['/categoriesAdmin/', 'create']">Add new</button>
   </div>
   <div class="row category-table">
     <app-table (actionItemClickEE)="actionItemClick($event)" [tableData]="tableData"></app-table>
   </div>
   <div class="row">
-    <button class="btn btn-add-new pull-right" (click)="addCategory()">Add new</button>
+    <button class="btn btn-add-new pull-right" [routerLink]="['/categoriesAdmin/', 'create']">
+      Add new
+    </button>
   </div>
 </div>
 

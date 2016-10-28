@@ -1,0 +1,26 @@
+.sidebar-list-header {
+  color: #d9621b;
+  font-size: 22px;
+  line-height: 28px;
+  display: inline-block;
+  vertical-align: middle; }
+
+.sidebar-list-icon {
+  display: none;
+  font-size: 28px;
+  height: 28px;
+  cursor: pointer;
+  vertical-align: middle; }
+  .sidebar-list-icon .glyphicon {
+    top: -2px; }
+
+.list-group-categories {
+  display: block;
+  margin-top: 3px; }
+  .list-group-categories-item:hover {
+    cursor: pointer;
+    color: #ff7726; }
+  .list-group-categories-item.is-active {
+    color: #ff7726; }
+
+/*# sourceMappingURL=list.component.css.map */

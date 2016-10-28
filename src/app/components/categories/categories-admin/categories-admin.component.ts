@@ -45,6 +45,7 @@ export class CategoriesAdminComponent implements OnInit {
   }
 
   actionItemClick(data) {
+    // console.log(data, data.action + 'Category');
     if (this[data.action + 'Category']) {
       this[data.action + 'Category'](data.id);
     }
@@ -65,10 +66,10 @@ export class CategoriesAdminComponent implements OnInit {
   }
 
   editCategory(categoryId) {
-    this.router.navigateByUrl(`categoriesAdmin/${categoryId}/edit`);
+    this.router.navigateByUrl(`categoriesAdmin/${categoryId}`);
   }
 
   addCategory() {
-    this.router.navigateByUrl('categoriesAdmin/add');
+    this.router.navigateByUrl('categoriesAdmin/create');
   }
 }

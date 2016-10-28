@@ -1,0 +1,17 @@
+table {
+  width: 100%; }
+  table td, table th {
+    text-align: center; }
+  table thead tr {
+    background-color: #a8a8a8; }
+  table tbody tr:nth-child(2n) {
+    background-color: #d9d9d9; }
+  table tbody .action-label {
+    text-decoration: underline;
+    display: inline-block;
+    margin: 0 5px; }
+    table tbody .action-label:hover {
+      cursor: pointer;
+      color: #ff7726; }
+
+/*# sourceMappingURL=table.component.css.map */
