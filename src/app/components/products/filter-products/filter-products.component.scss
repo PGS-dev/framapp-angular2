@@ -1,0 +1,36 @@
+input, select {
+  border: 1px solid #d9d9d9;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  min-height: 45px;
+}
+
+input[type='checkbox'] {
+  min-height: 0;
+}
+
+.row.input-group {
+  margin-left: 0;
+}
+
+.input-group-addon {
+  height: 45px;
+  line-height: 21px;
+}
+
+.input-group-addon label {
+  min-height: 18px;
+}
+
+.checkbox {
+  margin: 0;
+}
+
+.checkbox label {
+  padding-left: 6px;
+}
+
+.checkbox label::before {
+  margin-left: -15px;
+}

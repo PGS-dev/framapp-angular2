@@ -6,7 +6,7 @@ import {ProductService, CategoriesService} from '../../../services/';
 @Component({
   selector: 'app-filter-products',
   templateUrl: 'filter-products.component.html',
-  styleUrls: ['filter-products.component.css']
+  styleUrls: ['filter-products.component.scss']
 })
 export class FilterProductsComponent implements OnInit, OnDestroy {
   @Output() ProductListFiltered = new EventEmitter<Array<Product>>();
@@ -15,11 +15,11 @@ export class FilterProductsComponent implements OnInit, OnDestroy {
   private categoryList: Array<Category> = [];
   private selectedCategoryId: string = '';
   private filterString: string = '';
+  private filterByAll: boolean = false;
 
-  constructor(
-    private CategoriesService: CategoriesService,
-    private ProductService: ProductService
-  ) {}
+  constructor(private CategoriesService: CategoriesService,
+              private productService: ProductService) {
+  }
 
   ngOnInit() {
     this.getCategories();
@@ -40,7 +40,7 @@ export class FilterProductsComponent implements OnInit, OnDestroy {
   }
 
   getProducts() {
-    this.subscriptions.push(this.ProductService.getProducts()
+    this.subscriptions.push(this.productService.getProducts()
       .subscribe(
         productList => {
           this.ProductList = productList;
@@ -60,8 +60,13 @@ export class FilterProductsComponent implements OnInit, OnDestroy {
   }
 
   filterProducts() {
-    let filteredByCategory = this.ProductService.filterProductsByCategory(this.ProductList, this.selectedCategoryId);
-    let filteredByString = this.ProductService.filterProductsByString(filteredByCategory, this.filterString);
+    let filteredByString;
+    let filteredByCategory = this.productService.filterProductsByCategory(this.ProductList, this.selectedCategoryId);
+    if (this.filterByAll) {
+      filteredByString = this.productService.filterProductsByString(filteredByCategory, this.filterString);
+    } else {
+      filteredByString = this.productService.filterProductsByName(filteredByCategory, this.filterString);
+    }
     this.ProductListFiltered.next(filteredByString);
 
     return filteredByString;

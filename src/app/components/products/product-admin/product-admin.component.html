@@ -1,20 +1,23 @@
 <div class="col-xs-12 component-wrapper">
   <div class="row row-first">
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12 col-md-9">
       <div class="row">
         <app-filter-products
           (ProductListFiltered)="updateProductList($event)"
         ></app-filter-products>
       </div>
     </div>
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-3">
       <div class="row">
         <button class="btn btn-add-new pull-right" (click)="addProduct()">Add new</button>
       </div>
     </div>
   </div>
-  <div class="row product-table">
-    <app-table  (actionItemClickEE)="actionItemClick($event)" [tableData]="tableData"></app-table>
+  <div class="row product-table" *ngIf="true">
+    <app-table (actionItemClickEE)="actionItemClick($event)" [tableData]="tableData"></app-table>
+  </div>
+  <div class="row" *ngIf="false">
+    <p>No products found.</p>
   </div>
   <div class="row row-last">
     <button class="btn btn-add-new pull-right" (click)="addProduct()">Add new</button>
@@ -22,7 +25,7 @@
 </div>
 
 <app-modal #removeModal
-  [isYesNoModal]="true"
-  [msg]="deleteProductName+'\r\nCzy na pewno chcesz usunąć produkt?'"
-  (modalCloseEE)="modalCloseEE($event)"
+           [isYesNoModal]="true"
+           [msg]="deleteProductName+'\r\nCzy na pewno chcesz usunąć produkt?'"
+           (modalCloseEE)="modalCloseEE($event)"
 ></app-modal>

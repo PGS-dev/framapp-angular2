@@ -7,7 +7,8 @@ import {FirebaseService} from './firebase.service';
 
 @Injectable()
 export class ProductService {
-  constructor(private FirebaseService: FirebaseService) {}
+  constructor(private FirebaseService: FirebaseService) {
+  }
 
   getProducts() {
     return this.FirebaseService.getResources('products');
@@ -77,6 +78,18 @@ export class ProductService {
         });
 
         return result;
+      }
+    });
+  }
+
+  filterProductsByName(productsList: Array<Product>, filterString: string) {
+    return productsList.filter((item) => {
+      if (filterString === '') {
+        return true;
+      } else {
+        return (typeof(item.title) === 'string' &&
+        (item.title.toLowerCase()).indexOf(filterString.toLowerCase()) !== -1);
+
       }
     });
   }
