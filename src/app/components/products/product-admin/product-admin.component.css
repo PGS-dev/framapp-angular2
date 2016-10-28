@@ -1,0 +1,12 @@
+.component-wrapper {
+  padding: 22px; }
+  .component-wrapper .btn-add-new {
+    margin: 0; }
+  .component-wrapper .row-first {
+    margin-top: 9px; }
+    .component-wrapper .row-first > * {
+      margin-bottom: 22px; }
+  .component-wrapper .row-last {
+    margin-top: 22px; }
+
+/*# sourceMappingURL=product-admin.component.css.map */

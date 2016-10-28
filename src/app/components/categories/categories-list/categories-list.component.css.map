@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAII,yBAAgD;ECFpD,GAAG;IAEC,QAAQ,EAAE,QAAQ;IAClB,KAAK,EAAC,IAAI;IACV,gBAAgB,ECDG,KAAK;IDExB,OAAO,EAAE,CAAC;IAEV,WAAS;MACP,OAAO,EAAE,IAAI",
+"sources": ["../../../styles/_mixins.scss","categories-list.component.scss","../../../styles/variables.scss"],
+"names": [],
+"file": "categories-list.component.css"
+}

@@ -1,0 +1,10 @@
+@media (max-width: 766px) {
+  nav {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    z-index: 1; }
+    nav.hide-me {
+      display: none; } }
+
+/*# sourceMappingURL=categories-list.component.css.map */

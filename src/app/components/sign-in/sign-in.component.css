@@ -1,0 +1,9 @@
+.SignInForm {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center; }
+  .SignInForm .btn {
+    width: 160px;
+    margin: 0; }
+
+/*# sourceMappingURL=sign-in.component.css.map */

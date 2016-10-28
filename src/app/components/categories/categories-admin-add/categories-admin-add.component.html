@@ -1,3 +1,32 @@
-<p>
-  categories-admin-add works!
-</p>
+<div class="CategoriesAdminAdd col-xs-12">
+  <h3>Create category</h3>
+  <form class="CategoriesAdminAdd-form" novalidate (ngSubmit)="onSubmit(category)" [formGroup]="category">
+    <label>Name</label>
+    <input type="text"
+           name="categoryTitle"
+           formControlName="title"
+           [(ngModel)]="categoryDetails.title"
+           placeholder="Category name">
+    <div class="error" *ngIf="category.get('title').touched && category.get('title').hasError('required')">
+      Title is required
+    </div>
+    <div class="error" *ngIf="category.get('title').touched && category.get('title').hasError('minlength')">
+      Minimum of 2 characters
+    </div>
+
+    <label>Description</label>
+    <textarea rows="6"
+              name="categoryDescription"
+              formControlName="description"
+              [(ngModel)]="categoryDetails.description"
+              placeholder="Lorem ipsum"></textarea>
+    <div class="error" *ngIf="category.get('description').touched && category.get('description').hasError('required')">
+      Description is required
+    </div>
+    <div class="error" *ngIf="category.get('description').touched && category.get('description').hasError('maxlength')">
+      Maximum of 255 characters
+    </div>
+
+    <button class="btn btn-first" type="submit" (click)="save()" [routerLink]="['/categoriesAdmin/']" >Save</button>
+  </form>
+</div>

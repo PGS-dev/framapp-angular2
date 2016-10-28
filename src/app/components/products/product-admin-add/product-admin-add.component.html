@@ -10,7 +10,10 @@
       Minimum of 2 characters
     </div>
     <label>Description</label>
-    <textarea rows="6" name="productDescription" formControlName="description" [(ngModel)]="productDetails.description"></textarea>
+    <textarea rows="6"
+              name="productDescription"
+              formControlName="description"
+              [(ngModel)]="productDetails.description"></textarea>
     <div class="error" *ngIf="product.get('description').touched && product.get('description').hasError('required')">
       Description is required
     </div>
