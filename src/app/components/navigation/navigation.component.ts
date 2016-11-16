@@ -1,45 +1,43 @@
 import {Component, OnInit} from '@angular/core';
-import {Http, Response} from '@angular/http';
-import {Observable}     from 'rxjs/Observable';
+// import {Http, Response} from '@angular/http';
+// import {Observable}     from 'rxjs/Observable';
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/catch';
+
+import {CategoriesService} from '../categories/categories.service';
+import {Category} from "../categories/category";
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
+  providers: [CategoriesService]
 })
 export class NavigationComponent implements OnInit {
 
-  private categories: Object;
+  private categories: Category[];
 
-  constructor(private http: Http) {
+  constructor(private categoryService: CategoriesService) {
   }
 
-  ngOnInit() {
+  getCategories(): void {
+    this.categoryService.getCategories()
+      .then(categories => this.categories = categories);
+  }
+
+  ngOnInit(): void {
     this.getCategories();
   }
+  //
+  // ngOnInit() {
+  //   var categoriesObservable = this.getCategories().subscribe(
+  //     categories => {
+  //       console.log(categories);
+  //       this.categories = categories;
+  //     }
+  //     //  error =>  this.errorMessage = <any>error
+  //   );
+  // }
 
-  getCategories() : Observable<Object[]> { // TODO: Observable<Category[]>
-    return this.http.get('https://framapp-angular2-wro.firebaseio.com/categories.json')
-      .map(this.extractData)
-      .catch(this.handleError);
-  }
 
-  private extractData(res: Response) {
-    let body = res.json();
-    return body.data || { };
-  }
-
-  private handleError (error: Response | any) {
-    // In a real world app, we might use a remote logging infrastructure
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
-  }
 }
