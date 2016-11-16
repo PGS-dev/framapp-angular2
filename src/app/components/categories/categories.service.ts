@@ -1,13 +1,21 @@
-import {Injectable} from '@angular/core';
+import {Injectable}    from '@angular/core';
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+
 import {Category} from './category';
-import {CATEGORIES} from './mock-categories';
+import {Config} from "../../../config";
+import {ErrorService} from "../../shared/ErrorService";
+
 
 @Injectable()
 export class CategoriesService {
-  constructor() {
+  constructor(private http: Http, private errorService: ErrorService) {
   }
 
   getCategories(): Promise<Category[]> {
-    return Promise.resolve(CATEGORIES);
+    return this.http.get(Config.getResourceUrl('categories'))
+      .toPromise()
+      .then(response => response.json() as Category[])
+      .catch(this.errorService.handle);
   }
 }
