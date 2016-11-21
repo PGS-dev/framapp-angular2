@@ -3,8 +3,8 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {Category} from './category';
-import {Config} from "../../../config";
-import {ErrorService} from "../../shared/ErrorService";
+import {Config} from '../../../config';
+import {ErrorService} from '../../shared/ErrorService';
 
 
 @Injectable()

@@ -6,5 +6,5 @@
 // @KP: Environment variables architecture may change - https://github.com/angular/angular-cli/issues/933
 export const environment = {
   production: false,
-  endpointUrl: "https://framapp-angular2-wro.firebaseio.com/" //TODO: place here firebase of React FramApp
+  endpointUrl: 'https://framapp-angular2-wro.firebaseio.com/' //TODO: place here firebase of React FramApp
 };

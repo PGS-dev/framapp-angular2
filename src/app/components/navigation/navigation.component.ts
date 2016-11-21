@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
 import {CategoriesService} from '../categories/categories.service';
-import {Category} from "../categories/category";
-import {ErrorService} from "../../shared/ErrorService";
+import {Category} from '../categories/category';
+import {ErrorService} from '../../shared/ErrorService';
 
 @Component({
   selector: 'app-navigation',
