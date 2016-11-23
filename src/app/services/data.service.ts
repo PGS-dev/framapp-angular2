@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { values } from 'lodash';
 
 @Injectable()
 export class DataService {
@@ -12,6 +13,9 @@ export class DataService {
     return this.http.get(this.baseUrl + path)
       .map(DataService.extractData)
       .catch(DataService.handleError);
+  }
+  getDataAsArray (path: string): Observable<any> {
+    return this.getData(path).map(response=>values(response));
   }
   private static extractData(res: Response) {
     let body = res.json();
