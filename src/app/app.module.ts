@@ -22,6 +22,7 @@ import { DataService } from './services/data.service';
 import { CategoriesService } from './services/categories.service';
 import { AdminCategoriesListComponent } from './components/admin/admin-categories-list/admin-categories-list.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import {ProductsService} from "./services/products.service";
 
 
 export const firebaseConfig = {
@@ -54,7 +55,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(AppRoutes)
   ],
-  providers: [DataService, AuthService, CategoriesService],
+  providers: [DataService, AuthService, CategoriesService,ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
