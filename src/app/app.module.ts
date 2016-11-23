@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 import { CategoriesService } from './services/categories.service';
 import { AdminCategoriesListComponent } from './components/admin/admin-categories-list/admin-categories-list.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 
 export const firebaseConfig = {
@@ -42,7 +43,8 @@ export const firebaseConfig = {
     AdminProductPageComponent,
     AdminProductListComponent,
     AdminCategoriesListComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
