@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFire} from 'angularfire2';
 import { RouterModule }   from '@angular/router';
 import { AppRoutes } from "./app.routes";
 
@@ -20,6 +19,7 @@ import { CategoryPageComponent } from './components/category-page/category-page.
 
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
+import { CategoriesService } from './services/categories.service';
 import { CategoriesListComponent } from './components/admin/categories-list/categories-list.component';
 
 
@@ -52,7 +52,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(AppRoutes)
   ],
-  providers: [DataService, AuthService],
+  providers: [DataService, AuthService, CategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
