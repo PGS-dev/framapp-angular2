@@ -13,8 +13,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
 import { HeadbarComponent } from './components/headbar/headbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProductPageComponent } from './components/product-page/product-page.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductPageComponent } from './components/admin/product-page/product-page.component';
+import { ProductListComponent } from './components/admin/product-list/product-list.component';
 import { LoginBtnComponent } from './components/login-btn/login-btn.component';
 
 import { AuthService } from './services/auth.service';
