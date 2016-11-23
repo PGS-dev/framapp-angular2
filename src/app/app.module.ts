@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductPageComponent } from './components/admin/product-page/product-page.component';
 import { ProductListComponent } from './components/admin/product-list/product-list.component';
 import { LoginBtnComponent } from './components/login-btn/login-btn.component';
+import { CategoryPageComponent } from './components/category-page/category-page.component';
 
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
@@ -41,6 +42,7 @@ export const firebaseConfig = {
     ProductPageComponent,
     ProductListComponent,
     CategoriesListComponent,
+    CategoryPageComponent
   ],
   imports: [
     BrowserModule,
