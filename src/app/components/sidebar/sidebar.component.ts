@@ -17,9 +17,8 @@ export class SidebarComponent implements OnInit {
   };
   admin = {
     title: 'Admin',
-    list: ['Products', 'Categories'],
-    isAdminActive: false
-    //'isAdminActive': this.authService.isAuthenticated()
+    list: [{title: 'Products'}, {title: 'Categories'}],
+    isAdminActive: this.authService.isAuthenticated()
   };
 
   constructor(private authService: AuthService, af: AngularFire) {
