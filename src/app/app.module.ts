@@ -19,6 +19,7 @@ import { LoginBtnComponent } from './components/login-btn/login-btn.component';
 
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
+import { CategoriesListComponent } from './components/admin/categories-list/categories-list.component';
 
 
 export const firebaseConfig = {
@@ -39,6 +40,7 @@ export const firebaseConfig = {
     LoginBtnComponent,
     ProductPageComponent,
     ProductListComponent,
+    CategoriesListComponent,
   ],
   imports: [
     BrowserModule,
