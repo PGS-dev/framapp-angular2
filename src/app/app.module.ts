@@ -12,7 +12,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
 import { HeadbarComponent } from './components/headbar/headbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProductPageComponent } from './components/admin/product-page/product-page.component';
+import { AdminProductPageComponent } from './components/admin/admin-product-page/admin-product-page.component';
 import { AdminProductListComponent } from './components/admin/admin-product-list/admin-product-list.component';
 import { LoginBtnComponent } from './components/login-btn/login-btn.component';
 import { CategoryPageComponent } from './components/category-page/category-page.component';
@@ -39,7 +39,7 @@ export const firebaseConfig = {
     HeadbarComponent,
     HomeComponent,
     LoginBtnComponent,
-    ProductPageComponent,
+    AdminProductPageComponent,
     AdminProductListComponent,
     AdminCategoriesListComponent,
     CategoryPageComponent
