@@ -20,7 +20,7 @@ import { CategoryPageComponent } from './components/category-page/category-page.
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 import { CategoriesService } from './services/categories.service';
-import { CategoriesListComponent } from './components/admin/categories-list/categories-list.component';
+import { AdminCategoriesListComponent } from './components/admin/admin-categories-list/admin-categories-list.component';
 
 
 export const firebaseConfig = {
@@ -41,7 +41,7 @@ export const firebaseConfig = {
     LoginBtnComponent,
     ProductPageComponent,
     AdminProductListComponent,
-    CategoriesListComponent,
+    AdminCategoriesListComponent,
     CategoryPageComponent
   ],
   imports: [
