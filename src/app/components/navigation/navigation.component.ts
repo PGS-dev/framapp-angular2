@@ -19,7 +19,15 @@ export class NavigationComponent implements OnInit {
 
   getCategories(): void {
     this.categoryService.getCategories()
-      .then(categories => this.categories = categories);
+      .then(response => {
+        this.categories = Object.keys(response).map((key) =>
+          new Category(
+            key,
+            response[key].title,
+            response[key].description
+          )
+        );
+      });
   }
 
   ngOnInit(): void {
