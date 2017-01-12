@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
-    console.log("test");
+  constructor(private af: AngularFire) {
+    
   }
 
   ngOnInit() {
+  }
+
+  logIn() {
+    this.af.auth.login({ email: 'framapp@pgs-soft.com', password: 'password' });
   }
 
 }
