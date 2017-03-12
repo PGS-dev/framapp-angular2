@@ -1,13 +1,11 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('App: FramappAngular2', () => {
-  beforeEach(() => {
+describe('AppComponent', () => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
@@ -15,12 +13,12 @@ describe('App: FramappAngular2', () => {
         PageNotFoundComponent
       ],
       imports: [RouterTestingModule]
-    });
-  });
+    }).compileComponents();
+  }));
 
   it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 });
