@@ -1,6 +1,6 @@
 import { FramappAngular2Page } from './app.po';
 
-describe('framapp-angular2 App', function() {
+describe('framapp-angular2 App', () => {
   let page: FramappAngular2Page;
 
   beforeEach(() => {
