@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-
+import {Observable} from 'rxjs';
 @Injectable()
 export class ErrorService {
-  public handle(error: any): Promise<any> {
-    console.error('ErrorService:', error);
-    return Promise.reject(error.message || error);
+  public handle(error: any): Observable<any> {
+    return Observable.throw(error.message || error);
   }
 }
