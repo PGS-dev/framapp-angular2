@@ -9,8 +9,11 @@ import { AppComponent } from './app.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { CategoriesComponent } from './components/categories/categories.component';
+import {ErrorService} from './shared/ErrorService';
+import {NavigationModule} from './navigation/navigation.module';
+import {NavigationComponent} from './navigation/navigation.component';
+import {CategoriesComponent} from './components/categories/categories.component';
+import {CategoriesService} from './components/categories/categories.service';
 
 @NgModule({
   declarations: [
@@ -18,10 +21,11 @@ import { CategoriesComponent } from './components/categories/categories.componen
     ProductsListComponent,
     PageNotFoundComponent,
     HeaderComponent,
-    NavigationComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    NavigationComponent
   ],
   imports: [
+    // NavigationModule,
     BrowserModule,
     FormsModule,
     HttpModule,
